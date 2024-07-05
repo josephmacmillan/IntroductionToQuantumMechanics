@@ -1,0 +1,9 @@
+\contentsline {chapter}{Contents}{ii}{section*.1}%
+\contentsline {chapter}{Preface}{iii}{chapter*.2}%
+\contentsline {section}{Why Open Education?}{iii}{section*.3}%
+\contentsline {section}{Thanks}{iii}{section*.4}%
+\contentsline {chapter}{\chapternumberline {1}The Stern-Gerlach Experiment}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Spin Angular Momentum}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}The Stern-Gerlach Experiment}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Extending the Experiments}{2}{section.1.3}%
+\contentsline {section}{Problems}{2}{section*.6}%
