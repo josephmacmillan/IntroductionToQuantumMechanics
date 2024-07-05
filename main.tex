@@ -1,0 +1,149 @@
+%
+% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+%
+
+\documentclass[10pt, a5paper, twoside, openany]{memoir}
+
+\setsecnumdepth{subsection}
+
+\title{Introduction to Quantum Mechanics}
+\author{Joseph D. MacMillan}
+\date{}
+
+
+\usepackage{graphicx}
+\usepackage{color} 
+\usepackage{amsmath, amssymb}
+\usepackage{libertinus}
+\usepackage{microtype}
+\usepackage{layout}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[hang, small, bf]{caption}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Introduction to Quantum Mechanics}}
+\hypersetup{pdfauthor={Joseph D. MacMillan}}
+\urlstyle{rm}
+
+
+% Set page margins, etc
+\setstocksize{9in}{6in}
+\settrimmedsize{\stockheight}{\stockwidth}{*}
+\settrims{0pt}{0pt}
+
+\setlxvchars %define lenght 65 char of the used font
+\settypeblocksize{*}{1.05\lxvchars}{1.7}
+\setbinding{20pt} 
+\setlength{\headheight}{30pt}
+\setlength{\footskip}{20pt}
+
+\setulmargins{90pt}{*}{*}
+\setlrmargins{*}{*}{*}
+\setheaderspaces{*}{30pt}{*}
+
+\setmarginnotes{0.01pt}{20pt}{\onelineskip}
+\checkandfixthelayout
+
+\setcounter{tocdepth}{3}
+
+
+
+\newcommand{\uu}{\symbfup{u}}
+\newcommand{\grad}{\symbfup{\nabla}}
+\newcommand{\curl}{\symbfup{\nabla} \times}
+\newcommand{\dfdx}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ddfdx}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\vort}{\symbfup{\omega}}
+\renewcommand\vec{\symbfup}
+\newcommand{\unit}[1]{\hat{\vec{#1}}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\LL}{\mathbb{L}^2}
+\newcommand{\LLLL}{\mathbb{L}^4}
+
+
+%\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{sl}
+\newcommand{\tens}[1]{\mathbfsfit{#1}}
+
+
+\newcounter{example}[chapter]
+\def\theexample{\thechapter.\arabic{example}}
+\newenvironment{example}[1][ ]{\refstepcounter{example}
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{Example \theexample \ -- #1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newenvironment{theorem}[1][ ]{
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{#1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newcounter{problem}[chapter]
+\def\theproblem{\thechapter.\arabic{problem}}
+\newenvironment{problem}[1][ ]{\refstepcounter{problem} \noindent \textbf{Problem \theproblem \ -- #1.}}{\vspace{0.1in}}
+
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\begin{center}
+
+\includegraphics[width=\linewidth]{Figures/fig_cover_wave}
+
+\vspace{1in}
+
+{\small
+
+This version was compiled on \today.  For the most up-to-date version and supplementary material, see \href{https://josephmacmillan.github.io/IntroductionToQuantumMechanics/index.html}{josephmacmillan.github.io/IntroductionToQuantumMechanics}.
+
+\vspace{2in}
+
+This work is licensed under a \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons Attribution-ShareAlike 4.0 International License}.
+}
+\end{center}
+
+
+\newpage
+
+\tableofcontents
+
+\chapter{Preface}
+
+To come. 
+
+\section{Why Open Education?}
+
+This book and the supplementary material are released under a Creative Commons Attribution-ShareAlike 4.0 International License, which means you can do anything you want with this book:  cut out stuff you don't need, use it to build an even better book, download it for free off the web, print it out yourself, give it to your friends (they want a copy, trust me), and anything else you can think of.  The only stipulation is that you give credit where it's due, and release the derivative work under the same license.
+
+Why did I choose this?  Because I've taught university courses and have seen the issues with expensive textbooks: students not being able to afford them, students finding illegal PDF copies online and sharing them, the publishing companies fighting back with various schemes like renting digital copes, and so on.  Especially in advanced physics, little textbooks can be so expensive, and yet I think textbooks are an important and necessary resource, and I want my students to all have a copy.
+
+\section{Thanks}
+
+To come.
+
+\vspace{1in}
+
+Find a typo, mistake, or horrible misconception in this book?  Let me know by creating a new issue at the GitHub page:  
+
+\href{https://github.com/josephmacmillan/IntroductionToQuatumMechanics/issues}{github.com/josephmacmillan/IntroductionToQuantumMechanics/issues}.
+
+
+
+\mainmatter
+
+\include{1_stern_gerlach_experiments}
+
+
+\end{document}
