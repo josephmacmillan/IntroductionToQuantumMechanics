@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2022.12.28)  5 JUL 2024 11:33
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/CVE-2023-32700 patched) (preloaded format=xelatex 2023.1.10)  9 JUL 2024 11:39
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2593,19 +2593,75 @@ Requested font "[LibertinusSerif-Italic.otf]/OT:script=latn;language=dflt;+tnum
 ;+lnum;mapping=tex-text;" at 10.0pt
  -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertinus-fonts/Libert
 inusSerif-Italic.otf
-File: Figures/Chapter 1/fig_sun_earth.png Graphic file (type bmp)
-<Figures/Chapter 1/fig_sun_earth.png>
-LaTeX Font Info:    Font shape `TU/LibertinusSerif(0)/b/n' will be
-(Font)              scaled to size 9.0pt on input line 9.
-Requested font "[LibertinusSerif-Bold.otf]/OT:script=latn;language=dflt;+tnum;+
-lnum;mapping=tex-text;" at 9.0pt
- -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertinus-fonts/Libert
-inusSerif-Bold.otf
  [1
 
 
 
-]) [2]
+]
+File: Figures/Chapter 1/fig_circular_orbit.pdf Graphic file (type pdf)
+<use Figures/Chapter 1/fig_circular_orbit.pdf>
+LaTeX Font Info:    Font shape `TU/LibertinusSerif(0)/b/n' will be
+(Font)              scaled to size 9.0pt on input line 21.
+Requested font "[LibertinusSerif-Bold.otf]/OT:script=latn;language=dflt;+tnum;+
+lnum;mapping=tex-text;" at 9.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertinus-fonts/Libert
+inusSerif-Bold.otf
+LaTeX Font Info:    Font shape `TU/LibertinusSerif(0)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 35.
+Requested font "[LibertinusSerif-Regular.otf]/OT:script=latn;language=dflt;+tnu
+m;+lnum;mapping=tex-text;" at 8.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertinus-fonts/Libert
+inusSerif-Regular.otf
+LaTeX Font Info:    Font shape `TU/LibertinusSerif(0)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 35.
+Requested font "[LibertinusSerif-Regular.otf]/OT:script=latn;language=dflt;+tnu
+m;+lnum;mapping=tex-text;" at 6.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertinus-fonts/Libert
+inusSerif-Regular.otf
+
+Overfull \hbox (9.40341pt too wide) in paragraph at lines 46--47
+[]\TU/LibertinusSerif(0)/m/n/10 Things are slightly different for the spin angu
+lar momentum of a charged
+ []
+
+Requested font "[LibertinusMath-Regular.otf]/OT:script=math;language=dflt;;+sst
+y=1;mapping=tex-text;" at 5.0pt
+Unknown feature `' in font `[LibertinusMath-Regular.otf]/OT:script=math;languag
+e=dflt;;+ssty=1;mapping=tex-text;'.
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertinus-fonts/Libert
+inusMath-Regular.otf
+LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular.otf(2)/m/n' will be
+(Font)              scaled to size 5.00053pt on input line 50.
+Requested font "[LibertinusMath-Regular.otf]/OT:script=math;language=dflt;;+sst
+y=1;mapping=tex-text;" at 5.00053pt
+Unknown feature `' in font `[LibertinusMath-Regular.otf]/OT:script=math;languag
+e=dflt;;+ssty=1;mapping=tex-text;'.
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertinus-fonts/Libert
+inusMath-Regular.otf
+LaTeX Font Info:    Font shape `TU/LibertinusMath-Regular.otf(3)/m/n' will be
+(Font)              scaled to size 4.99947pt on input line 50.
+Requested font "[LibertinusMath-Regular.otf]/OT:script=math;language=dflt;;+sst
+y=1;mapping=tex-text;" at 4.99947pt
+Unknown feature `' in font `[LibertinusMath-Regular.otf]/OT:script=math;languag
+e=dflt;;+ssty=1;mapping=tex-text;'.
+ -> /usr/share/texlive/texmf-dist/fonts/opentype/public/libertinus-fonts/Libert
+inusMath-Regular.otf
+Requested font "msam5" at 5.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
+Requested font "msbm5" at 5.0pt
+ -> /usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+[2]
+File: Figures/Chapter 1/fig_stern_gerlach_exp.pdf Graphic file (type pdf)
+<use Figures/Chapter 1/fig_stern_gerlach_exp.pdf>
+ [3]
+File: Figures/Chapter 1/fig_stern_gerlach_result_expected.pdf Graphic file (typ
+e pdf)
+<use Figures/Chapter 1/fig_stern_gerlach_result_expected.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [4])
+[5]
 
 Package caption Warning: Unused \captionsetup[table] on input line 23.
 See the caption package documentation for explanation.
@@ -2615,15 +2671,15 @@ See the caption package documentation for explanation.
 
 (./main.aux (./1_stern_gerlach_experiments.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EB96F0EEBF1D40B6A3D016A807895016;1234.
+(rerunfilecheck)             Checksum: 4B0E8077E08BC0326F1ED409B2582D5E;1234.
  ) 
 Here is how much of TeX's memory you used:
- 38064 strings out of 477979
- 766323 string characters out of 5842872
- 1299733 words of memory out of 6000000
- 57543 multiletter control sequences out of 15000+600000
- 407872 words of font info for 96 fonts, out of 8000000 for 9000
+ 38105 strings out of 477979
+ 768224 string characters out of 5842873
+ 1308172 words of memory out of 6000000
+ 57576 multiletter control sequences out of 15000+600000
+ 408501 words of font info for 103 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 115i,11n,152p,930b,541s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 115i,12n,152p,980b,541s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (6 pages).
+Output written on main.pdf (9 pages).
