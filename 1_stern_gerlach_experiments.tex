@@ -75,20 +75,44 @@ In 1922 Otto Stern and Walther Gerlach used these ideas to measure the spin angu
 
 The Stern-Gerlach experiment proceeds as follows.  First, the oven boils silver atoms off of a solid piece of silver; the atoms are ``thermalized,'' meaning they come out in all directions and with random spin orientations.  A collimating slit produces a narrow beam of these atoms which pass between the magnets.  The magnets are constructed to create an inhomogeneous magnetic field, with the inhomogeneity in the $z$ direction; note that as shown the magnetic field gets stronger in the negative $z$ direction, so $\partial B_z / \partial z$ is negative in equation (\ref{eq_force_spin}).  Because the charge on the electron is negative as well, the force on a silver atom passing through the field will be up along $z$ if the spin has a positive $z$ component, and down along $-z$ if the spin has a negative $z$ component.  Finally, the deflection of each atom is measured when they hit the detecting screen.
 
-What do we expect?  Well, as mentioned above, the oven thermalizes the atoms so the spin of the outer electron is in random directions.  That means the force on each atom will be random as well -- some atoms will get pushed up, some will get pushed down, and each with varying strength (up to some maximum for those spins that are entirely along $z$ or $-z$).  This expected result is shown in Figure \ref{fig_stern_gerlach_result_expected}.
+What do we expect?  Well, as mentioned above, the oven thermalizes the atoms so the spin of the outer electron is in random directions.  That means the force on each atom will be random as well -- some atoms will get pushed up, some will get pushed down, and each with varying strength (up to some maximum for those spins that are entirely along $z$ or $-z$).  This expected result is shown in Figure \ref{fig_stern_gerlach_result_expected} (a).
 
 \begin{figure}
 \centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 1/fig_stern_gerlach_result_expected.pdf}
 \caption{(a) Classically expected result.  (b) Actual result showing quantization of spin angular momentum.}
 \label{fig_stern_gerlach_result_expected}
 \end{figure}
+
+But that's not at all what Stern and Gerlach saw; instead, as Figure \ref{fig_stern_gerlach_result_expected} (b) shows, they detected only two locations where silver atoms hit the screen, corresponding to spin angular momentum values of either 
+\[
+S_z = +\frac{\hbar}{2} \quad \text{or} \quad S_z = -\frac{\hbar}{2}.
+\]
+This is clear evidence of the \emph{quantization} of angular momentum, something Niels Bohr suggested in 1913 when developing his model of the atom.
+
 %
 %
 %
 
 \section{Extending the Experiments}
 
-The 
+Before we discuss this further, I want to introduce some notation:
+\begin{equation}
+\label{eq_ket_definition}
+\boxed{
+\ket{\psi} \rightarrow \text{ Represents the state of a quantum mechanical system.}
+}
+\end{equation}
+This notation is often called a ``ket,'' for reasons we'll see later, and it includes all possible information you could know about a particular quantum system.  Consider, for example, a silver atom that has been measured to have $S_z = +\hbar/2$.  We could represent the state of the atom by 
+\[
+\ket{+} \rightarrow \text{ State for which $S_z = +\hbar/2$ has been measured},
+\]
+although it's also common to use $\ket{\uparrow}$ or $\ket{+z}$.  This state is usually called ``spin up.''  Similarly, the ``spin down'' state is represented by 
+\[
+\ket{-} \rightarrow \text{ State for which $S_z = -\hbar/2$ has been measured},
+\]
+or  $\ket{\downarrow}$ or $\ket{-z}$.
+
+Note that we don't necessarily know the state of the atom \emph{before} it was measured, something we'll return to.  In the meantime, let's run through a few extensions to the original Stern-Gerlach experiment.
 
 %
 %
