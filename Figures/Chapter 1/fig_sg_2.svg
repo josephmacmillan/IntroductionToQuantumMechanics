@@ -8,7 +8,7 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
-   sodipodi:docname="fig_sg_1.svg"
+   sodipodi:docname="fig_sg_2.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -24,9 +24,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="in"
      showgrid="false"
-     inkscape:zoom="1.9855337"
-     inkscape:cx="179.04506"
-     inkscape:cy="58.422581"
+     inkscape:zoom="3.9710673"
+     inkscape:cx="293.49792"
+     inkscape:cy="51.37158"
      inkscape:window-width="1920"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -269,9 +269,9 @@
        transform="translate(-0.05185898,-36.554478)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3698"><tspan
+         id="tspan5960"><tspan
            style="font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif Italic';fill:#000000;stroke:none"
-           id="tspan3696">z</tspan></tspan></text>
+           id="tspan5958">z</tspan></tspan></text>
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.4;stroke-dasharray:none"
        id="rect672-1"
@@ -304,9 +304,9 @@
        transform="translate(28.588611,-45.219886)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3702"><tspan
+         id="tspan5964"><tspan
            style="font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif Italic';fill:#000000;stroke:none"
-           id="tspan3700">z</tspan></tspan></text>
+           id="tspan5962">x</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';letter-spacing:0px;white-space:pre;inline-size:24.5191;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -316,14 +316,14 @@
        transform="translate(-11.62976,-39.562821)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3710"><tspan
+         id="tspan5972"><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif'"
-           id="tspan3704">|</tspan><tspan
+           id="tspan5966">|</tspan><tspan
            dx="-0.79374999"
            style="font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif Italic';letter-spacing:0.79375px"
-           id="tspan3706">ψ</tspan><tspan
+           id="tspan5968">ψ</tspan><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif Italic';letter-spacing:0.79375px"
-           id="tspan3708">⟩</tspan></tspan></text>
+           id="tspan5970">⟩</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';letter-spacing:0px;white-space:pre;inline-size:24.5191;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -333,12 +333,12 @@
        transform="translate(16.355709,-44.912068)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3716"><tspan
+         id="tspan5978"><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif'"
-           id="tspan3712">|+</tspan><tspan
+           id="tspan5974">|+</tspan><tspan
            dx="-0.79374999"
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif';letter-spacing:0.79375px"
-           id="tspan3714">⟩</tspan></tspan></text>
+           id="tspan5976">⟩</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';letter-spacing:0px;white-space:pre;inline-size:24.5191;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -348,9 +348,9 @@
        transform="translate(16.465555,-31.280717)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3720"><tspan
+         id="tspan5982"><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif'"
-           id="tspan3718">|−⟩</tspan></tspan></text>
+           id="tspan5980">|−⟩</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';white-space:pre;inline-size:24.5191;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -360,9 +360,9 @@
        transform="translate(-24.185189,-36.733224)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3724"><tspan
+         id="tspan5986"><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif'"
-           id="tspan3722">100</tspan></tspan></text>
+           id="tspan5984">100</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';white-space:pre;inline-size:24.5191;display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -372,9 +372,9 @@
        transform="translate(55.547515,-48.812733)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3728"><tspan
+         id="tspan5990"><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif';fill:#000000;stroke:none"
-           id="tspan3726">50</tspan></tspan></text>
+           id="tspan5988">25</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';white-space:pre;inline-size:24.5191;display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -384,9 +384,9 @@
        transform="translate(26.635958,-33.66239)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3732"><tspan
+         id="tspan5994"><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif';fill:#000000;stroke:none"
-           id="tspan3730">50</tspan></tspan></text>
+           id="tspan5992">50</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';letter-spacing:0px;white-space:pre;inline-size:24.5191;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -396,9 +396,11 @@
        transform="translate(45.156991,-39.537599)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3736"><tspan
+         id="tspan6000"><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif'"
-           id="tspan3734">|−⟩</tspan></tspan></text>
+           id="tspan5996">|−⟩</tspan><tspan
+           style="font-size:65%;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif Italic';baseline-shift:sub"
+           id="tspan5998">x</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';white-space:pre;inline-size:24.5191;display:inline;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -408,9 +410,9 @@
        transform="translate(55.471621,-41.995536)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3740"><tspan
+         id="tspan6004"><tspan
            style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif';fill:#000000;stroke:none"
-           id="tspan3738">0</tspan></tspan></text>
+           id="tspan6002">25</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="font-style:italic;font-size:4.23333px;font-family:Lato;-inkscape-font-specification:'Lato Italic';letter-spacing:0px;white-space:pre;inline-size:24.5191;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.3;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -420,11 +422,10 @@
        transform="translate(45.438277,-51.362567)"><tspan
          x="56.367844"
          y="70.713409"
-         id="tspan3746"><tspan
-           style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif'"
-           id="tspan3742">|+</tspan><tspan
-           dx="-0.79374999"
-           style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif';letter-spacing:0.79375px"
-           id="tspan3744">⟩</tspan></tspan></text>
+         id="tspan6010"><tspan
+   style="font-style:normal;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif'"
+   id="tspan6006">|+</tspan>⟩<tspan
+   style="font-size:65%;font-family:'Libertinus Serif';-inkscape-font-specification:'Libertinus Serif Italic';baseline-shift:sub"
+   id="tspan6008">x</tspan></tspan></text>
   </g>
 </svg>

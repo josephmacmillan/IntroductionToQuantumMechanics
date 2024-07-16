@@ -110,9 +110,77 @@ although it's also common to use $\ket{\uparrow}$ or $\ket{+z}$.  This state is 
 \[
 \ket{-} \rightarrow \text{ State for which $S_z = -\hbar/2$ has been measured},
 \]
-or  $\ket{\downarrow}$ or $\ket{-z}$.
+or  $\ket{\downarrow}$ or $\ket{-z}$.  Any particle that, when measuring its spin angular momentum, has only two possibilities for the results is called a \emph{spin-1/2} particle; electrons, protons, and neutrons are all spin-1/2 particles.
 
-Note that we don't necessarily know the state of the atom \emph{before} it was measured, something we'll return to.  In the meantime, let's run through a few extensions to the original Stern-Gerlach experiment.
+Let's run through a few extensions to the original Stern-Gerlach experiment.  I've simplified the diagram of the original experiment in Figure \ref{fig_sg_0} to highlight the important steps: a beam of spin-1/2 particles (whether silver atoms or something else) is created, all in state $\ket{\psi}$, and sent to a Stern-Gerlach device (the magnets) to have the spin of each particle measured. In the case of the original Stern-Gerlach experiment, if a beam of 100 atoms were created, half of the atoms would be measured as spin up and half would be spin down.
+
+Actually, we should be more careful -- we can't predict which atoms will be spin up and which will be spin down, and the process is inherently \emph{random}.  That means that we might get 49 spin up and 51 spin down, or 43 and 57, but if we increase the number of particles in the beam, we'll get closer and closer to exactly 50\% for each.   
+
+\begin{figure}
+\centering\includegraphics[width=0.6\linewidth]{Figures/Chapter 1/fig_sg_0.pdf}
+\caption{A simplified diagram of the original Stern-Gerlach experiment.}
+\label{fig_sg_0}
+\end{figure}
+
+In these experiments, we can think of the Stern-Gerlach device as an \emph{analyzer} -- it measures something.  But we can also think of it as a device for preparing a beam of particles all in the same known state; for example, each particle coming out of the top of the Stern-Gerlach device is in state $\ket{+}$, and we can use this knowledge to do further measurements. 
+
+\subsection{Experiment 1}
+
+It may be a basic question, but it's worth asking: once the particles are in state $\ket{+}$, for example, do they \emph{stay} in that state?  In Experiment 1 we'll test this by connecting another Stern-Gerlach device as shown in Figure \ref{fig_sg_1}, and sure enough all particles that enter the second analyzer come out with the same $\ket{+}$ state, and none become spin down.
+
+That's a good thing: it means we can do repeated measurements and expect the same results.  Science would be tricky to do if things were otherwise.  But we should be a little careful, as quantum systems do evolve in time -- we'll learn about this later when we cover the Schr\"odinger equation -- so the repeated measurement should be made right after the first.
+
+What if we moved the second device to accept the spin down particles from the first?  As you probably would guess, those particles would all be measured as being spin down, with no spin up particles at all.
+
+\begin{figure}
+\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 1/fig_sg_1.pdf}
+\caption{Experiment 1: the spin up particles are sent to a second analyzer, where they're found to still be spin up. }
+\label{fig_sg_1}
+\end{figure}
+
+\subsection{Experiment 2}
+
+Now, we've been aligning the magnets in the Stern-Gerlach device so that the inhomogeneity in the magnetic field is along the $z$ axis, but we could have just as easily rotated it (or changed our axes) so that it is in fact along the $x$ direction.  Does anything change?  Well, no -- the coordinate system is just our choice and can't affect the actual physics that's happening, so we could just replace every $z$ in the discussion above with an $x$ with no other change.  But let's try something a little more interesting and combine a Stern-Gerlach device oriented along $z$ with one oriented along $x$; this is shown in Figure \ref{fig_sg_2}.
+
+First, note the new notation; a particle in the state $\ket{+}_x$ has had its component of spin angular momentum along the $x$ direction measured to be $S_x = +\hbar/2$.  This is a different state that our previous spin up state (you might call it ``spin up along $x$'' or something similar) and requires new notation.  Note that I didn't bother with the $z$ subscript for our $S_z$ states; by convention, a ket without a subscript indicating direction will be along $z$.
+
+\begin{figure}
+\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 1/fig_sg_2.pdf}
+\caption{Experiment 2: the spin up particles are sent to a second analyzer that has been rotated so that it measures $S_x$. }
+\label{fig_sg_2}
+\end{figure}
+
+The results are different this time, with half of the spin up particles sent into the second Stern-Gerlach device being spin up along $x$ (so in state $\ket{+}_x$) and half being spin down along $x$ (in state $\ket{-}_x$).
+
+Remember what we're measuring here:  the oven creates particles with a random spin orientation, and we measure half of those particles to have $S_z = +\hbar/2$, and then half of \emph{those} particles to have $S_x = +\hbar/2$.  We're missing the component of spin along the $y$ direction, so you might think we just add a third device to measure $S_y$ -- and then we'd know all three components of spin and therefore the vector $\vec{S}$.  But there's an interesting twist to this simple story that the next experiment will highlight.
+
+\subsection{Experiment 3}
+
+So, in Experiment 2, spin up (along $z$) particles have their spin along $x$ measured, and half are found to be spin up along $x$.  In Experiment 3, we take those particles that are spin up along both directions and send them into a third analyzer, this one oriented along $z$ as shown in Figure \ref{fig_sg_3}.  Just so that we're clear:  none of the particles sent into this last analyzer were measured to have $S_z = -\hbar/2$.  Despite this, half the particles analyzed by the last Stern-Gerlach device are found to be in state $\ket{-}$ along $z$.
+
+What do we to make of these experimental results?  Evidently measuring $S_x$ has \emph{changed} the state of the particles; although they \emph{were} in state $\ket{+}$, after the measurement of $S_x$ they aren't any more.  
+
+Some more terminology:  we call quantities that we can measure \emph{observables}, and we say that $S_z$ and $S_x$ are \emph{incompatible observables} -- measuring one affects our knowledge of the other.  Two other more famous incompatible observables are position and momentum from Heisenberg's uncertainty principle, although not all observables are incompatible -- you could know a particle's position and spin $S_z$ at the same time, for example.  
+
+Obviously we could have used $S_y$ instead with no change to the results, so we run into a big problem measuring angular momentum:  we need three components to specify it, but can never know more than one at a time!  Actually, it turns out we can also know the \emph{magnitude} $S$ (we'll see why later), so at most we can specify the length and one component of the angular momentum vector.
+
+\begin{figure}
+\centering\includegraphics[width=\linewidth]{Figures/Chapter 1/fig_sg_3.pdf}
+\caption{Experiment 3: the spin up particles are sent to a second analyzer that has been rotated so that it measures $S_x$, and then the particles in state $\ket{+}_x$ are sent to a third analyzer to have their spin component $S_z$ measured again. }
+\label{fig_sg_3}
+\end{figure}
+
+
+\subsection{Experiment 4}
+
+For this last experiment, we need to make some changes to the Stern-Gerlach device measuring $S_x$.  The details aren't too important as to how, but rather than measuring the spin $S_x$ observable, we'll recombine the two beams -- one pushed up by the magnetic field and one pushed down -- and send that combined beam into the last Stern-Gerlach device aligned along the $z$ direction.  But now the results are different, and we find that every particle is spin up along $z$.  It seems as though the middle device no longer has an effect on the initial $\ket{+}$ state of the particle; apparently it's the act of \emph{measurement} itself that alters the state, not the push by the magnetic field.  This is similar to the famous results from the double slit experiment -- measuring which slit the particle goes through destroys the interference pattern.
+
+\begin{figure}
+\centering\includegraphics[width=\linewidth]{Figures/Chapter 1/fig_sg_4.pdf}
+\caption{Experiment 4: We'll recombine the outputs from the $S_x$ device without measuring anything and send that combined beam into an $S_z$ device. }
+\label{fig_sg_4}
+\end{figure}
+
 
 %
 %
@@ -125,6 +193,10 @@ Note that we don't necessarily know the state of the atom \emph{before} it was m
 \markright{Problems}%
 
 \begin{problem}[Electron spin]
-How fast would the surface of an electron be going if it had ....
+This whole chapter is about electron spin, but of course the electron doesn't really spin around like a top.  But let's pretend for a moment that an electron really is a tiny sphere, of radius
+\[
+r_e = \frac{e^2}{4\pi \epsilon_0 mc^2}
+\]
+(the so-called classical electron radius), and that it spins around its axis with angular momentum $S_z = \hbar/2$.  How fast would a point on the ``equator'' be moving?  Does this model make sense? 
 \end{problem}
 
