@@ -17,3 +17,4 @@
 \contentsline {section}{\numberline {2.2}Neutrino Oscillations}{11}{section.2.2}%
 \contentsline {chapter}{\chapternumberline {3}The Finite Square Well}{16}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Bound States}{16}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Boundary Conditions}{18}{section.3.2}%
