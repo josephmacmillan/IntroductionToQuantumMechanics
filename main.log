@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/CVE-2023-32700 patched) (preloaded format=xelatex 2023.1.10)  16 JUL 2024 11:43
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021/CVE-2023-32700 patched) (preloaded format=xelatex 2023.1.10)  29 OCT 2024 11:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2312,7 +2312,8 @@ Sidefootvsep and sidefootheight: 12pt and 344.39996pt
 
 \c@example=\count421
 \c@problem=\count422
-(./main.aux (./1_stern_gerlach_experiments.aux))
+(./main.aux (./1_stern_gerlach_experiments.aux)
+(./7_examples_of_discrete_systems.aux) (./10_finite_square_well.aux))
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 99.
@@ -2719,8 +2720,37 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [8]
 File: Figures/Chapter 1/fig_sg_4.pdf Graphic file (type pdf)
 <use Figures/Chapter 1/fig_sg_4.pdf>
-)
-[9]
+
+[9]) [10]
+\openout2 = `7_examples_of_discrete_systems.aux'.
+
+ (./7_examples_of_discrete_systems.tex [11
+
+
+
+
+]
+Overfull \hbox (3.29344pt too wide) in paragraph at lines 50--52
+\TU/LibertinusSerif(0)/m/n/10 This matrix is diagonal, so the possible energies
+ are easy to read off: they’re
+ []
+
+[12] [13] [14]
+LaTeX Font Info:    Font shape `TU/LibertinusSerif(1)/m/n' will be
+(Font)              scaled to size 10.0pt on input line 132.
+LaTeX Font Info:    Font shape `TU/LibertinusSerif(1)/m/n' will be
+(Font)              scaled to size 8.0pt on input line 132.
+LaTeX Font Info:    Font shape `TU/LibertinusSerif(1)/m/n' will be
+(Font)              scaled to size 6.0pt on input line 132.
+) [15]
+\openout2 = `10_finite_square_well.aux'.
+
+ (./10_finite_square_well.tex) [16
+
+
+
+
+]
 
 Package caption Warning: Unused \captionsetup[table] on input line 23.
 See the caption package documentation for explanation.
@@ -2728,17 +2758,18 @@ See the caption package documentation for explanation.
 \tf@toc=\write8
 \openout8 = `main.toc'.
 
-(./main.aux (./1_stern_gerlach_experiments.aux))
+(./main.aux (./1_stern_gerlach_experiments.aux)
+(./7_examples_of_discrete_systems.aux) (./10_finite_square_well.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 81961CC254213FC10CD3D35F5EB19D0D;1735.
+(rerunfilecheck)             Checksum: 15DA6770CF75048BFD497EE7BBE2C939;2803.
  ) 
 Here is how much of TeX's memory you used:
- 38175 strings out of 477979
- 770441 string characters out of 5842873
- 1310024 words of memory out of 6000000
- 57636 multiletter control sequences out of 15000+600000
+ 38212 strings out of 477979
+ 771510 string characters out of 5842873
+ 1317818 words of memory out of 6000000
+ 57659 multiletter control sequences out of 15000+600000
  409470 words of font info for 110 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  115i,12n,152p,980b,541s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (13 pages).
+Output written on main.pdf (20 pages).

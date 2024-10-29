@@ -1,0 +1,152 @@
+\chapter{Examples of Discrete Systems}
+
+\section{An Electron in a Magnetic Field}
+
+To come.
+%
+%
+%
+
+\section{Neutrino Oscillations}
+
+Neutrinos -- little neutral particles created in huge numbers during nuclear reactions -- were long though to be massless.  But during the 1980s and 1990s the \emph{solar neutrino problem} became undeniable: neutrino detection experiments on Earth were missing about half of the expected number of neutrinos made in the core of the sun during hydrogen burning.  There were only two possibilities:  either our model of the sun was way off\footnote{One of my undergraduate professors was a solar physicists, and according to him there was no way the solar models could be that wrong, so really there's only one possible explanation -- something was wrong with our understanding of neutrinos.} or something happened to the neutrinos on their way to us.
+
+The correct explanation turned out to be something called \emph{neutrino oscillations}, and the theory earned the Nobel prize.  In short, \emph{electron} neutrinos are created in the core of the sun, but on their way to Earth some of them turn into \emph{muon} neutrinos -- don't worry too much about the names or why there's more than one kind of neutrino; the main idea is that neutrinos can oscillate back and forth between these two different types (actually, there's a \emph{third} type, a tau neutrino, but we'll ignore that for simplicity).
+
+As a slightly simplified model for neutrino mixing, we'll suppose the state of any neutrino -- I'll call this the ``flavour state,'' since particle physicists call the type of particle its flavour for some reason -- can be written as a superposition of an electron neutrino state and a muon neutrino state:
+\begin{equation}
+\ket{\nu} = a \ket{e} + b \ket{\mu}.
+\end{equation}
+This is a two-state system, something we've already studied in detail, so the physics of neutrinos is pretty much the same as spin-1/2 systems or photon polarizations.  To see how neutrinos oscillate, though, we'll have to calculate how this state evolves in time, meaning we'll need the Hamiltonian of the system.
+
+The Hamiltonian, of course, is just the total energy, so we'll start with the relativistic energy of any particle (unfortunately, neutrinos are inherently relativistic objects -- it's hard to slow them down), 
+\[
+E = \sqrt{p^2c^2 + m^2 c^4}.
+\]
+Although neutrinos were originally thought to be massless, it turns out we'll need to give them a very small mass in order for them to oscillate.  That said, it will be a \emph{very} small mass, so it's reasonable to think that their rest energy ($mc^2)$ will be much smaller than their momentum (the $pc$ term), in which case we can write 
+\[
+E = pc \left( 1 + \frac{m^2c^4}{p^2c^2} \right)^{1/2} \approx pc \left( 1 + \frac{m^2c^4}{2p^2c^2} \right),
+\]
+or
+\begin{equation}
+\label{eq_relE}
+E = pc + \frac{m^2c^3}{2p}.
+\end{equation}
+For reasons we won't see until we solve the whole problem, I'm going to write the Hamiltonian as
+\begin{equation}
+\hat{H} \to \begin{pmatrix}
+pc + (m_1^2 + m_2^2) c^3/4p & (m_1^2 - m_2^2)c^3/4p \\
+(m_1^2 - m_2^2)c^3/4p &pc + (m_1^2 + m_2^2) c^3/4p 
+\end{pmatrix}
+\end{equation}
+where $m_1$ and $m_2$ are two different masses.  You might think that $m_1$ is the mass of the electron neutrino and $m_2$ is that of the muon neutrino, but that's not quite the case; hold tight and we'll see what that means.
+
+Before we find the energy eigenvalues and eigenstates, consider for a moment what the Hamiltonian would look like if the neutrinos were in fact \emph{massless}; then
+\[
+\hat{H} \to \begin{pmatrix}
+pc & 0 \\
+0 & pc 
+\end{pmatrix}.
+\]
+This matrix is diagonal, so the possible energies are easy to read off: they're both the same, $E = pc$ as we'd expect for a massless relativistic particle.  The eigenstates of the matrix are just the flavour basis states, $\ket{e}$ and $\ket{\mu}$, so the implication is that both neutrinos have the same energy.  More importantly, though, the flavour states -- which are also the energy eigenstates -- are stationary states, so neutrino oscillations simply wouldn't happen.  Once an electron neutrino is created during a reaction, it will stay an electron neutrino forever.  Actually, it's possible to have massive neutrinos and still have the flavour states be stationary, as long as the masses are the same.  In this case the matrix remains diagonal and we reach the same conclusions; evidently it's the \emph{different} masses of the two neutrinos that lead to oscillations.
+
+Okay, let's find the energies of the full Hamiltonian.  For ease of writing stuff out, I'm going to write the Hamiltonian as
+\[
+\hat{H} \to \begin{pmatrix}
+h & g \\
+g & h 
+\end{pmatrix},
+\]
+where $h = pc + (m_1^2 + m_2^2) c^3/4p$ and $g = (m_1^2 - m_2^2)c^3/4p$.  The characteristic equation is
+\[
+\begin{vmatrix}
+h - E & g \\
+g & h - E
+\end{vmatrix} = 0,
+\]
+which has solutions
+\begin{equation}
+E_1 = h + g = pc + (m_1^2 + m_2^2) c^3/4p + (m_1^2 - m_2^2)c^3/4p = pc + m_1^2 c^3 / 2p
+\end{equation}
+and
+\begin{equation}
+E_2 = h - g = pc + (m_1^2 + m_2^2) c^3/4p - (m_1^2 - m_2^2)c^3/4p = pc + m_2^2 c^3 / 2p.
+\end{equation}
+Now you can see why I chose the exact Hamiltonian I did -- we get exactly the energies we expect based on equation \ref{eq_relE}.  As long as the masses are different, these are two distinct energies.
+
+Now that we have the energy eigenvalues, we can get the corresponding states as well.  For $E = E_1 = h + g$, the eigenvalue equation is
+\[
+\hat{H} \ket{E_1} = E_1 \ket{E_1},
+\]
+or, in matrix notation,
+\[
+\begin{pmatrix}
+h & g \\
+g & h
+\end{pmatrix} \begin{pmatrix}  \alpha \\ \beta \end{pmatrix} = (h+g) \begin{pmatrix}  \alpha \\ \beta \end{pmatrix}.
+\]
+Solving gives $\beta = \alpha$, and after normalizing to find $\alpha = 1/\sqrt{2}$, the eigenstate is 
+\begin{equation}
+\label{eq_E1}
+\ket{E_1} = \frac{1}{\sqrt{2}} \ket{e} + \frac{1}{\sqrt{2}} \ket{\mu}.
+\end{equation}
+Similarly, the eigenstate associated with energy $E_2 = h - g$ is
+\begin{equation}
+\label{eq_E2}
+\ket{E_2} = \frac{1}{\sqrt{2}} \ket{e} - \frac{1}{\sqrt{2}} \ket{\mu}.
+\end{equation}
+
+
+This is where things get interesting and a little weird.   According to particle physics, a neutrino is created either as an electron neutrino (state $\ket{e}$) or as a muon neutrino (state $\ket{\mu}$).  But the energy states are a superposition of these flavour states -- evidently the electron neutrino, say, just doesn't \emph{have} a definite energy.  Put another way -- because the energies depend on the two different masses -- we can say the an electron neutrino does not have a definite mass; the $m_1$ isn't an $m_{\nu_e}$.  Alternatively, if we manage to measure the energy (or mass) of an electron neutrino, it's no longer an electron neutrino -- its state collapses to one of the superpositions above and it doesn't have a definite flavour.
+
+We can see how this leads to neutrino oscillations and solves the solar neutrino problem by supposing that, at the centre of the sun, an electron neutrino is created.  The initial state is then
+\begin{equation}
+\ket{\nu(0)} = \ket{e}.
+\end{equation}
+I think it's fair to call this neutrino an electron neutrino at this point.
+
+To find the state at a later time, we need to first switch to the energy basis.  For fun, I'll do that by multiplying the state by the identity operator:
+\[
+\ket{\nu(0)} = \hat{1} \ket{e} = \left( \ket{E_1}\bra{E_1} + \ket{E_2} \bra{E_2} \right) \ket{e}.
+\]
+Notice that I wrote the identity operator in the energy basis -- this is the mechanism that switches basis for us.  Working out the inner products gives
+\begin{equation}
+\ket{\nu(0)} =  \frac{1}{\sqrt{2}} \ket{E_1} + \frac{1}{\sqrt{2}} \ket{E_2}
+\end{equation}
+as you might expect; although it's fair to say this is an electron neutrino, we definitely can't say what the energy of the particle is -- it simply doesn't have one.
+
+Now we can tack on the exponential time factors to find the state at a later time in the usual way.  We get
+\[
+\ket{\nu(t)} = \frac{e^{-iE_1 t / \hbar}}{\sqrt{2}} \ket{E_1} + \frac{e^{-iE_2 t / \hbar}}{\sqrt{2}} \ket{E_2}.
+\]
+Finally, I'll switch back to the flavour basis, although this time I'll do it using equations (\ref{eq_E1}) and (\ref{eq_E2}) directly rather than using the identity operator:
+\[
+\ket{\nu(t)} = \frac{e^{-iE_1 t / \hbar}}{\sqrt{2}} \left( \frac{1}{\sqrt{2}} \ket{e} + \frac{1}{\sqrt{2}} \ket{\mu} \right)  + \frac{e^{-iE_2 t / \hbar}}{\sqrt{2}} \left( \frac{1}{\sqrt{2}} \ket{e} - \frac{1}{\sqrt{2}} \ket{\mu} \right).
+\]
+Using $E_1 = h + g$ and $E_2 = h -g$ and simplifying things, we get
+\[
+\ket{\nu(t)} = \frac{1}{2} e^{-iht/\hbar} \left[  \left( e^{-igt/\hbar} + e^{igt/\hbar} \right) \ket{e} +  \left( e^{-igt/\hbar} - e^{igt/\hbar} \right) \ket{\mu} \right].
+\]
+You might recognize cosine and sine in there, so we'll simplify further, but also note that there's an overall phase factor out in front -- we'll drop that since it doesn't mean anything physically.  Finally, the state at time $t$ is
+\begin{equation}
+\ket{\nu(t)} = \cos (gt/\hbar) \ket{e} - i \sin(gt/\hbar) \ket{\mu}.
+\end{equation}
+Take a look at what happens at time
+\[
+\tau = \frac{\pi \hbar}{g} = \frac{\pi p \hbar}{4c^3} \frac{1}{m_1^2 - m_2^2};
+\]
+at that point the cosine term goes to zero and the sine term becomes one and our state is
+\[
+\ket{\nu(\tau)} = \ket{\mu}.
+\]
+The electron neutrino has oscillated into a muon neutrino!
+
+This is the explanation for the solar neutrino problem, although the full theory is a bit more complex since there are actually three different neutrino flavours.  But the main idea is still the same -- the flavour states are not the energy eigenstates, and are therefore not stationary -- they instead oscillate amongst themselves.
+
+
+
+%
+%
+%
+
+

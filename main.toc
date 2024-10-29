@@ -10,4 +10,10 @@
 \contentsline {subsection}{\numberline {1.3.2}Experiment 2}{7}{subsection.1.3.2}%
 \contentsline {subsection}{\numberline {1.3.3}Experiment 3}{8}{subsection.1.3.3}%
 \contentsline {subsection}{\numberline {1.3.4}Experiment 4}{9}{subsection.1.3.4}%
+\contentsline {section}{\numberline {1.4}The Copenhagen Interpretation}{9}{section.1.4}%
 \contentsline {section}{Problems}{9}{section*.13}%
+\contentsline {chapter}{\chapternumberline {2}Examples of Discrete Systems}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}An Electron in a Magnetic Field}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Neutrino Oscillations}{11}{section.2.2}%
+\contentsline {chapter}{\chapternumberline {3}The Finite Square Well}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Bound States}{16}{section.3.1}%
