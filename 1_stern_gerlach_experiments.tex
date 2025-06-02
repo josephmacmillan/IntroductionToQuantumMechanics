@@ -1,16 +1,23 @@
 \chapter{The Stern-Gerlach Experiment}
 
+\section{Introduction}
+
+Quantum mechanics, as you probably know, is our best theory for understanding nature at atomic (and smaller) scales.  It's so different from classical physics that \dots
+
+Describe the shape of the book.
+
+
 \section{Spin Angular Momentum}
 
-Let's start with a system that is pretty much as far away from the quantum world as possible -- the Earth and Sun.  With its total motion, the Earth has two kinds of angular momentum:  \emph{orbital} angular momentum $\vec{L}$ from its orbit around the sun, and \emph{spin} angular momentum $\vec{S}$, resulting from its 24 hour rotation.  Of course, the spin angular momentum in this case is due to adding up the orbital angular momentum $\vec{L}_i = \vec{r}_i \times \vec{p}_i$ of each of the tiny pieces of the Earth, but we'll keep the distinction because this is definitively not the case in quantum systems as we'll see.  Note that the two kinds of angular momentum for the Earth point in different directions since the rotation axis of the Earth is tilted 23$^\circ$ from the orbital plane.
+Let's start with something that is pretty much as far away from the quantum world as possible -- the Earth and Sun.  With its total motion, the Earth has two kinds of angular momentum:  \emph{orbital} angular momentum $\vec{L}$ from its orbit around the sun, and \emph{spin} angular momentum $\vec{S}$, resulting from its 24 hour rotation.  Of course, the spin angular momentum in this case is due to adding up the orbital angular momentum $\vec{L}_i = \vec{r}_i \times \vec{p}_i$ of each of the tiny pieces of the Earth, but we'll keep the distinction -- it'll turn out that this is \emph{not} the case in quantum systems.\footnote{Note that the two kinds of angular momentum for the Earth point in different directions since the rotation axis of the Earth is tilted 23$^\circ$ from the orbital plane.}
 
-As a simple quantum system, consider an electron in orbit around a proton -- a hydrogen atom.  The electron has orbital angular momentum just like the Earth (depending on what state it's in), and it also has spin angular momentum.  Careful, though, as the electron doesn't rotate like the Earth -- how can it when it has essentially no size or diameter to spin?  Despite this, it has measurable intrinsic angular momentum, which we'll call \emph{spin} $\vec{S}$.  Since spin is a vector, it has components $(S_x, S_y, S_z)$, and thus to specify the spin of the electron we need to use three different numbers; keep this in mind for later.
+AThe quantum version of this kind of system might be an electron in orbit around a proton -- a hydrogen atom.  The electron has orbital angular momentum just like the Earth (depending on what state it's in), and it also has spin angular momentum.  Careful, though, as the electron doesn't rotate like the Earth -- how can it when it has essentially no size or diameter to spin?  Despite this, it has measurable intrinsic angular momentum, which we'll call \emph{spin} $\vec{S}$.  Since spin is a vector, it has components $(S_x, S_y, S_z)$, and thus to specify the spin of the electron we need to use three different numbers; keep this in mind for later.
 
-Suppose we put a stationary electron in a magnetic field $\vec{B}$.  Since the electron is stationary, the Lorentz force
+I'd like to explore this idea of spin without the complication of orbital angular momenmtum, so let's put a stationary electron all by itself in a magnetic field $\vec{B}$.  Since the electron isn't moving, the Lorentz force
 \[
 \vec{F} = q\vec{v} \times \vec{B}
 \]
-is zero.  But the electron's spin angular momentum gives it a magnetic dipole moment $\vec{\mu}$, and it's then possible for an \emph{inhomogeneous} magnetic field to exert a force (see Griffiths \emph{Introduction to Electrodynamics}, fourth edition, section 6.2)
+is zero.  But the electron's spin angular momentum gives it a magnetic dipole moment $\vec{\mu}$, and it's then possible for an \emph{inhomogeneous} magnetic field to exert a force (see Griffiths \emph{Introduction to Electrodynamics}, fifth edition, section 6.1.2)
 \begin{equation}
 \vec{F} = \grad (\vec{\mu} \cdot \vec{B}).
 \label{eq_force_inhomo}
@@ -22,11 +29,11 @@ is zero.  But the electron's spin angular momentum gives it a magnetic dipole mo
 \label{fig_circular_orbit}
 \end{figure}
 
-We can calculate the magnetic dipole moment due to orbital angular momentum easily enough; Figure \ref{fig_circular_orbit} shows a particle in a circular orbit of radius $R$ and circular velocity $\vec{v}$.  If we think of this as a current loop, the dipole moment is just the current $I$ times the area $\vec{A}$,
+Now, we can calculate the magnetic dipole moment due to orbital angular momentum easily enough (we'll handle spin in a moment); Figure \ref{fig_circular_orbit} shows a particle in a circular orbit of radius $R$ and circular velocity $\vec{v}$.  If we think of this as a current loop, the dipole moment is just the current $I$ times the area $\vec{A}$,
 \[
 \vec{\mu} = I\vec{A}.
 \]
-The magnitude of the area vector is just $A = \pi R^2$m and the direction is perpendicular to the orbit, while the current will be the charge divided by the time it takes for the charge to make the orbit:
+The magnitude of the area vector is just $A = \pi R^2$ and the direction is perpendicular to the orbit, while the current will be the charge divided by the time it takes for the charge to make the orbit:
 \[
 I = \frac{q}{T} = \frac{q}{2\pi R / v}.
 \]
@@ -43,13 +50,13 @@ Finally, then, the magnetic dipole moment arising from orbital angular momentum 
 \vec{\mu} = \frac{q}{2m} \vec{L}.
 \end{equation}
 
-Things are slightly different for the spin angular momentum of a charged particle.  We can still think of the magnetic dipole moment as coming from a current loop, but we have to write 
+What changes for spin angular momentum?  It turns out to be only slightly different, and we can write
 \begin{equation}
 \vec{\mu} = \frac{gq}{2m} \vec{S},
 \end{equation}
 where $g$ is called the gyroscopic ratio or often just ``$g$-factor'' and, for an electron, is \emph{almost} $g = 2$.\footnote{We don't need to worry about this here, but each charged particle with spin has its own $g$-factor -- the proton has $g = 5.58$, for example.  These can be measuring and in some cases calculated theoretically, but it requires quantum field theory to do it properly.}
 
-Let's go back to the idea of putting an electron in an inhomogeneous field, and we'll suppose that the field is constant in the $x$ and $y$ directions but changes along the $z$ direction.  Then, with no orbital motion,
+Let's go back to our electron in an inhomogeneous field. Take the field to be constant in the $x$ and $y$ directions but \emph{not} in the $z$ direction.  Then
 \[
 \vec{\mu} \cdot \vec{B} = \mu_x B_x + \mu_y B_y + \mu_z B_z,
 \]  
@@ -58,7 +65,7 @@ and since the first two terms are constant, equation (\ref{eq_force_inhomo}) giv
 \vec{F} = \grad ( \mu_z B_z ) = \mu_z \dfdx{B_z}{z} \, \hat{z} = \frac{gq}{2m} \dfdx{B_z}{z} S_z \, \hat{z}.
 \label{eq_force_spin}
 \end{equation}
-The force on the electron in this case is directed along the $z$ direction and proportional to the component of spin angular momentum along that direction -- the more the spin aligns with the $z$ axis, the greater the force.
+The force on the electron in this case is directed along the $z$ direction and proportional to the component of spin angular momentum $S_z$ along that direction -- the more the spin aligns with the $z$ axis, the greater the force.
 %
 %
 %
@@ -87,7 +94,7 @@ But that's not at all what Stern and Gerlach saw; instead, as Figure \ref{fig_st
 \[
 S_z = +\frac{\hbar}{2} \quad \text{or} \quad S_z = -\frac{\hbar}{2}.
 \]
-This is clear evidence of the \emph{quantization} of angular momentum, something Niels Bohr suggested in 1913 when developing his model of the atom.
+This is clear evidence of the \emph{quantization} of angular momentum, something Niels Bohr suggested in 1913 when developing his model of the atom.  Evidently, every silver atom boiled off with the outermost electron having only two values for $S_z$.  Of course, this says nothing about the values of $S_x$ or $S_y$, or even the magnitude of the spin $S$.  And, actually, it turns out we can't even say they had these values of $S_z$ when they were created -- we can only say we measured $S_z$ to be either one or the other; more on this later.
 
 %
 %
@@ -95,7 +102,7 @@ This is clear evidence of the \emph{quantization} of angular momentum, something
 
 \section{Extending the Experiments}
 
-Before we discuss this further, I want to introduce some notation:
+Before we discuss this further, though, I want to introduce some notation:
 \begin{equation}
 \label{eq_ket_definition}
 \boxed{
@@ -110,7 +117,7 @@ although it's also common to use $\ket{\uparrow}$ or $\ket{+z}$.  This state is 
 \[
 \ket{-} \rightarrow \text{ State for which $S_z = -\hbar/2$ has been measured},
 \]
-or  $\ket{\downarrow}$ or $\ket{-z}$.  Any particle that, when measuring its spin angular momentum, has only two possibilities for the results is called a \emph{spin-1/2} particle; electrons, protons, and neutrons are all spin-1/2 particles.
+or  $\ket{\downarrow}$ or $\ket{-z}$.  Any particle that, when measuring a component of its spin angular momentum, has only two possibilities for the results is called a \emph{spin-1/2} particle; electrons, protons, and neutrons are all spin-1/2 particles.
 
 Let's run through a few extensions to the original Stern-Gerlach experiment.  I've simplified the diagram of the original experiment in Figure \ref{fig_sg_0} to highlight the important steps: a beam of spin-1/2 particles (whether silver atoms or something else) is created, all in state $\ket{\psi}$, and sent to a Stern-Gerlach device (the magnets) to have the spin of each particle measured. In the case of the original Stern-Gerlach experiment, if a beam of 100 atoms were created, half of the atoms would be measured as spin up and half would be spin down.
 
@@ -173,7 +180,7 @@ Obviously we could have used $S_y$ instead with no change to the results, so we 
 
 \subsection{Experiment 4}
 
-For this last experiment, we need to make some changes to the Stern-Gerlach device measuring $S_x$.  The details aren't too important as to how, but rather than measuring the spin $S_x$ observable, we'll recombine the two beams -- one pushed up by the magnetic field and one pushed down -- and send that combined beam into the last Stern-Gerlach device aligned along the $z$ direction.  But now the results are different, and we find that every particle is spin up along $z$.  It seems as though the middle device no longer has an effect on the initial $\ket{+}$ state of the particle; apparently it's the act of \emph{measurement} itself that alters the state, not the push by the magnetic field.  This is similar to the famous results from the double slit experiment -- measuring which slit the particle goes through destroys the interference pattern.
+For this last experiment, we need to make some changes to the Stern-Gerlach device measuring $S_x$.  The details aren't too important as to how, but rather than measuring the spin $S_x$ observable, we'll recombine the two beams -- one pushed up by the magnetic field and one pushed down -- and send that combined beam into the last Stern-Gerlach device aligned along the $z$ direction.  But now the results are different, and we find that every particle is spin up along $z$.  It seems as though the middle device no longer has an effect on the initial $\ket{+}$ state of the particle; apparently it's the act of \emph{measurement itself} that alters the state, not the push by the magnetic field.  This is similar to the famous results from the double slit experiment -- measuring which slit the particle goes through destroys the interference pattern.
 
 \begin{figure}
 \centering\includegraphics[width=\linewidth]{Figures/Chapter 1/fig_sg_4.pdf}
