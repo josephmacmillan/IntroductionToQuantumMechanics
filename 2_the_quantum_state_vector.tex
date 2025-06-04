@@ -27,11 +27,58 @@ In addition, these are \emph{unit} vectors, which means that have a length of ex
 \]
 We say that a vector is \emph{normalized} if this is the case -- that the dot product with itself is one.
 
-Of course, these vectors are also \emph{orthogonal} -- the have 90$^circ$ between them -- which we could also write in terms of dot products as
+Of course, these unit vectors are also \emph{orthogonal} -- they have 90$^\circ$ between them -- which we could also write in terms of dot products as
 \[
 \hat{x} \cdot \hat{y} = 0, \quad \hat{y} \cdot \hat{z} = 0, \quad \hat{z} \cdot \hat{x} = 0.
 \]
+Taken together, we can use the term \emph{orthonormal} for vectors that are both normalized and orthogonal.
 
+The quantum state vectors $\ket{+}$ and $\ket{-}$ play a similar role as the unit vectors, but for spin-1/2 systems; because these states correspond to measuring spin up and spin down along the $z$ axis, these kets form the $S_z$ basis.  And like $\hat{x}$, $\hat{y}$, and $\hat{z}$), they're complete, so that any general spin-1/2 state can be written down in terms of them:
+\begin{equation}
+\ket{\psi} = a \ket{+} + b\ket{-}.
+\end{equation}
+The values $a$ and $b$ -- which can be complex numbers, so be careful -- in a loose sense\footnote{Careful with taking this too far; we'll see exactly what $a$ and $b$ tell us soon.} tell you how much of the general state $\ket{\psi}$ is made up of the spin up state ($a$) how much is made up of the spin down state ($b$).
+
+Remember I introduced the bra $\bra{\psi}$ above?  Well, in the $S_z$ basis the state could also be written as
+\begin{equation}
+\bra{\psi} = a^* \bra{+} + b^* \bra{-}.
+\end{equation}
+Those stars indicate the \emph{complex conjugate}.  It's important to realize that not only are the two representations of the state -- the ket $\ket{\psi}$ and the bra $\bra{\psi}$ different -- one obviously involves the complex conjugate of the other -- but they're not even the same kind of mathematical object.  That said, either provides a full representation of the same state.
+
+Okay, so what about these funny names, \emph{ket} and \emph{bra}?  They come about because of how we write the \emph{inner product} -- the analog to the dot product we used above for the unit vectors.  We stick the bra first, then the ket, like so:
+\[
+\braket{\text{bra}}{\text{ket}}.
+\]
+Can you see what the whole thing spells?  I think this is supposed to be a joke, so feel free to laugh; we're stuck with the notation, though, which Paul Dirac invented in 1939, and which we now call \emph{Dirac notation}. 
+
+With the inner product defined, we can now write out the normalization condition for our basis vectors,
+\begin{equation}
+\braket{+}{+} = \braket{-}{-} = 1,
+\end{equation}
+as well as orthogonalization,
+\begin{equation}
+\braket{+}{-} = \braket{-}{+} = 0.
+\end{equation}
+Actually, in quantum mechanics, it's not just the basis vectors that are normalized; \emph{every} quantum state must be normalized:
+\begin{equation}
+\boxed{
+\braket{\psi}{\psi} = 1.
+}\end{equation}
+I know I keep saying this, but we'll see why this must the case later.
+
+\begin{example}[Inner products]  Consider the state 
+\begin{equation}
+\ket{\psi} = A \left( \ket{+} + 2i \ket{-} \right).
+\end{equation}
+
+\begin{enumerate}[(a)]
+\item Is the state normalized?
+
+We can check with an inner product; 
+
+\end{enumerate}
+
+\end{example}
 
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
