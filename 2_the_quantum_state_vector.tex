@@ -1,0 +1,47 @@
+\chapter{The Quantum State Vector}
+
+\section{Basis States}
+
+In the previous chapter I introduced the ket $\ket{\psi}$, and said that it represents a \emph{state} of a quantum mechanical system.  But what exactly is it?  It's hard to define, since by its nature it's abstract -- in some ways, it's meant to represent everything we could possibly know about a particular quantum system.  If we wanted to be technical I could tell you that it's a vector in complex Hilbert space, but I'm not sure that will help. Instead, I think it's best to draw an analogy with a vector space you know well:  vectors in three dimensional position space.  Before we do that, though, I want to also introduce a \emph{different} way of representing a quantum space, called (for reasons we'll see shortly) a ``bra'':
+\begin{equation}
+\label{eq_bra_definition}
+\boxed{
+\bra{\psi} \rightarrow \text{ Represents the state of a quantum mechanical system.}
+}
+\end{equation}
+Our job in this chapter is to get at least a good working idea of what exactly a ket and bra actually are and how we use them in quantum mechanics.
+
+I'm sure you recall some of the basics of how we write vectors -- that is, normal old vectors in Cartesian coordinates -- in physics.  We can use the unit vectors
+\[
+\hat{x}, \quad \hat{y}, \quad \hat{z}
+\]
+(or, if you prefer, $\hat{i}$, $\hat{j}$, and $\hat{k}$) to specify the three coordinate directions.  These unit vectors can be used to write any other vector in this coordinate system, so for example the vector $\vec{A}$ can be written as
+\[
+\vec{A} = A_x \hat{x} + A_y \hat{y} + A_z \hat{z},
+\]
+where $A_x$ and so on are the components of the vector along those directions.  The unit vectors are called \emph{complete} if they can be used to write every possible vector in this way.
+
+In addition, these are \emph{unit} vectors, which means that have a length of exactly one (with no dimensions).  Mathematically we could express this using the dot product,
+\[
+\hat{x} \cdot \hat{x} = 1, \quad \hat{y} \cdot \hat{y} = 1, \quad \hat{z} \cdot \hat{z} = 1.
+\]
+We say that a vector is \emph{normalized} if this is the case -- that the dot product with itself is one.
+
+Of course, these vectors are also \emph{orthogonal} -- the have 90$^circ$ between them -- which we could also write in terms of dot products as
+\[
+\hat{x} \cdot \hat{y} = 0, \quad \hat{y} \cdot \hat{z} = 0, \quad \hat{z} \cdot \hat{x} = 0.
+\]
+
+
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+\markright{Problems}%
+
+\begin{problem}[Electron spin]
+This whole chapter is about electron spin, but of course the electron doesn't really spin around like a top.  But let's pretend for a moment that an electron really is a tiny sphere, of radius
+\[
+r_e = \frac{e^2}{4\pi \epsilon_0 mc^2}
+\]
+(the so-called classical electron radius), and that it spins around its axis with angular momentum $S_z = \hbar/2$.  How fast would a point on the ``equator'' be moving?  Does this model make sense? 
+\end{problem}
+
