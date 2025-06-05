@@ -66,18 +66,57 @@ Actually, in quantum mechanics, it's not just the basis vectors that are normali
 }\end{equation}
 I know I keep saying this, but we'll see why this must the case later.
 
-\begin{example}[Inner products]  Consider the state 
+\begin{example}[Normalization]  Consider the state 
 \begin{equation}
 \ket{\psi} = A \left( \ket{+} + 2i \ket{-} \right).
 \end{equation}
 
-\begin{enumerate}[(a)]
-\item Is the state normalized?
+Is the state normalized?  Check:
+\begin{align*}
+\braket{\psi}{\psi} &= 1 \\
+\Rightarrow A^* \left( \bra{+} - 2i \bra{-} \right) \ A \left( \ket{+} + 2i\ket{-} \right) &=  1
+\end{align*}
+Expanding out the brackets, using the orthonormality conditions above, gives
+\begin{equation}
+\label{eq_norm}
+5 |A|^2 = 1,
+\end{equation}
+where $|A|^2 \equiv A^* A$ is the ``complex square''.  Now, the complex square will always be a real number, which we can see easily if we write the the general complex number $A$ in polar form as
+\[
+A = r e^{i\theta},
+\]
+where $r$ (the \emph{amplitude}) and $\theta$ (the \emph{phase}) are both real numbers.  Then 
+\[
+|A|^2 = A^* A = re^{-i\theta} r e^{i\theta} = r^2.
+\]
+That means the normalization condition above in equation (\ref{eq_norm}) can't give us any information about the phase $\theta$, only the amplitude.  As it will turn out, that's okay -- an overall phase in a quantum state doesn't mean anything physically, and we'll see why in due time -- so by convention we take it to be zero, and set the constant to 
+\[
+A = \frac{1}{\sqrt{5}}.
+\]
+With this value of $A$, the state is normalized.
+\end{example}
 
-We can check with an inner product; 
+\begin{example}[Inner products]  Consider another state given by
+\begin{equation}
+\ket{\phi} = \frac{3}{5} \ket{+} - \frac{4}{5} \ket{-}.
+\end{equation}
+Notice that this state is already normalized (check it!).  What is the inner product between state $\ket{\psi}$ and $\ket{\phi}$?
 
-\end{enumerate}
+Using Dirac notation we can write each state in their $S_z$ basis and ``foil'' it out to get
+\begin{align*}
+\braket{\psi}{\phi} & =  \left( \frac{1}{\sqrt{5}}\bra{+} - \frac{2i}{\sqrt{5}} \bra{-} \right) \left(\frac{3}{5} \ket{+} - \frac{4}{5} \ket{-} \right) \\
+& = \frac{3}{5\sqrt{5}} + \frac{8i}{5\sqrt{5}}.
+\end{align*}
 
+Notice what happens if we reverse the order of the inner product:
+\begin{align*}
+\braket{\phi}{\psi} & =   \left(\frac{3}{5} \bra{+} - \frac{4}{5} \bra{-} \right) \left( \frac{1}{\sqrt{5}}\ket{+} + \frac{2i}{\sqrt{5}} \ket{-} \right) \\
+& = \frac{3}{5\sqrt{5}} - \frac{8i}{5\sqrt{5}}.
+\end{align*}
+This is precisely the complex conjugate of the first inner product; in fact, in general for any two state vectors $\ket{\alpha}$ and $\ket{\beta}$ we have
+\begin{equation}
+\braket{\alpha}{\beta} = \braket{\beta}{\alpha}^*.
+\end{equation}
 \end{example}
 
 \section*{Problems}
