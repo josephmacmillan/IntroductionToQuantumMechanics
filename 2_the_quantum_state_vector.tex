@@ -119,6 +119,59 @@ This is precisely the complex conjugate of the first inner product; in fact, in 
 \end{equation}
 \end{example}
 
+\section{Matrix Notation}
+
+Dirac notation is fun and expressive, but there's another way to write out a quantum state that can be a little more practical for calculations.  Take a look at the form of some general state, which in Dirac notation is
+\begin{equation}
+\ket{\psi} = a \ket{+} + b \ket{-}.
+\end{equation}
+
+Now, the kets $\ket{+}$ and $\ket{-}$ are the basis states as we've mentioned, and $a$ and $b$ are two complex numbers that tell you -- again, loosely -- how much of each basis state makes up the state $\ket{\psi}$.  We can ``pick out'' these numbers with an inner product; for example,
+\[
+\braket{+}{\psi} = \bra{+} \left( a \ket{+} + b \ket{-} \right) = a \braket{+}{+} + b \braket{+}{-} = a.
+\]
+Notice how the bra $\bra{+}$ acts past the numbers $a$ and $b$ to stick to the kets, and that to make the last equality we used orthonormality. Likewise, the inner product 
+\[
+\braket{-}{\psi} = b.
+\]
+
+As long as we know the basis we're in, any state can be specified by only those two numbers $a$ and $b$.  So let's use just them and write the state as a \emph{column vector},
+\begin{equation}
+\ket{\psi} \to \begin{pmatrix} a \\ b \end{pmatrix}.
+\end{equation}
+I'm using an arrow ($\to$) rather than an equal sign since we're mixing notations here; the ket $\ket{\psi}$ is written in Dirac notation, and the column vector is what we'll call \emph{matrix notation}.  We could also write the column vector as
+\begin{equation}
+\ket{\psi} \to \begin{pmatrix} \braket{+}{\psi} \\ \braket{-}{\psi} \end{pmatrix},
+\end{equation}
+which mixes the two notations a little bit but makes it clear what basis the state is written in.  It also makes it clear that the basis states themselves are just unit column vectors:
+\begin{equation}
+\ket{+} \to \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad \text{and} \quad \ket{+} \to \begin{pmatrix} 0 \\ 1 \end{pmatrix}.
+\end{equation}
+
+But what about the bra -- how do we represent that?  With a bit of thought, you might agree that they should be \emph{row vectors}, so that the general state is written as
+\begin{equation}
+\bra{\psi} \to \begin{pmatrix} a^* & b^* \end{pmatrix}
+\end{equation}
+or 
+\begin{equation}
+\label{eq_row}
+\bra{\psi} \to \begin{pmatrix} \braket{\psi}{+} & \braket{\psi}{-} \end{pmatrix}.
+\end{equation}
+We're really leveraging all this notation -- the row vector elements are the complex conjugate of the numbers $a$ and $b$, so in equation (\ref{eq_row}) I've swapped the order of the two states in the inner product.
+
+\begin{example}[Inner products, again]
+Let's go back to the previous example and recompute the inner product $\braket{\psi}{\phi}$ but using matrix notation.  Each state can now be written as 
+\[
+\ket{\psi} = \begin{pmatrix} 1/\sqrt{5} \\ 2i/\sqrt{5} \end{pmatrix} \quad \text{and} \quad \ket{\phi} \to \begin{pmatrix} 3/5 \\ -4/5 \end{pmatrix}.
+\]
+Remember the bra is the row vector (with complex conjugate elements) and the ket the column, so the inner product works out perfectly:
+\[
+\braket{\psi}{\phi} \to \begin{pmatrix} 1/\sqrt{5} & -2i/\sqrt{5} \end{pmatrix} \begin{pmatrix} 1/\sqrt{5} \\ 2i/\sqrt{5} \end{pmatrix} = \frac{3}{5\sqrt{5}} + \frac{8i}{5\sqrt{5}}.
+\]
+This is of course the same result we got last time, but if you're like me you find it a little easier to multiply matrices than foil out in Dirac notation.  
+
+\end{example}
+
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
