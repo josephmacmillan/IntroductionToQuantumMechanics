@@ -2,14 +2,14 @@
 
 \section{Basis States}
 
-In the previous chapter I introduced the ket $\ket{\psi}$, and said that it represents a \emph{state} of a quantum mechanical system.  But what exactly is it?  It's hard to define, since by its nature it's abstract -- in some ways, it's meant to represent everything we could possibly know about a particular quantum system.  If we wanted to be technical I could tell you that it's a vector in complex Hilbert space, but I'm not sure that will help. Instead, I think it's best to draw an analogy with a vector space you know well:  vectors in three dimensional position space.  Before we do that, though, I want to also introduce a \emph{different} way of representing a quantum space, called (for reasons we'll see shortly) a ``bra'':
+In the previous chapter I introduced the ket $\ket{\psi}$, and said that it represents a \emph{state} of a quantum mechanical system.  But what exactly is it?  It's hard to define, since by its nature it's abstract -- in some ways, it's meant to represent everything we could possibly know about a particular quantum system.  If we wanted to be technical I could tell you that it's a vector in complex Hilbert space, but I'm not sure that will help. Instead, I think it's best to draw an analogy with something you know well:  vectors in three dimensional position space.  Before we do that, though, I want to also introduce a \emph{different} way of representing a quantum space, called (for reasons we'll see shortly) a ``bra'':
 \begin{equation}
 \label{eq_bra_definition}
 \boxed{
 \bra{\psi} \rightarrow \text{ Represents the state of a quantum mechanical system.}
 }
 \end{equation}
-Our job in this chapter is to get at least a good working idea of what exactly a ket and bra actually are and how we use them in quantum mechanics.
+Our job in this chapter is to get a good working idea of what a ket and bra actually are and how we use them in quantum mechanics.
 
 I'm sure you recall some of the basics of how we write vectors -- that is, normal old vectors in Cartesian coordinates -- in physics.  We can use the unit vectors
 \[
@@ -19,7 +19,7 @@ I'm sure you recall some of the basics of how we write vectors -- that is, norma
 \[
 \vec{A} = A_x \hat{x} + A_y \hat{y} + A_z \hat{z},
 \]
-where $A_x$ and so on are the components of the vector along those directions.  The unit vectors are called \emph{complete} if they can be used to write every possible vector in this way.
+where $A_x$, $A_y$, and $A_z$ and so on are the components of the vector along those directions.  The unit vectors are called \emph{complete} if they can be used to write every possible vector in this way.
 
 In addition, these are \emph{unit} vectors, which means that have a length of exactly one (with no dimensions).  Mathematically we could express this using the dot product,
 \[
@@ -33,7 +33,7 @@ Of course, these unit vectors are also \emph{orthogonal} -- they have 90$^\circ$
 \]
 Taken together, we can use the term \emph{orthonormal} for vectors that are both normalized and orthogonal.
 
-The quantum state vectors $\ket{+}$ and $\ket{-}$ play a similar role as the unit vectors, but for spin-1/2 systems; because these states correspond to measuring spin up and spin down along the $z$ axis, these kets form the $S_z$ basis.  And like $\hat{x}$, $\hat{y}$, and $\hat{z}$), they're complete, so that any general spin-1/2 state can be written down in terms of them:
+The quantum state vectors $\ket{+}$ and $\ket{-}$ play a similar role as the unit vectors, but for spin-1/2 systems; because these states correspond to measuring spin up and spin down along the $z$ axis, these kets form what we'll call the ''$S_z$ basis.''  And like $\hat{x}$, $\hat{y}$, and $\hat{z}$, they're complete, so that any general spin-1/2 state can be written down in terms of them:
 \begin{equation}
 \ket{\psi} = a \ket{+} + b\ket{-}.
 \end{equation}
@@ -43,7 +43,7 @@ Remember I introduced the bra $\bra{\psi}$ above?  Well, in the $S_z$ basis the 
 \begin{equation}
 \bra{\psi} = a^* \bra{+} + b^* \bra{-}.
 \end{equation}
-Those stars indicate the \emph{complex conjugate}.  It's important to realize that not only are the two representations of the state -- the ket $\ket{\psi}$ and the bra $\bra{\psi}$ different -- one obviously involves the complex conjugate of the other -- but they're not even the same kind of mathematical object.  That said, either provides a full representation of the same state.
+Those stars indicate the \emph{complex conjugate}.  It's important to realize that not only are the two representations of the state -- the ket $\ket{\psi}$ and the bra $\bra{\psi}$ -- different (one obviously involves the complex conjugate of the other), but they're not even the same kind of mathematical object.  That said, either provides a full representation of the same state.
 
 Okay, so what about these funny names, \emph{ket} and \emph{bra}?  They come about because of how we write the \emph{inner product} -- the analog to the dot product we used above for the unit vectors.  We stick the bra first, then the ket, like so:
 \[
@@ -76,12 +76,12 @@ Is the state normalized?  Check:
 \braket{\psi}{\psi} &= 1 \\
 \Rightarrow A^* \left( \bra{+} - 2i \bra{-} \right) \ A \left( \ket{+} + 2i\ket{-} \right) &=  1
 \end{align*}
-Expanding out the brackets, using the orthonormality conditions above, gives
+Expanding out the brackets and using the orthonormality conditions above gives
 \begin{equation}
 \label{eq_norm}
 5 |A|^2 = 1,
 \end{equation}
-where $|A|^2 \equiv A^* A$ is the ``complex square''.  Now, the complex square will always be a real number, which we can see easily if we write the the general complex number $A$ in polar form as
+where $|A|^2 \equiv A^* A$ is the ``complex square.''  Now, the complex square will always be a real number, which we can see easily if we write the the general complex number $A$ in polar form as
 \[
 A = r e^{i\theta},
 \]
@@ -115,7 +115,9 @@ Notice what happens if we reverse the order of the inner product:
 \end{align*}
 This is precisely the complex conjugate of the first inner product; in fact, in general for any two state vectors $\ket{\alpha}$ and $\ket{\beta}$ we have
 \begin{equation}
+\boxed{
 \braket{\alpha}{\beta} = \braket{\beta}{\alpha}^*.
+}
 \end{equation}
 \end{example}
 
@@ -143,7 +145,7 @@ I'm using an arrow ($\to$) rather than an equal sign since we're mixing notation
 \begin{equation}
 \ket{\psi} \to \begin{pmatrix} \braket{+}{\psi} \\ \braket{-}{\psi} \end{pmatrix},
 \end{equation}
-which mixes the two notations a little bit but makes it clear what basis the state is written in.  It also makes it clear that the basis states themselves are just unit column vectors:
+which mixes the two notations even further but makes it clear what basis the state is written in.  It also makes it clear that the basis states themselves are just unit column vectors:
 \begin{equation}
 \ket{+} \to \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad \text{and} \quad \ket{+} \to \begin{pmatrix} 0 \\ 1 \end{pmatrix}.
 \end{equation}
@@ -176,11 +178,40 @@ This is of course the same result we got last time, but if you're like me you fi
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
 
-\begin{problem}[Electron spin]
-This whole chapter is about electron spin, but of course the electron doesn't really spin around like a top.  But let's pretend for a moment that an electron really is a tiny sphere, of radius
+\begin{problem}[Spin-1/2 States]
+Consider these different spin-1/2 states, given in Dirac notation by
+\begin{align*}
+\ket{\psi_1} &= 3 \ket{+} + 4\ket{-} \\
+\ket{\psi_2} &= \ket{+} + 2i \ket{-} \\
+\ket{\psi_3} &= 3 \ket{+} - e^{i\pi/3}\ket{-} \\
+\ket{\psi_4} &= 3 \ket{+} - 5i\ket{-}.
+\end{align*}
+\begin{enumerate}[label=(\alph*)]
+\item Normalize each state.
+\item Write each state in matrix notation.
+\item Write the bra of each ket; write the bras in matrix notation, too.
+\item Find a (normalized) ket that is orthogonal to each state.
+\item Compute the following inner products, using either Dirac notation or matrix notation:  $\braket{\psi_1}{\psi_2}$, $\braket{\psi_3}{\psi_4}$, $\braket{\psi_4}{\psi_1}$, and $\braket{\psi_3}{\psi_2}$.
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}[A Three-State System]
+So far we've only looked at the fairly simple two-state spin-1/2 system.  For this problem, consider a system which has \emph{three} orthonormal basis states, given by
 \[
-r_e = \frac{e^2}{4\pi \epsilon_0 mc^2}
+\ket{a_1}, \ket{a_2}, \text{ and }  \ket{a_3}.
 \]
-(the so-called classical electron radius), and that it spins around its axis with angular momentum $S_z = \hbar/2$.  How fast would a point on the ``equator'' be moving?  Does this model make sense? 
+\begin{enumerate}[label=(\alph*)]
+\item What would these kets look like in matrix notation?
+\item Normalize the state
+\[
+\ket{\psi_1} = \ket{a_1} - 2 \ket{a_2} + 5 \ket{a_3}.
+\]
+\item Take the inner product of $\ket{\psi_1}$ with the state 
+\[
+\ket{\psi_2} = i\ket{a_1} + 3 \ket{a_2} - 2\ket{a_3}.
+\]
+(you'll have to normalize that state first, of course).
+\end{enumerate}
 \end{problem}
 
