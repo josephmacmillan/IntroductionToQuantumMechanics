@@ -2,50 +2,180 @@
 
 \section{The $S_x$ and $S_y$ Spin States}
 
+In the previous chapter we talked about the two basis states -- for what we're calling the $S_z$ basis -- and wrote them in Dirac and matrix notation as
+\begin{equation}
+\ket{+} \to \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad \text{and} \quad \ket{-} \to \begin{pmatrix} 0 \\ 1 \end{pmatrix}.
+\end{equation}
+But since these are basis states, \emph{any} other state can be written in terms of them, including the states corresponding to measuring $S_x = +\hbar/2$ and $S_x = -\hbar/2$ that we discussed back in Experiment 2 in Section \ref{sec_exp2}.  I'll show you how to figure this out later, and for now I'll just tell you the states:
+\begin{equation}
+\ket{+}_x = \frac{1}{\sqrt{2}} \ket{+} + \frac{1}{\sqrt{2}} \ket{-} \to \begin{pmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{pmatrix}
+\end{equation}
+and
+\begin{equation}
+\ket{-}_x = \frac{1}{\sqrt{2}} \ket{+} - \frac{1}{\sqrt{2}} \ket{-} \to \begin{pmatrix} 1/\sqrt{2} \\ -1/\sqrt{2} \end{pmatrix}.
+\end{equation}
+
+Of course we can also rotate the Stern-Gerlach device so that we measure the spin along the $y$-direction, in which case we'd have the associated states $\ket{+}_y$ and $\ket{-}_y$.  In the $S_z$ basis, they can be written as
+\begin{equation}
+\ket{+}_y = \frac{1}{\sqrt{2}} \ket{+} + \frac{i}{\sqrt{2}} \ket{-} \to \begin{pmatrix} 1/\sqrt{2} \\ i/\sqrt{2} \end{pmatrix}
+\end{equation}
+and
+\begin{equation}
+\ket{-}_y = \frac{1}{\sqrt{2}} \ket{+} - \frac{i}{\sqrt{2}} \ket{-} \to \begin{pmatrix} 1/\sqrt{2} \\ -i/\sqrt{2} \end{pmatrix}.
+\end{equation}
+Now that we know how to write these states down, we can talk more about the inner product and its role in quantum mechanics.
+
 \section{Calculating Probability}
 
-\section{The Stern-Gerlach Experiments Revisited}
+Suppose you have a particle in the state $\ket{\psi}$, and you want to measure some quantity associated with the particle -- maybe its spin, but it could be anything, so I'll call it $A$ for now.  In quantum mechanics we call this quantity an \emph{observable}.  Further suppose that there a number of different possibilities that you might measure: $a_1$, $a_2$, $a_3$, and so on. Then the probability of measuring the particular value $a_n$ is
+\begin{equation}
+\boxed{
+\mathcal{P}_{a_n} = | \braket{a_n}{\psi} |^2.
+}
+\end{equation}
+The bra in that equation corresponds to the state associated with measuring the value $a_n$; the ket would be $\ket{a_n}$.  
+
+This is the one of the most important ideas in quantum mechanics, and is central to what's called the Born rule or the generalized statistical interpretation.  The underlying idea -- which we'll come back to at the end of this chapter -- is that the theory of quantum mechanics can't predict exactly what value an experiment will produce (it can't tell you, when you measure $A$, if you will get $a_1$ or $a_2$ or something else) but only the probability of measuring each (so maybe 50\% of the time you'll measure $a_1$, 25\% of the time $a_2$, and so on). 
+
+Let's try applying this to our measurements of spin.  If we want to measure the value of $S_z$, for example, the probability that we would get the value $S_z = +\hbar/2$ could be calculated by
+\[
+\mathcal{P}_+ = |\braket{+}{\psi}|^2,
+\]
+and the probability of measuring $S_z = -\hbar/2$ is
+\[
+\mathcal{P}_- = |\braket{-}{\psi}|^2,
+\]
+Of course, with only two possibilities, we'd have to have
+\[
+\mathcal{P}_+ + \mathcal{P}_- = 1
+\]
+so that we have 100\% chance of measuring something.
+
+One last thing:  notice the role of the inner product, which in this context is called the \emph{amplitude}, and complex squaring the amplitude gives us the probability.  Remember that the complex conjugate of an inner product flips the order, so the full complex square can be written 
+\begin{equation}
+\braket{a_n}{\psi} |^2 = \left( \braket{a_n}{\psi} \right)^* \braket{a_n}{\psi}  = \braket{\psi}{a_n} \braket{a_n}{\psi}. 
+\end{equation}
+
+\begin{example}[Calculating probability]
+Suppose our particle is in the state $\ket{+}$.  In this state, of course, there's a 100\% chance of measuring $S_z = +\hbar/2$, as we can see with the calculation
+\[
+\mathcal{P}_+ = |\braket{+}{+}|^2 = 1.
+\]
+
+But what's the probability of measuring $S_x = +\hbar/2$?  This is easier to calculate using matrix notation:
+\[
+\mathcal{P}_{+x} = | _x \braket{+}{+}|^2 \to 
+\left| 
+\begin{pmatrix} 1/\sqrt{2} & 1/\sqrt{2} \end{pmatrix}
+\begin{pmatrix} 1 \\ 0 \end{pmatrix}
+\right|^2 = \left| \frac{1}{\sqrt{2}} \right|^2 = \frac{1}{2}.
+\]
+So there's a 50\% chance of measuring spin up along the $x$-direction.
+
+We went over this already back in the Stern-Gerlach Experiment 1 (Section \ref{sec_exp1}) and Experiment 2 (Section \ref{sec_exp2}) -- this is the theory that explains the results we went over then.  So we might as well go over Experiment 3, too (Section \ref{sec_exp3}), in which we had a beam of particles in the state $\ket{+}_x$ entering a Stern-Gerlach device aligned to measure $S_z$.  Question:  how many particles will we measure to have $S_z = +\hbar/2$?  Well, the probability of measuring spin up along $z$ is
+\[
+\mathcal{P}_{+} = |  \braket{+}{+}_x|^2 \to 
+\left| 
+\begin{pmatrix} 1 & 0 \end{pmatrix}
+\begin{pmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{pmatrix}
+\right|^2 = \left| \frac{1}{\sqrt{2}} \right|^2 = \frac{1}{2}.
+\]
+So 50\% of the particles should have $S_z = +\hbar/2$ (and presumably the other 50\% are spin down).
+
+\end{example}
+
 
 \section{Indeterminant States}
+
+Let's return to an issue that I've been trying to avoid.  As usual, pretend we have a particle in some general state $\ket{\psi}$, and suppose we want to measure the observable $S_z$.  We know from our Stern-Gerlach discussions that the state \emph{changes} once a measurement is made -- we say the the state \emph{collapses} to the state that corresponds to the measurement we made.  For example, if a particle is in state $\ket{\psi}$ and we measure $S_z = +\hbar/2$, the state has collapsed to the new state $\ket{+}$.  This, though, is not the issue I've been dancing around.
+
+Instead, consider this question:  what is the value of the $S_z$ \emph{just before} we make the measurement?  I know what it is after measurement -- it's $+\hbar/2$ -- and I can check by measuring $S_z$ again (and I'll get the same value as long as the state hasn't been disturbed in some way).  But what's $S_z$ -- the component of spin angular momentum along the $z$-direction -- \emph{before} that first measurement?
+
+This is a more difficult question to answer than you might think since our theory doesn't quite provide an answer for us -- the fact that the state collapses upon measurement means that we don't really know the value of $S_z$ before the collapse.  There are possibilities we must consider:\footnote{From Griffiths' \emph{Introduction to Quantum Mechanics}, section 1.2}
+\begin{enumerate}
+\item The obvious possibility is that the spin was $S_z  = +\hbar/2$ just before measurement, too -- that's what we measure it to be, after all. This is called the \emph{realist} position.  There's just one problem, though -- if the particle has $S_z = +\hbar/2$ all along, why couldn't quantum mechanics tell us that?  This suggests that it's an \emph{incomplete theory} -- we're missing something that would allow us to calculate directly the answer to this question.
+\item Another option is a little more drastic -- maybe the particle did not have a value for $S_z$.  Not that it's zero or we don't know the value -- but that it does not have a definite value for its spin angular momentum.  This is called \emph{indeterminancy} -- the state is indeterminant with respect to its value of $S_z$ -- and this interpretation of quantum mechanics is called the \emph{Copenhagen interpretation}.  
+\item I guess we could also just refuse to answer -- the theory doesn't allow us to answer, so maybe it's not a good question to ask.  This is called the \emph{agnostic} position.
+\end{enumerate}
+
+In 1964 John Bell showed that it actually makes an observable difference whether a particle has a value of an observable (even if it's unknown) or if it's indeterminant.  Although I won't get into the details of Bell's work here,\footnote{See Griffiths \emph{Introduction to Quantum Mechanics} section 12.2.}, the conclusion is pretty remarkable: it's the Copenhagen interpretation that is the correct one.  Actually, I should be a little more careful, since there are extensions of quantum mechanics (called nonlocal hidden variable theories) that can maintain the realist position, as well as interpretations (like the popular many-worlds interpretation) that fall outside of the simple picture I've gone over here.  But those are also outside the scope of this book, so going forward we'll adopt the Copenhagen interpretation in which observables might not have precise values before measurement.
+
 
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
 
-\begin{problem}[Spin-1/2 States]
-Consider these different spin-1/2 states, given in Dirac notation by
-\begin{align*}
-\ket{\psi_1} &= 3 \ket{+} + 4\ket{-} \\
-\ket{\psi_2} &= \ket{+} + 2i \ket{-} \\
-\ket{\psi_3} &= 3 \ket{+} - e^{i\pi/3}\ket{-} \\
-\ket{\psi_4} &= 3 \ket{+} - 5i\ket{-}.
-\end{align*}
+\begin{problem}[Orthogonality]
+Show that the states $\ket{+}_x$ and $\ket{-}_x$ are orthogonal.  Do the same for the states $\ket{+}_y$ and $\ket{-}_y$. 
+\end{problem}
+
+\begin{problem}[$S_z$ and $S_x$ Measurements]
+Consider the two normalized states 
+\[
+\ket{\psi_1} = \frac{2}{\sqrt{13}} \ket{+} + \frac{3i}{\sqrt{13}} \ket{-} \quad \text{and} \quad \ket{\psi_2} = \frac{2}{\sqrt{13}} \ket{+}_x + \frac{3i}{\sqrt{13}} \ket{-}_x.
+\]
 \begin{enumerate}[label=(\alph*)]
-\item Normalize each state.
-\item Write each state in matrix notation.
-\item Write the bra of each ket; write the bras in matrix notation, too.
-\item Find a (normalized) ket that is orthogonal to each state.
-\item Compute the following inner products, using either Dirac notation or matrix notation:  $\braket{\psi_1}{\psi_2}$, $\braket{\psi_3}{\psi_4}$, $\braket{\psi_4}{\psi_1}$, and $\braket{\psi_3}{\psi_2}$.
+\item If you measure the observable $S_z$ on each state, what are the possible results you would measure, and with what probability would you measure each?
+\item If you measure the observable $S_x$ on each state, what are the possible results you would measure, and with what probability would you measure each?
 \end{enumerate}
 \end{problem}
 
+\begin{problem}[Measurements]
+Using a Stern-Gerlach device rotated at some angle, you're able to prepare a beam of particles all in the state  (we'll see later on how you can do this)
+\[
+\ket{\psi} = 3 \ket{+} + 5i \ket{-}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item What is the normalized state?
+\item If you were to measure $S_z$, what are the possible results and their probabilities?
+\item Suppose you measured $S_z$ on the beam of particles, and some of them were found to be $-\hbar/2$.  If you then made a measurement of $S_y$ on just those particles, what are the possible results and their probabilities? 
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[An Overall Phase]
+\label{prob_phase1}
+\begin{enumerate}[label=(\alph*)] 
+\item First, consider this normalized state:
+\[
+\ket{\psi_1} = \frac{4}{5} \ket{+} + \frac{3i}{5} \ket{-}.
+\]
+What is the probability of measuring $S_y = +\hbar/2$ for a particle in this state?
+\item Next, we can change the state by introducing an \emph{overall phase factor},
+\[
+\ket{\psi_2} = -(\frac{4}{5} \ket{+} + \frac{3i}{5} \ket{-}) = -\frac{4}{5} \ket{+} - \frac{3i}{5} \ket{-}.
+\]
+What is the probability of measuring $S_y = +\hbar/2$ for a particle in this state?  What affect does the overall phase factor have on the measurement?
+\item We can also change the state by introducing a \emph{relative phase factor},
+\[
+\ket{\psi_3} = \frac{4}{5} \ket{+} - \frac{3i}{5} \ket{-}.
+\]
+What is the probability of measuring $S_y = +\hbar/2$ for a particle in this state?  What affect does the relative phase factor have on the measurement?
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[An Overall Phase Part 2]
+\begin{enumerate}[label=(\alph*)] 
+\item Show that you can write the overall phase from Problem \ref{prob_phase1} (b) as
+\[
+\ket{\psi_2} = e^{i\delta} (\frac{4}{5} \ket{+} + \frac{3i}{5} \ket{-}).
+\]
+What is the value of $\delta$?
+\item Show that an overall phase for \emph{any} measurement on a general state $\ket{\psi}$ has no affect on the probability.  This is a fact we'll exploit every so often -- that an overall phase has no affect on a physical measurement. 
+\end{enumerate}
+\end{problem}
 
 \begin{problem}[A Three-State System]
-So far we've only looked at the fairly simple two-state spin-1/2 system.  For this problem, consider a system which has \emph{three} orthonormal basis states, given by
+Remember our three-state system from Problem \ref{prob_3state}? We had three orthonormal basis states, given by
 \[
 \ket{a_1}, \ket{a_2}, \text{ and }  \ket{a_3}.
 \]
+Here, each state corresponds to a measurement of an observable $A$.
 \begin{enumerate}[label=(\alph*)]
-\item What would these kets look like in matrix notation?
-\item Normalize the state
+\item Suppose the system is prepared in the state
 \[
-\ket{\psi_1} = \ket{a_1} - 2 \ket{a_2} + 5 \ket{a_3}.
+\ket{\psi} =  \ket{a_1} - 2 \ket{a_2} + 5 \ket{a_3}.
 \]
-\item Take the inner product of $\ket{\psi_1}$ with the state 
-\[
-\ket{\psi_2} = i\ket{a_1} + 3 \ket{a_2} - 2\ket{a_3}.
-\]
-(you'll have to normalize that state first, of course).
+You then measure the observable $A$  on this state; what are the possible results and probabilities of each?
 \end{enumerate}
 \end{problem}
 
