@@ -1,0 +1,41 @@
+\chapter{Observables and Operators}
+
+\section{Operators and Measurement}
+
+We've already seen lots of examples of \emph{observables} -- the spin components $S_x$, $S_y$, and $S_z$ are all examples of things that we can observe, as are things like position and momentum.  In the language of quantum mechanics: 
+\[
+\boxed{\text{A physical observable $A$ is represented by an operator $\hat{A}$.}}
+\]
+
+Wait, what exactly is an observable?  At the risk of being too simplistic, it's something that \emph{operates} on a quantum state, producing a new state.  Mathematically we can write this operation like
+\begin{equation}
+\hat{A} \ket{\psi} = \ket{\phi}.\footnote{Although the hat on the operator is standard, many textbooks drop it to reduce clutter in notation.  I think it's important to be able to easily distinguish an observable and an operator at a glance, especially for newcomers.}
+\end{equation}
+Actually, although in general the operator $\hat{A}$ produces a new state, sometimes the state it operates on is special and \emph{doesn't} change:
+\begin{equation}
+\label{eq_eigen}
+\hat{A} \ket{\psi} = a \ket{\psi}.
+\end{equation}
+Instead of making a new state, it gives back the same state, but multiplied by a number $a$.  If you're familiar with linear algebra, you might recognize equation (\ref{eq_eigen}) as an \emph{eigenvalue equation}, with $a$ playing the role of the eigenvalue and the ket $\ket{\psi}$ being the eigenvector.   The eigenvalue is very important:
+\\
+
+\fbox{
+  \parbox{0.9\textwidth}{
+    The only possible result of a measurement of an observable $A$ is one of the eigenvalues $a_n$ of the corresponding operator $\hat{A}$.
+  }
+}
+
+\subsection{The Operator $\hat{S_z}$}
+
+As a good starting point
+
+
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+\markright{Problems}%
+
+\begin{problem}[Orthogonality]
+Show that the states $\ket{+}_x$ and $\ket{-}_x$ are orthogonal.  Do the same for the states $\ket{+}_y$ and $\ket{-}_y$. 
+\end{problem}
+
+
