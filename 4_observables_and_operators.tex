@@ -48,6 +48,7 @@ Multiplying out the left side gives
 \]
 so we know that $a = \hbar/2$ and $c = 0$.  The other eigenvalue equation, for $-\hbar/2$, similarly gives $b = 0$ and $d = -\hbar/2$.  The operator $\hat{S}_z$, in matrix notation, is
 \begin{equation}
+\label{eq_sz_matrix}
 \hat{S}_z \to \frac{\hbar}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}.
 \end{equation}
 
@@ -86,10 +87,12 @@ where $a_{ij} = \bra{i} \hat{A} \ket{j}$ and $\ket{i}$ and $\ket{j}$ are the bas
 
 The matrix representation of the other two spin component operators are given by
 \begin{equation}
+\label{eq_sx_matrix}
 \hat{S}_x \to \frac{\hbar}{2} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}
 \end{equation}
 and 
 \begin{equation}
+\label{eq_sy_matrix}
 \hat{S}_y \to \frac{\hbar}{2} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}.
 \end{equation}
 These are both written in the $S_z$ basis (notice that they're not diagonal).  If you'd like to know where these came from, feel free to work through the Stern-Gerlach results in Problem XXX.  What I'd rather do right now is ask the question: \emph{if we were to measure, say, $S_y$ on some particular state, what are the possible results we could get?}  We already know the answer in this case, but a lot of quantum mechanics boils down to figuring out the answer to this question for a variety of different observables and corresponding operators, so it's worth going through the process in detail.
@@ -204,6 +207,30 @@ and
 Remember, all this is explicitly in the $S_z$ basis.
 
 By the way, if you were wondering how we make some ``general spin state'' $\ket{\psi}$ with some specific set of coefficients, this is how:  orient the Stern-Gerlach device at just the correct angles $\theta$ and $\phi$ that give you those coefficients.  Problem XXX will ask you to do this.
+
+
+\section{The $\hat{S}^2$ Operator}
+
+All of the spin operators we've seen so far have be \emph{components} of the spin angular momentum \emph{vector}.  We know that we can't simultaneously know all three components, but it turns out we can measure the total magnitude of the spin; in fact, we usually work with the square,
+\begin{equation}
+S^2 = S_x^2 + S_y^2 + S_z^2.
+\end{equation}
+At the risk of repeating things, the operator $\hat{S}^2$ is of course
+\begin{equation}
+\hat{S}^2 = \hat{S}_x^2 + \hat{S}_y^2 + \hat{S}_z^2,
+\end{equation}
+and we can determine what it looks like in the $S_z$ basis using matrix notation.  Substituting from equations (\ref{eq_sz_matrix}), (\ref{eq_sx_matrix}), and (\ref{eq_sy_matrix}), we see that
+\begin{equation}
+\hat{S}^2 \to \left[ \frac{\hbar}{2} \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix} \right]^2 + 
+\left[ \frac{\hbar}{2} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix} \right]^2 + 
+\left[ \frac{\hbar}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix} \right]^2
+\end{equation}
+or
+\begin{equation}
+\hat{S}^2 \to \frac{3}{4} \hbar^2 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} 
+\end{equation}
+
+But this matrix is just the identity matrix!
 
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
