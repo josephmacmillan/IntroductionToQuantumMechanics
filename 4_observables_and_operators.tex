@@ -230,7 +230,68 @@ or
 \hat{S}^2 \to \frac{3}{4} \hbar^2 \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix} 
 \end{equation}
 
-But this matrix is just the identity matrix!
+But you might recognize this matrix as the identity matrix -- and it's diagonal, which means we can just read off the eigenvalues:  there's two but they're the same, $3\hbar^2/4$.  That means that \emph{every} measurement of $S^2$ (or just the magnitude $S$) will return $3\hbar^2/4$ (or $\sqrt{3} \hbar /2$).  The eigenstates are simple, too, give the diagonal matrix -- they're the basis states $\ket{+}$ and $\ket{-}$.
+
+\section{The Projection and Identity Operators}
+
+We've seen that one way to combine two quantum states is the \emph{inner product}, which is related to probability, but there's also another way to combine two states called an \emph{outer product}, which takes the form
+\[
+\ket{\phi}\bra{\psi}.
+\]
+
+For example, consider the so-called \emph{projection operators}, formed from the outer product of a basis state.  One possibility is written as
+\begin{equation}
+\hat{P}_+ = \ket{+} \bra{+}, 
+\end{equation}
+with the other (in our two basis-state system) as
+\begin{equation}
+\hat{P}_- = \ket{-} \bra{-}.
+\end{equation}
+Notice that these really are operators:  the bra will act on another state, leaving some number times the ket.  
+
+Let's see what $\hat{P}_+$ does to a general state $\ket{\psi} = a\ket{+} + b\ket{-}$:
+\[
+\hat{P}_+ \ket{\psi} = \ket{+} \bra{+} \ket{\psi} = \ket{+} \bra{+} \Bigl( a\ket{+} + b\ket{-} \Bigl) = a \ket{+}.
+\]
+We can see why it's called a projection operator:  applying it to a state gives us a new state that is how much ``spin up'' the original state was times the spin up state itself.  Similarly, of course, for $\hat{P}_-$:
+\[
+\hat{P}_- \ket{\psi} = b \ket{-}.
+\]
+
+What are the matrix representations of $\hat{P}_\pm$?  In the $S_z$ basis,
+\begin{equation}
+\hat{P}_+ \to 
+\begin{pmatrix}
+\bra{+} \hat{P}_+ \ket{+} & \bra{+} \hat{P}_+ \ket{-} \\
+\bra{-} \hat{P}_+ \ket{+} & \bra{-} \hat{P}_+ \ket{-}
+\end{pmatrix}
+ = 
+\begin{pmatrix}
+1 & 0 \\ 0 & 0
+\end{pmatrix}
+\end{equation}
+and
+\begin{equation}
+\hat{P}_- \to 
+\begin{pmatrix}
+0 & 0 \\ 0 & 1
+\end{pmatrix}.
+\end{equation}
+
+Here's another operator while we're at it:  I'll define the \emph{identity operator} as 
+\begin{equation}
+\hat{1} = \hat{P}_+ + \hat{P}_-.
+\end{equation}
+Take a look at the effect it has on a state:
+\[
+\hat{1} \ket{\psi} = (\hat{P}_+ + \hat{P}_-) \ket{\psi} = \hat{P}_+\ket{\psi} + \hat{P}_-\ket{\psi} = a\ket{+} + b\ket{-}.
+\]
+But this is exactly the state $\ket{\psi}$ that we started with -- so there's no change at all.
+
+It's even clearer if we work out the matrix representation; I'll let you check, but of course it's the identity matrix,
+\begin{equation}
+\hat{1} \to \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
+\end{equation}
 
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
