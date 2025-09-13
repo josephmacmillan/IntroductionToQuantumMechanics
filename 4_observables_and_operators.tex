@@ -293,6 +293,80 @@ It's even clearer if we work out the matrix representation; I'll let you check, 
 \hat{1} \to \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}.
 \end{equation}
 
+\section{Hermitian Operators}
+
+We've just gone through lots of different operators, so it's time to circle back to the start of this chapter.  We said there that an operator acts on a state and produces a new state:
+\[
+\hat{A} \ket{\psi} = \ket{\phi}.
+\]
+How does the operator act on a \emph{bra}?  In general, it produces a \emph{different} state,
+\begin{equation}
+\bra{\psi} \hat{A} = \bra{\xi}.
+\end{equation}
+Notice that the operator sits to the right of the bra and acts to the left, and that the state that it produces when acting on $\bra{\psi}$ is \emph{not} the same state as the operator acting on the \emph{ket}; that is, $\ket{\phi}$ and $\ket{\xi}$ are different quantum states.
+
+However, if we instead act on the bra $\bra{\psi}$ with a different operator, $\hat{A}^\dagger$ -- called the Hermitian adjoint of $\hat{A}$ -- then we \emph{do} get the state $\bra{\phi}$:
+\begin{equation}
+\bra{\psi} \hat{A}^\dagger = \bra{\phi}.
+\end{equation}
+
+Wait, what exactly is a Hermitian adjoint?  To see, imagine taking the inner product of the state $\ket{\phi} = \hat{A} \ket{\psi}$ with some other state $\ket{\beta}$,
+\[
+\braket{\phi}{\beta},
+\]
+and of course we can flip the order by taking the complex conjugate,
+\[
+\braket{\phi}{\beta} = \braket{\beta}{\phi}^*.
+\]
+But $\bra{\phi} = \bra{\psi}\hat{A}^\dagger$ and $\ket{\phi} = \hat{A} \ket{\psi}$, so we can write
+\[
+\bra{\psi}\hat{A}^\dagger \ket{\beta} = \bra{\beta} \hat{A} \ket{\psi}^*.
+\]
+Remember, these operations are called matrix elements, so this tells us that the matrix representation pf $\hat{A}^\dagger$ is the \emph{transpose} and complex conjugate of $\hat{A}$.
+
+One last thing, but it's really important:  sometimes it turns out that $\hat{A}^\dagger = \hat{A}$ (or, in matrix notation, the operator is equal to its transpose conjugate).  In this case we say that the operator $\hat{A}$ is \emph{Hermitian}.  In fact,
+\[
+\boxed{\text{Every physical observable is represented by a Hermitian operator.}}
+\]
+That's important, since you can prove that a Hermitian operator will always have \emph{real} eigenvalues and that the eigenvectors will always be complete.
+
+\section{The Ladder Operators}
+
+So far every operator we've talked about has been Hermitian -- go ahead and check.  As a last example for the chapter, and one we'll make use of later, consider this mix of the operators $\hat{S}_x$ and $\hat{S}_y$:
+\begin{equation}
+\hat{S}_+ \equiv \hat{S}_x + i\hat{S}_y \quad \text{and} \quad \hat{S}_- \equiv \hat{S}_x - i\hat{S}_y.
+\end{equation}
+These are called ``ladder operators,'' with $\hat{S}_+$ begin the \emph{raising} operator and $\hat{S}_-$ the \emph{lowering} operator.
+
+What do these operators do?  It's easiest to see in matrix notation, which is straightforward to figure out -- just add the spin matrices together in the appropriate way.  The raising operator is
+\begin{equation}
+\hat{S}_+ \to \hbar \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}
+\end{equation}
+and the lowering operator is
+\begin{equation}
+\hat{S}_- \to \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}.
+\end{equation}
+I think you can see at a glance that these matrices are not Hermitian -- try taking their transpose.  But while we're looking at them, note that $\hat{S}_+^\dagger = \hat{S}_-$; they're \emph{Hermitian conjugates}.
+
+Let's see what the raising operator does to our basis states, starting with spin up,
+\[
+\hat{S}_+ \ket{+} \to \hbar \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \mathbf{0},
+\]
+and then spin down,
+\[
+\hat{S}_+ \ket{-} \to \hbar \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \hbar \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \hbar \ket{+}.
+\]
+What's going on here?  The raising operator ``raises'' the spin down state to become spin up (times a constant), but, since there's no higher spin state than spin up, when $\hat{S}_+$ acts on that, it just gives zero.
+
+Can you guess how the lowering operator will act?  It should ``lower'' the spin up state, and give us zero for the spin down state, and it does:
+\[
+\hat{S}_- \ket{+} \to \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 1 \\ 0 \end{pmatrix} = \hbar \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \hbar \ket{-},
+\]
+and
+\[
+\hat{S}_- \ket{-} \to \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \mathbf{0}.
+\]
+
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
