@@ -1,0 +1,167 @@
+%
+% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+%
+
+\documentclass[10pt, letterpaper, twoside, openany]{article}
+
+\title{Introduction to Quantum Mechanics -- Worksheet 2}
+\author{Joseph D. MacMillan}
+\date{}
+
+
+\usepackage{graphicx}
+\usepackage{color} 
+\usepackage{amsmath, amssymb}
+\usepackage{libertinus}
+\usepackage{microtype}
+\usepackage{layout}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[hang, small, bf]{caption}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Introduction to Quantum Mechanics -- Worksheet 2}}
+\hypersetup{pdfauthor={Joseph D. MacMillan}}
+\urlstyle{rm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+
+
+
+\newcommand{\uu}{\symbfup{u}}
+\newcommand{\grad}{\symbfup{\nabla}}
+\newcommand{\curl}{\symbfup{\nabla} \times}
+\newcommand{\dfdx}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ddfdx}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\vort}{\symbfup{\omega}}
+\renewcommand\vec{\symbfup}
+\newcommand{\unit}[1]{\hat{\vec{#1}}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\LL}{\mathbb{L}^2}
+\newcommand{\LLLL}{\mathbb{L}^4}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+
+
+%\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{sl}
+\newcommand{\tens}[1]{\mathbfsfit{#1}}
+
+
+\newcounter{example}[section]
+\def\theexample{\thechapter.\arabic{example}}
+\newenvironment{example}[1][ ]{\refstepcounter{example}
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{Example \theexample \ -- #1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newenvironment{theorem}[1][ ]{
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{#1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newcounter{problem}[section]
+\def\theproblem{\thechapter.\arabic{problem}}
+\newenvironment{problem}[1][ ]{\refstepcounter{problem} \noindent \textbf{Problem \theproblem \ -- #1.}}{\vspace{0.1in}}
+
+\renewcommand{\arraystretch}{2.5}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{\emph{Introduction to Quantum Mechanics}}
+\fancyhead[R]{Worksheet 2} 
+
+\Large \noindent Worksheet 2
+
+\noindent \LARGE \textbf{Stern-Gerlach and Probabilities}
+
+\normalsize
+
+\vspace{0.2in}
+
+\noindent Exploring the Stern-Gerlach Experiment  \bullet \  Normalization   \bullet \  Probabilities  
+
+\vspace{0.1in}
+
+\noindent \rule{\textwidth}{0.5pt}
+
+\vspace{0.2in}
+
+\begin{enumerate}
+\item This question uses the SPINS simulation which you can find online at \url{https://physics.weber.edu/schroeder/software/Spins.html}.  Set up the experiment so that you have an oven, a Stern-Gerlach $S_z$ device, and two counters, one for each output. Click on the number $1$ on the oven; this will set each particle coming out to be in the initial state
+\[
+\ket{\psi_1} = \frac{1}{\sqrt{2}} \ket{+} + \frac{i}{\sqrt{2}} \ket{-}.
+\]
+\begin{enumerate}
+\item First, predict what the experiment will measure:  what are the probabilities $\mathcal{P}_+$ and $\mathcal{P}_-$ for measuring the particle to be spin up or spin down, respectively?  Show your calculation.
+
+\vspace{2in}
+
+\item Okay, now go ahead and click the 10k button to send in 10,000 particles.  Are your predictions correct?  Are they \emph{perfectly} correct?
+
+\vspace{1in}
+
+\item Next, replace the $S_z$ device with one oriented along the $x$ direction.  Once again, make a prediction: what are the probabilities for measuring $\mathcal{P}_{+x}$ and $\mathcal{P}_{-x}$?  Test your prediction once you've done the calculation.
+
+\newpage
+
+\item Finally, replace the $S_x$ device with one oriented along the $y$ direction.  What are the probabilities for measuring $\mathcal{P}_{+y}$ and $\mathcal{P}_{-y}$?  Test your predictions.  Any observations to make here?
+
+\end{enumerate}
+
+\vspace{3in}
+
+\item Now for something a little trickier.  One the SPINS experiment, keep the single Stern-Gerlach device (any orientation is fine), but click on the number $3$.  This one sends out particles all in the same state $\ket{\psi_3}$, but we don't know exactly what that state is.  Our job is to figure it out.
+\begin{enumerate}
+\item First, run your experiments: using all three orientations for the SG device, figure out the probabilities for spin up and spin down for each and record them below.
+
+\begin{center}
+\begin{tabular}{ p{1in} | p{1in} | p{1in} | p{1in}}
+Probabilities & $S_x$ & $S_y$ & $S_z$ \\
+\hline
+Spin up & & & \\
+\hline
+Spin down & & & \\
+\hline
+\end{tabular}
+\end{center}
+
+
+\item Write the unknown state $\ket{\psi_3}$ as 
+\[
+\ket{\psi_3} = a \ket{+} + b\ket{-},
+\]
+where $a$ and $b$ are unknown \emph{complex} constants.  This state is written in the $S_z$ basis, so start with your results for that orientation in table.  Calculate $\mathcal{P}_+$ and $\mathcal{P}_-$ and use those results to find out what $|a|$ and $|b|$ are.  
+
+\newpage
+
+\item Unfortunately, we only know the magnitudes of those complex numbers $a$ and $b$.  Since we know (or will soon) that an overall phase has no physical meaning, we can write the state now as 
+\[
+\ket{\psi_3} = |a| \ket{+} + |b| e^{-\phi}\ket{-},
+\]
+where $\phi$ is the phase -- our last unknown.  Calculate  $\mathcal{P}_{+x}$ and $\mathcal{P}_{-x}$ and use your results from the $S_x$ experiment to find what $\phi$ is (careful -- there are multiple possibilities it could be!).  \emph{Hint:} You might need to use the relationship
+\[
+\cos\phi = \frac{e^{i\phi} + e^{-i\phi}}{2}.
+\]
+
+\vspace{3in}
+
+\item Okay, one last problem -- we don't know the sign of the phase $\phi$ (it could be positive or negative).  To resolve this last ambiguity, we need to use our results for $S_y$ -- go ahead, and write the final ket of the state $\ket{\psi_3}$. 
+
+\end{enumerate}
+\end{enumerate}
+
+\end{document}
