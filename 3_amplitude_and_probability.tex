@@ -6,12 +6,14 @@ In the previous chapter we talked about the two basis states -- for what we're c
 \begin{equation}
 \ket{+} \to \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad \text{and} \quad \ket{-} \to \begin{pmatrix} 0 \\ 1 \end{pmatrix}.
 \end{equation}
-But since these are basis states, \emph{any} other state can be written in terms of them, including the states corresponding to measuring $S_x = +\hbar/2$ and $S_x = -\hbar/2$ that we discussed back in Experiment 2 in Section \ref{sec_exp2}.  I'll show you how to figure this out later, and for now I'll just tell you the states:
+But since these are basis states, \emph{any} other state can be written in terms of them, including the states corresponding to measuring $S_x = +\hbar/2$ and $S_x = -\hbar/2$ that we discussed back in Experiment 2 in Section \ref{sec_exp2}.  I'll show you how to figure this out in Problem \ref{prob_Sx_states}, and for now I'll just tell you the states:
 \begin{equation}
+\label{eq_ket_plus_x}
 \ket{+}_x = \frac{1}{\sqrt{2}} \ket{+} + \frac{1}{\sqrt{2}} \ket{-} \to \begin{pmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{pmatrix}
 \end{equation}
 and
 \begin{equation}
+\label{eq_ket_minus_x}
 \ket{-}_x = \frac{1}{\sqrt{2}} \ket{+} - \frac{1}{\sqrt{2}} \ket{-} \to \begin{pmatrix} 1/\sqrt{2} \\ -1/\sqrt{2} \end{pmatrix}.
 \end{equation}
 
@@ -158,6 +160,7 @@ What is the probability of measuring $S_y = +\hbar/2$ for a particle in this sta
 \end{problem}
 
 \begin{problem}[An Overall Phase Part 2]
+\label{prob_rel_phase}
 \begin{enumerate}[label=(\alph*)] 
 \item Show that you can write the overall phase from Problem \ref{prob_phase1} (b) as
 \[
@@ -165,6 +168,34 @@ What is the probability of measuring $S_y = +\hbar/2$ for a particle in this sta
 \]
 What is the value of $\delta$?
 \item Show that an overall phase for \emph{any} measurement on a general state $\ket{\psi}$ has no affect on the probability.  This is a fact we'll exploit every so often -- that an overall phase has no affect on a physical measurement. 
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[The $S_x$ States]
+\label{prob_Sx_states}
+You might be wondering how I was able to write down the states for $\ket{+}_x$ and $\ket{-}_x$ back at the start of this chapter.  This problem will walk you through the details -- it comes from analysing the Stern-Gerlach experiments of Chapter 1.  From Experiment 2 (or Experiment 3), we can write down a bunch of probabilities based on the results:
+\begin{align*}
+|\braket{+}{+}_x|^2 & = \tfrac{1}{2} \quad |\braket{+}{-}_x|^2 = \tfrac{1}{2} \\
+|\braket{-}{+}_x|^2 & = \tfrac{1}{2} \quad |\braket{-}{-}_x|^2 = \tfrac{1}{2} 
+\end{align*}
+\begin{enumerate}[label=(\alph*)] 
+\item Write the unknown kets $\ket{+}_x$ and $\ket{-}_x$ as
+\[
+\ket{+}_x = a \ket{+} + b e^{i\alpha}\ket{-} \quad \text{and} \quad \ket{-}_x = c \ket{+} + d e^{i\beta}\ket{-},
+\]
+where $a,b,c,$ and $d$ as well as $\alpha$ and $\beta$ are all \emph{real} numbers -- we're leveraging the fact the only relative phases are important as discussed in Problem \ref{prob_rel_phase}.  Use these kets and the probability results above to find the unknowns $a,b,c,$ and $d$.
+\item For the numbers $\alpha$ and $\beta$ we need to use a bit more information about our states.  We know, for example, they should be normalized (which they already are) and that they should be orthogonal:
+\[
+_x\braket{-}{+}_x = 0.
+\]
+Use this property to show that we must have
+\[
+e^{i\alpha} = -e^{i\beta}.
+\]
+\item That's as far as we can go -- we have some freedom to choose the phases $\alpha$ and $\beta$ as long as this equation is satisfied (this corresponds exactly to the fact that the $z$ and $x$ axes have to be perpendicular -- but there's an infinite number of directions the $x$ axis can have and still be perpendicular).  By convention, take $\alpha = 0$; what value of $\beta$ is then necessary?
+\item Use all your now-found unknowns to write out the two states $\ket{+}_x$ and $\ket{-}_x$, and confirm that they match equations (\ref{eq_ket_plus_x}) and (\ref{eq_ket_minus_x}).
+
+What about the $S_y$ states?  Go ahead and try if you're interested; all the probabilities will be the same, the only difference is that $\ket{+}_y$ and $\ket{-}_y$ must also satisfy the probability relations between an $x$ Stern-Gerlach device and a $y$ one, and we have to choose $\alpha = \pi/2$ for that.
 \end{enumerate}
 \end{problem}
 

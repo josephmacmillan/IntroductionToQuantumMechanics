@@ -67,6 +67,7 @@ Now for something a little new.  Consider the calculation $\bra{+} \hat{A} \ket{
 \]
 So the ultimate result is just a number -- $a$ in this case.  Similarly, you can show that $\bra{+}\hat{A} \ket{-} = b$, and so on.  That means we could be able to write our operator in matrix notation as
 \begin{equation}
+\label{eq_matrix_spin}
 \hat{A} \to \begin{pmatrix} \bra{+}\hat{A}\ket{+} & \bra{+}\hat{A}\ket{-} \\ \bra{-}\hat{A}\ket{+} & \bra{-}\hat{A}\ket{-} \end{pmatrix}.
 \end{equation}
 This is just notation, but useful since we can see explicitly what the basis is.
@@ -84,6 +85,7 @@ where $a_{ij} = \bra{i} \hat{A} \ket{j}$ and $\ket{i}$ and $\ket{j}$ are the bas
 
 
 \section{The Operators $\hat{S}_x$ and $\hat{S}_y$}
+\label{sec_Sx_Sy}
 
 The matrix representation of the other two spin component operators are given by
 \begin{equation}
@@ -95,9 +97,9 @@ and
 \label{eq_sy_matrix}
 \hat{S}_y \to \frac{\hbar}{2} \begin{pmatrix} 0 & -i \\ i & 0 \end{pmatrix}.
 \end{equation}
-These are both written in the $S_z$ basis (notice that they're not diagonal).  If you'd like to know where these came from, feel free to work through the Stern-Gerlach results in Problem XXX.  What I'd rather do right now is ask the question: \emph{if we were to measure, say, $S_y$ on some particular state, what are the possible results we could get?}  We already know the answer in this case, but a lot of quantum mechanics boils down to figuring out the answer to this question for a variety of different observables and corresponding operators, so it's worth going through the process in detail.
+These are both written in the $S_z$ basis (notice that they're not diagonal).  If you'd like to know where these came from, feel free to work through Problems \ref{prob_Sx} and \ref{prob_Sy}.  What I'd rather do right now is ask the question: \emph{if we were to measure, say, $S_y$ on some particular state, what are the possible results we could get?}  We already know the answer in this case, but a lot of quantum mechanics boils down to figuring out the answer to this question for a variety of different observables and corresponding operators, so it's worth going through the process in detail.
 
-The answer, as mentioned above, is given by the eigenvalues of the operator. You probably already know how to find eigenvalues fro your linear algebra course, but let's do it together nice and slow.  First, the eigenvalue equation is
+The answer, as mentioned above, is given by the eigenvalues of the operator. You probably already know how to find eigenvalues from your linear algebra course, but let's do it together nice and slow.  First, the eigenvalue equation is
 \begin{equation}
 \label{eq_eigeny}
 \hat{S}_y \ket{\lambda} = \lambda \ket{\lambda},
@@ -108,13 +110,13 @@ We find the eigenvalues by solving the characteristic (or secular) equation , wh
 \begin{equation}
 \det | \textbf{S}_y - \lambda \textbf{I} | = 0.
 \end{equation}
-The bolded letter $\textbf{S}_y$ denote the matrix representation of the operator, and $\textbf{I}$ is the identity matrix.  Filling in the matrices gives
+The bolded letter $\textbf{S}_y$ denotes the matrix representation of the operator, and $\textbf{I}$ is the identity matrix.  Filling in the matrices gives
 \[
 \left| \begin{pmatrix} 0 & -i\hbar/2 \\ i\hbar/2 & 0  \end{pmatrix} - \begin{pmatrix} \lambda &  0 \\ 0 & \lambda \end{pmatrix} \right| = 0,
 \]
 or, after simplifying,
 \[
-\left| \begin{pmatrix} -\lambda & -i\hbar/2 \\ i\hbar/2 & -\lambda  \end{pmatrix} \right| = 0.
+\begin{vmatrix} -\lambda & -i\hbar/2 \\ i\hbar/2 & -\lambda  \end{vmatrix} = 0.
 \]
 Work out the determinant to get
 \[
@@ -169,13 +171,19 @@ Feel free to go through the same process to get the spin down eigenstate; it tur
 \begin{equation}
 \ket{-}_y = \frac{1}{\sqrt{2}} \ket{+} - \frac{i}{\sqrt{2}} \ket{-} \to \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -i \end{pmatrix}.
 \end{equation}
-Problem XXX will get you to go through the process for $S_x$.
+Problem \ref{prob_Sx} will get you to give all this a try for $S_x$.
 
 
 
 \section{Spin in a General Direction, $\hat{S}_n$}
 
-At this point I just want to give you some more operators and figure out their eigenvalues and eigenstates, partly so we can get the practice and partly so we can use them again later.  First up, suppose we rotate our usual Stern-Gerlach device to some random orientation so that the magnetic field points in the direction of $\vec{n}$ as shown in Figure XXX.  The angles $\theta$ (the polar angle) and $\phi$ (the azimuthal angle) are the usual spherical coordinates, and we'll make $\vec{n}$ a unit vector so it has a length of one.  That means in terms of the Cartesian unit vectors $\unit{x}$, $\unit{y}$, and $\unit{z}$, we can write
+\begin{figure}
+\centering\includegraphics[width=0.5\linewidth]{Figures/Chapter 4/fig_sph_coords.pdf}
+\caption{A random direction for the alignment of the Stern-Gerlach device.}
+\label{fig_Sn}
+\end{figure}
+
+At this point I just want to give you some more operators and figure out their eigenvalues and eigenstates, partly so we can get the practice and partly so we can use them again later.  First up, suppose we rotate our usual Stern-Gerlach device to some random orientation so that the magnetic field points in the direction of $\vec{n}$ as shown in Figure \ref{fig_Sn}.  The angles $\theta$ (the polar angle) and $\phi$ (the azimuthal angle) are the usual spherical coordinates, and we'll make $\vec{n}$ a unit vector so it has a length of one.  That means in terms of the Cartesian unit vectors $\unit{x}$, $\unit{y}$, and $\unit{z}$, we can write
 \begin{equation}
 \vec{n} = \sin \theta \cos \phi \, \unit{x} + \sin \theta \sin \phi \, \unit{y} + \cos \theta \, \unit{z}.
 \end{equation}
@@ -196,9 +204,9 @@ To write this operator in matrix notation, we just fill in the matrices for $\ha
 \end{equation}
 (see Problem \ref{prob_Sn}).
 
-This is a new operator we've never seen before, and anytime we're faced with a new operator, we should always find its eigenvalues and eigenstates -- remember, the eigenvalues of the operator answer the question of what we get when we measure the observable, so they're pretty important, and we'll see that the eigenstates play just as important a role.  But wait -- we \emph{already} know the eigenvalues!  They \emph{have} to be $\hbar/2$ and $-\hbar/2$, just like $\hat{S}_x$ or any other component.  After all, changing the direction of the magnetic field by rotating the device is the exact same operation as changing our coordinate system, and that should affect the actual results we get.
+This is a new operator we've never seen before, and anytime we're faced with a new operator, we should always find its eigenvalues and eigenstates -- remember, the eigenvalues of the operator answer the question of what we get when we measure the observable, so they're pretty important, and we'll see that the eigenstates play just as important a role.  But wait -- we \emph{already} know the eigenvalues!  They \emph{have} to be $\hbar/2$ and $-\hbar/2$, just like $\hat{S}_x$ or any other component.  After all, changing the direction of the magnetic field by rotating the device is the exact same operation as changing our coordinate system, and that shouldn't affect the actual results we get.
 
-So, fine, we know the eigenvalues (you can check that we're correct in Problem \ref{prob_Sn}); what about the eigenstates?  You need more practice than I do, so try on your own (that's Problem XXX again), and I'll give you just the answers for now.  The eigenstates are (with notation that should be clear by now; the ket $\ket{+}_n$ is the state that goes with $+\hbar/2$ and similarly for the eigenvalue $-\hbar/2$)
+So, fine, we know the eigenvalues; what about the eigenstates?  You need more practice than I do, so try on your own (that's Problem \ref{prob_Sn} again), and I'll give you just the answers for now.  The eigenstates are (with notation that should be clear by now; the ket $\ket{+}_n$ is the state that goes with $+\hbar/2$ and similarly for the eigenvalue $-\hbar/2$)
 \begin{equation}
 \label{eq_plus_n}
 \ket{+}_n = \cos (\theta/2) \, \ket{+} + \sin (\theta/2) \, e^{i\phi} \, \ket{-}
@@ -374,6 +382,36 @@ and
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
+
+\begin{problem}[Matrix Representation of $\hat{S}_x$]
+\label{prob_Sx}
+
+Our goal in this question is to find the matrix representation of the operator $\hat{S}_x$.  Luckily the technique we'll use is completely general, so you can apply it to any other operator.  First, write the operator as a matrix in the basis you're using -- in our case, the $S_z$ basis as usual -- using the notation of equation (\ref{eq_matrix_spin}),
+\[
+\hat{S}_x \to \begin{pmatrix}
+\bra{+}\hat{S}_x \ket{+} & \bra{+}\hat{S}_x \ket{-} \\
+\bra{-}\hat{S}_x \ket{+} & \bra{-}\hat{S}_x \ket{-}
+\end{pmatrix}.
+\]
+Now we just have a lot of work to go through, figuring out each matrix element.  Since we know the operation of $\hat{S}_x$ on its eigenstates,
+\[
+\hat{S}_x \ket{+}_x = \frac{\hbar}{2} \ket{+}_x \quad \text{and} \quad \hat{S}_x \ket{-}_x = -\frac{\hbar}{2} \ket{-}_x
+\]
+we should first convert the states $\ket{+}$ and $\ket{-}$ to the $S_x$ basis and use that.  Go ahead and give it a try -- calculate all four matrix elements -- and compare with equation (\ref{eq_sx_matrix}).
+\end{problem}
+
+\begin{problem}[Matrix Representation of $\hat{S}_y$]
+\label{prob_Sy}
+
+Following the procedure outlined in the question above, find the matrix represesntation of $\hat{S}_y$.
+\end{problem}
+
+\begin{problem}[Eigenvalues of $\hat{S}_x$]
+\label{prob_Sx_eigenvalues}
+
+In Section \ref{sec_Sx_Sy} we went through the process of finding the eigenvalues and eigenvectors of $\hat{S}_y$.  Now it's your turn:  find the eigenvalues of eigenvectors of $\hat{S}_x$.  
+
+\end{problem}
 
 \begin{problem}[The $\hat{S}_n$  Operator]
 \label{prob_Sn}
