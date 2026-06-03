@@ -1,0 +1,199 @@
+%
+% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+%
+
+\documentclass[10pt, letterpaper, twoside, openany]{article}
+
+\title{Introduction to Quantum Mechanics -- Worksheet 3}
+\author{Joseph D. MacMillan}
+\date{}
+
+
+\usepackage{graphicx}
+\usepackage{color} 
+\usepackage{amsmath, amssymb}
+\usepackage{libertinus}
+\usepackage{microtype}
+\usepackage{layout}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[hang, small, bf]{caption}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Introduction to Quantum Mechanics -- Worksheet 3}}
+\hypersetup{pdfauthor={Joseph D. MacMillan}}
+\urlstyle{rm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+
+
+
+\newcommand{\uu}{\symbfup{u}}
+\newcommand{\grad}{\symbfup{\nabla}}
+\newcommand{\curl}{\symbfup{\nabla} \times}
+\newcommand{\dfdx}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ddfdx}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\vort}{\symbfup{\omega}}
+\renewcommand\vec{\symbfup}
+\newcommand{\unit}[1]{\hat{\vec{#1}}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\LL}{\mathbb{L}^2}
+\newcommand{\LLLL}{\mathbb{L}^4}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+
+
+%\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{sl}
+\newcommand{\tens}[1]{\mathbfsfit{#1}}
+
+
+\newcounter{example}[section]
+\def\theexample{\thechapter.\arabic{example}}
+\newenvironment{example}[1][ ]{\refstepcounter{example}
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{Example \theexample \ -- #1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newenvironment{theorem}[1][ ]{
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{#1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newcounter{problem}[section]
+\def\theproblem{\thechapter.\arabic{problem}}
+\newenvironment{problem}[1][ ]{\refstepcounter{problem} \noindent \textbf{Problem \theproblem \ -- #1.}}{\vspace{0.1in}}
+
+\renewcommand{\arraystretch}{2.5}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{\emph{Introduction to Quantum Mechanics}}
+\fancyhead[R]{Worksheet 3} 
+
+\Large \noindent Worksheet 3
+
+\noindent \LARGE \textbf{Observables and Operators}
+
+\normalsize
+
+\vspace{0.2in}
+
+\noindent Quantum States  \bullet \  Observables   \bullet \  Operators \bullet \ Measurement  
+
+\vspace{0.1in}
+
+\noindent \rule{\textwidth}{0.5pt}
+
+\vspace{0.2in}
+
+\begin{enumerate}
+\item Consider a \emph{quantum mouse} -- this is like a normal mouse but its properties behave in a quantum way.\footnote{This idea was borrowed from the tutorials produced at the University of Colorado Boulder.}   There are lots of things we can observe about the mouse, like its colour, or tail length, or eye size, or mood, although for this worksheet we'll stick to making measurements of the mouse's
+\begin{itemize}
+\item tail length, symbolized by $T$ (with the corresponding operator $\hat{T}$); observations always measure one of two possible values, 5 cm (short-tailed) or 10 cm (long-tailed), and
+\item mood, symbolized by $M$ (with the corresponding operator $\hat{M}$); observations always measure one of two possible moods, either happy (which we'll measure as $M = +1$) or sad (for which we'd measure $M = -1$).
+\end{itemize}
+If you measure the tail length of a mouse and get $T = 5$ cm, we'll say the mouse is in state $\ket{-}$, and if you instead get $T = 10$ cm, it'll correspond to state $\ket{--}$.  On the other hand, if you measure the mood of the mouse and get $M = +1$, we call the state $\ket{☺}$, and the state $\ket{☹}$ will correspond to getting a measurement of $M = -1$.
+
+\begin{enumerate}
+\item Write out the eigenvalue equations for each operator, $\hat{T}$ and $\hat{M}$.  Identify which parts of the equations are the operator, the eigenvector, and the eigenvalue.
+
+\vspace{3in}
+
+\item What do you think the operation $\braket{-}{--}$ should be?  What about $\braket{☺}{☹}$?
+
+\end{enumerate}
+
+
+
+\newpage
+
+\item We're going to work in the ``mood'' basis for the rest of this worksheet -- that is, we'll express every operator and every state in terms of the two basis states of $\hat{M}$ (the kets $\ket{☺}$ and $\ket{☹}$).
+\begin{enumerate}
+\item Write out the two basis states $\ket{☺}$ and $\ket{☹}$ in matrix notation, and write out the operator $\hat{M}$ in matrix notation.
+
+\vspace{2in}
+
+\item What about the two eigenstates of the tail length operator $\hat{T}$?  Well, I'll tell you that
+\[
+\ket{-} = \frac{1}{\sqrt{5}} \ket{☺} + \frac{2}{\sqrt{5}} \ket{☹}.
+\]
+Would say that mice with short tails are more happy or more sad?
+
+\vspace{1in}
+
+\item What about the ket $\ket{--}$?  Use the properties of orthonormality and completeness to figure out what it is (in other words, write out $\ket{--} = a  \ket{☺} + b \ket{☹}$ and figure out $a$ and $b$).
+
+\vspace{3in}
+
+\item Is your values of $a$ and $b$ unique?  Does it matter if they're not?
+
+\end{enumerate}
+
+\newpage
+
+\item Now let's make some observations.  Suppose you have a quantum mouse, you measure the tail length, and find $T = 5$ cm.
+\begin{enumerate}
+\item What quantum state is the mouse in now?  Is there any ambiguity about the \emph{state} at this point?
+\vspace{2in}
+
+\item You then re-measure the tail length $T$.  What results would you get, and with what probabilities?  What state is the mouse in after this second measurement?
+
+\vspace{2in}
+
+\item If you now measure the mood $M$ of the mouse, what are the possible results and probabilities?
+
+\end{enumerate}
+
+\newpage
+
+\item I replace your mouse with another so that you don't know what state the mouse is in.  
+\begin{enumerate}
+\item You make a measurement of the mood of the mouse and find that $M = -1$.  What state is the mouse in after measurement?  Is this the same state the mouse was in \emph{before} measurement?
+
+\vspace{1in}
+
+\item What is the probability that a subsequent measurement of tail length will yield $T = 10$ cm?
+
+\vspace{2in}
+
+\item So, you've at this point started from an unknown state, measured $M$ and got $-1$, then measured $T$ and got 10 cm.  Measure the mood again: what are the possible results and their probabilities?
+
+\vspace{3in}
+
+\item Let's go back a bit: you take the mouse, measure $M$ and get $-1$, and stop there.  Question: what is the length of the mouse's tail after measuring $M$?  Be very careful with your wording.
+
+\end{enumerate}
+
+\newpage
+
+\item Last question, time permitting.  We've written the operator $\hat{M}$ and all the state in the mood basis.  What about the operator $\hat{T}$?  That's a little trickier.
+
+\begin{enumerate}
+\item First, write the matrix representation of $\hat{T}$ in the $M$ basis explicitly like this:
+\[
+\hat{T} \to \begin{pmatrix}
+\bra{☺}\hat{T}\ket{☺} & \bra{☺}\hat{T}\ket{☹} \\
+\bra{☹}\hat{T}\ket{☺} & \bra{☹}\hat{T}\ket{☹}
+\end{pmatrix}
+\]
+\item Then work out the action of the operator $\hat{T}$ on the states $\ket{☺}$ and $\ket{☹}$.  Careful with this -- we only know how $\hat{T}$ operates on its eigenstates (see question 1 (a) above), so you'll have to write $\ket{☺}$ and $\ket{☹}$ in terms of the states $\ket{-}$ and $\ket{--}$.
+\item Then complete the matrix elements by doing the inner product with the bras.  
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
