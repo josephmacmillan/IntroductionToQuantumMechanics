@@ -1,0 +1,171 @@
+%
+% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+%
+
+\documentclass[10pt, letterpaper, twoside, openany]{article}
+
+\title{Introduction to Quantum Mechanics -- Worksheet 4}
+\author{Joseph D. MacMillan}
+\date{}
+
+
+\usepackage{graphicx}
+\usepackage{color} 
+\usepackage{amsmath, amssymb}
+\usepackage{libertinus}
+\usepackage{microtype}
+\usepackage{layout}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[hang, small, bf]{caption}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Introduction to Quantum Mechanics -- Worksheet 4}}
+\hypersetup{pdfauthor={Joseph D. MacMillan}}
+\urlstyle{rm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+
+
+
+\newcommand{\uu}{\symbfup{u}}
+\newcommand{\grad}{\symbfup{\nabla}}
+\newcommand{\curl}{\symbfup{\nabla} \times}
+\newcommand{\dfdx}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ddfdx}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\vort}{\symbfup{\omega}}
+\renewcommand\vec{\symbfup}
+\newcommand{\unit}[1]{\hat{\vec{#1}}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\LL}{\mathbb{L}^2}
+\newcommand{\LLLL}{\mathbb{L}^4}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\avg}[1]{\langle #1 \rangle}
+
+
+%\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{sl}
+\newcommand{\tens}[1]{\mathbfsfit{#1}}
+
+
+\newcounter{example}[section]
+\def\theexample{\thechapter.\arabic{example}}
+\newenvironment{example}[1][ ]{\refstepcounter{example}
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{Example \theexample \ -- #1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newenvironment{theorem}[1][ ]{
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{#1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newcounter{problem}[section]
+\def\theproblem{\thechapter.\arabic{problem}}
+\newenvironment{problem}[1][ ]{\refstepcounter{problem} \noindent \textbf{Problem \theproblem \ -- #1.}}{\vspace{0.1in}}
+
+\renewcommand{\arraystretch}{2.5}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{\emph{Introduction to Quantum Mechanics}}
+\fancyhead[R]{Worksheet 4} 
+
+\Large \noindent Worksheet 4
+
+\noindent \LARGE \textbf{One Big Example}
+
+\normalsize
+
+\vspace{0.2in}
+
+\noindent Quantum States  \bullet \  Probabilities   \bullet \  Measurement   
+
+\vspace{0.1in}
+
+\noindent \rule{\textwidth}{0.5pt}
+
+\vspace{0.2in}
+
+As a quantum physicist, your job is to prepare an ensemble of spin-1/2 particles, all in the same state given by
+\[
+\ket{\psi} = \ket{+} - 2i \ket{-}.
+\]
+You then make a series of measurements on the ensemble, each time returning it to this original state.
+
+\begin{enumerate}
+\item Would you say that the particle in your ensemble are more ``spin-up'' or more ``spin-down''?  Why?
+
+\vspace{1in}
+
+\item Normalize the state.  Why do we need to work with states that are normalized?
+
+\vspace{2in}
+
+\item Write the state as a bra, and write both the ket and the bra in matrix notation.
+
+\newpage
+
+\item While a particle is in the state $\ket{\psi}$, what is its spin component along the $z$ axis, $S_z$?  
+
+\vspace{1.5in}
+
+\item What are the possibilities and probabilities when measuring 
+\begin{enumerate}
+\item $S_z$?
+
+\vspace{1.5in}
+
+\item $S_x$?
+
+\vspace{2.5in}
+
+\item $S_y$?
+
+
+\end{enumerate}
+
+\newpage
+
+\item If a measurement of $S^2$ is made, what will be measured and with what probability?
+
+\vspace{2in}
+
+\item Calculate the expectation values
+\begin{enumerate}
+\item $\avg{S_z}$ and $\avg{S_z^2}$.
+
+\vspace{3in}
+
+\item $\avg{S_x}$ and $\avg{S_x^2}$.
+
+\newpage
+
+\item $\avg{S_y}$ and $\avg{S_y^2}$.
+\end{enumerate}
+
+\vspace{3in}
+
+\item Calculate $\sigma_{S_x}$, $\sigma_{S_y}$, and $\sigma_{S_z}$, and show that the uncertainty principle 
+\[
+\sigma_{S_x} \sigma_{S_y} \ge \frac{\hbar}{2} | \avg{S_z} |
+\]
+holds for this state.
+
+\end{enumerate}
+
+\end{document}

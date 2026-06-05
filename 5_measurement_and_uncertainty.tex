@@ -2,22 +2,319 @@
 
 \section{Expectation Values}
 
+We've already discussed how quantum mechanics can't give us a prediction of a particular experiment -- at best it can only give us probabilities of each possible outcome measured on a state $\ket{\psi}$:
+\[
+\mathcal{P}_{a_n} = | \braket{a_n}{\psi}|^2,
+\]
+where $a_n$ are the possible results.  That's not very useful -- what \emph{else} can we extract from the theory?
+
+Well, we can run the experiment many times and look at statistics of results.  But we have to be careful:  experiments measure the same observable $a_n$ each time, and, most importantly, the system must be prepared \emph{identically} each time.  Since measuring in quantum mechanics changes the state, we either have to have a way to revert back to the original state $\ket{\psi}$ or prepare a large number of such states and make the measurement on all of them simultaneously.  This large number of identical states is called an \emph{ensemble}.
+
+For example, suppose we have an ensemble of $N = 100$ particles, all in the same state $\ket{\psi}$.  At $t=0$, we measure the spin component $S_z$ on each (I guess we'll need 100 physics students and 100 Stern-Gerlach devices to do the job), and get
+\begin{itemize}
+\item $N_+$ particles that were measured to have $S_z = +\hbar/2$ and are now in state $\ket{+}$, and
+\item $N_-$ particles that were measured to have $S_z = -\hbar/2$ and are now in state $\ket{-}$.
+\end{itemize}
+Remember, this doesn't need to be 50 and 50 -- the state $\ket{\psi}$ could be \emph{any} state -- but we do need $N_+$ and $N_-$ to add up to 100.
+
+The mean or average of all results is
+\begin{equation}
+\label{eq_avg1}
+\avg{S_z} = \frac{\left( +\frac{\hbar}{2} \right) N_+ + \left( -\frac{\hbar}{2} \right) N_-}{N},
+\end{equation}
+or
+\[
+\avg{S_z} = \left( +\frac{\hbar}{2} \right) \frac{N_+}{N} + \left( -\frac{\hbar}{2} \right) \frac{N_-}{N}.
+\]
+But $N_+/N$ is just the probability $\mathcal{P_+}$ of measuring $+\hbar/2$ (at least in the limit $N \to \infty$), and similarly for $N_-/N$, so we can write this as
+\begin{equation}
+\label{eq_avg2}
+\avg{S_z} = \left( +\frac{\hbar}{2} \right) \mathcal{P}_+ + \left( -\frac{\hbar}{2} \right) \mathcal{P}_-.
+\end{equation}
+If we were to perform this experiment, we'd calculate the average using equation (\ref{eq_avg1}), but we can predict what the result will be from equation (\ref{eq_avg2}) as long as we know the state since
+\[
+\mathcal{P}_\pm = |\braket{\pm}{\psi}|^2
+\]
+as usual.
+
+In fact, we can use this to write the calculation in a different way.  We'll exploit the fact that the complex conjugate flips the bra and ket, so that
+\[
+|\braket{\pm}{\psi}|^2 = \braket{\psi}{\pm} \braket{\pm}{\psi}.
+\]
+Equation (\ref{eq_avg2}) then becomes
+\[
+\avg{S_z} = \left(+\frac{\hbar}{2} \right) \braket{\psi}{+} \braket{+}{\psi} + \left(-\frac{\hbar}{2} \right) \braket{\psi}{-} \braket{-}{\psi}.
+\]
+Now here's a tricky part:  since the factors of $\pm\hbar/2$ are just numbers, we can write them anywhere we want, so I'll move them into the middle of the first inner product in each term, getting
+\[
+\avg{S_z} =  \bra{\psi}\left(+\frac{\hbar}{2} \right)\ket{+} \braket{+}{\psi} + \bra{\psi}\left(-\frac{\hbar}{2} \right)\ket{-} \braket{-}{\psi}.
+\]
+Next I'll replace those factors of $\hbar/2$ with the operator $\hat{S}_z$, since that operator acting on the ket to the right will produce the exact number we need:
+\[
+\avg{S_z} =  \bra{\psi} \hat{S}_z \ket{+} \braket{+}{\psi} + \bra{\psi} \hat{S_z} \ket{-} \braket{-}{\psi}.
+\]
+Finally, notice that there are some common factors I can pull out (as long as I don't change the order of the operators and kets), so we can write
+\[
+\avg{S_z} =  \bra{\psi} \hat{S}_z \Big( \ket{+}\bra{+} + \ket{-}\bra{-} \Big) \ket{\psi}.
+\]
+But the thing inside the bracket is just the identity operator!  I won't bother to write it since it doesn't change the ket it's acting on to the right, in which case we (finally) have
+\begin{equation}
+\label{eq_avg3}
+\avg{S_z} = \bra{\psi} \hat{S}_z \ket{\psi}.
+\end{equation}
+
+Evidently there are two different ways we can calculate the average of a series of measurements:  using the possibilities and probabilities as in equation (\ref{eq_avg2}) or instead as in equation (\ref{eq_avg3}).  In general, for any discrete system and for any observable $A$, we can write
+\begin{equation}
+\boxed{
+\avg{A} = \bra{\psi} \hat{A} \ket{\psi} = \sum_n a_n \mathcal{P}_{a_n}.
+}
+\end{equation}
+In quantum mechanics, this average is typically called the \emph{expectation value}.
+
+\begin{example}[Expectation Value]
+\label{ex_exp_val}
+
+Consider the state
+\[
+\ket{\psi} = \frac{3}{5} \ket{+} + \frac{4}{5} \ket{-}.
+\]
+Calculate $\avg{S_z}$ using both methods described above.
+
+Using the possibilities and probabilities, we have
+\[
+\avg{S_z} = \sum_n a_n \mathcal{P}_{a_n} = \left(+\frac{\hbar}{2} \right) \mathcal{P_+} + \left(-\frac{\hbar}{2} \right) \mathcal{P_-}.
+\]
+We can calculate the probabilities first,
+\[
+\mathcal{P_+} = |\braket{+}{\psi}|^2 = 9/25 \quad \text{and} \quad \mathcal{P}_- = |\braket{-}{\psi}|^2 = 16/25
+\]
+so
+\[
+\avg{S_z} = \left(+\frac{\hbar}{2} \right) \left(\frac{9}{25} \right) + \left(-\frac{\hbar}{2} \right) \left(\frac{16}{25} \right) = -\frac{7\hbar}{50} = -0.14 \, \hbar.
+\]
+
+The second method is more easily done in matrix notation:
+\[
+\avg{S_z} = \bra{\psi} \hat{S}_z \ket{\psi} =
+\begin{pmatrix} 3/5 & 4/5 \end{pmatrix} 
+\begin{pmatrix} \hbar/2 & 0 \\ 0 & -\hbar/2 \end{pmatrix}
+\begin{pmatrix} 3/5 \\ 4/5 \end{pmatrix}.
+\]
+If we multiply the operator by the ket first we get
+\[
+\avg{S_z} = \bra{\psi} \hat{S}_z \ket{\psi} =
+\begin{pmatrix} 3/5 & 4/5 \end{pmatrix} 
+\begin{pmatrix} 3\hbar/10  \\ -4\hbar/10 \end{pmatrix} = -\frac{7\hbar}{50}.
+\]
+\end{example}
+
+
 \section{Standard Deviation}
+
+If we run an experiment on a large ensemble of particles, we get a large number of results, all of which are random and in general all of which are potentially different (although for spin, they'll all be either $+\hbar/2$ or $-\hbar/2$).  We've discussed above how we can find the average of all these results, but we can also calculate the standard deviation,
+\begin{equation}
+\sigma_A \equiv \sqrt{\avg{(A - \avg{A})^2 } }.
+\end{equation}
+This is the square root of the average of the square of the deviations from the average, which sounds complicated but is a pretty common way to measure the spread of the results.
+
+If we foil out the square, we can write this a little more conveniently:
+\[
+\sigma_A = \sqrt{\avg{A^2 - 2A\avg{A} + \avg{A}^2 }} = \sqrt{\avg{A^2} - 2\avg{A}\avg{A} + \avg{A}^2}
+\]
+or
+\begin{equation}
+\sigma_A = \sqrt{\avg{A^2} - \avg{A}^2}.
+\end{equation}
+Notice the difference between these two terms:  the first is the average of the squares, and the second is the square of the averages.  We already know how to calculate the average in quantum mechanics  -- we call it the expectation value -- but what does $\avg{A^2}$ mean?  Write it out:
+\[
+\avg{A^2} = \bra{\psi} \hat{A}^2 \ket{\psi} = \bra{\psi} \hat{A} \hat{A} \ket{\psi}.
+\]
+We operate with the operator $\hat{A}$ \emph{twice}.
+
+In quantum mechanics, the standard deviation is often called the \emph{uncertainty}.  But be careful: this uncertainty is fundamental to the theory, and you can't design a better experiment to improve precision.
+
+\begin{example}[Standard Deviation]
+
+Continuing with Example \ref{ex_exp_val}, find the standard deviation $\sigma_{S_z}$.
+
+From the last example, we already have $\avg{S_z} = -7\hbar/50$, so we just need $\avg{S_z^2}$:
+\[
+\avg{S_z^2} = \bra{\psi} \hat{S}_z \hat{S}_z \ket{\psi}.
+\]
+Writing this in matrix notation gives
+\[
+\avg{S_z^2} =
+\begin{pmatrix} 3/5 & 4/5 \end{pmatrix} 
+\begin{pmatrix} \hbar/2 & 0 \\ 0 & -\hbar/2 \end{pmatrix}
+\begin{pmatrix} \hbar/2 & 0 \\ 0 & -\hbar/2 \end{pmatrix}
+\begin{pmatrix} 3/5 \\ 4/5 \end{pmatrix}.
+\]
+This is tedious but not difficult; I found that
+\[
+\avg{S_z^2} = \frac{\hbar^2}{4},
+\]
+so the standard deviation is
+\begin{align*}
+\sigma_{S_z} & = \sqrt{\avg{S_z^2} - \avg{S_z}^2} \\
+& = \sqrt{\hbar^2 / 4 - 49 \hbar^2/2500} \\
+& = \frac{24}{50} \hbar.
+\end{align*}
+\end{example}
+
 
 \section{Commuting Operators}
 
+Although the order in which you multiply two numbers doesn't matter -- $6 \times 7 = 7 \times 6$ -- you probably know that for matrices the order \emph{does} matter.  We say that matrices don't \emph{commute}. As you might expect, the same is true for operators as well.  For example, try $\hat{S}_x$ and $\hat{S}_z$:
+\[
+\hat{S}_x\hat{S}_z \to \begin{pmatrix}  0 & \hbar/2 \\ \hbar/2 & 0 \end{pmatrix} \begin{pmatrix}  \hbar/2 & 0 \\ 0 & -\hbar/2 \end{pmatrix} = \frac{\hbar^2}{4} \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}
+\]
+and
+\[
+\hat{S}_z\hat{S}_x \to  \begin{pmatrix}  \hbar/2 & 0 \\ 0 & -\hbar/2 \end{pmatrix}\begin{pmatrix}  0 & \hbar/2 \\ \hbar/2 & 0 \end{pmatrix} = \frac{\hbar^2}{4} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}.
+\]
+It's pretty clear $\hat{S}_z \hat{S}_x \neq \hat{S}_x \hat{S}_z$.  
+
+Because most operators in quantum mechanics don't commute with each other, and it means something special if two operators \emph{do} in fact commute, we define a new calculation called the \emph{commutator}.  The commutator for two operators $\hat{A}$ and $\hat{B}$ is 
+\begin{equation}
+[\hat{A}, \hat{B}] \equiv \hat{A}\hat{B} - \hat{B} \hat{A}.
+\end{equation}
+You can think of it as a measure of how much two operators \emph{don't} commute, and of course if $[\hat{A}, \hat{B} ] = 0$, then $\hat{A}$ and $\hat{B}$ actually do commute with each other.
+
+Now, I mentioned that it means something special if two operators commute, but the argument is a little subtle so read carefully.  Suppose $\hat{A}$ and $\hat{B}$ commute, so that $\hat{A}\hat{B} = \hat{B}\hat{A}$ and we can apply them to a state in any order and get the same result,
+\[
+\hat{A}\hat{B} \ket{\psi} = \hat{B} \hat{A} \ket{\psi}.
+\]
+But now suppose that the state we're acting on is an eigenstate of operator $\hat{A}$, which I'll write as $\ket{a}$, with eigenvalue $a$:
+\[
+\hat{A} \ket{a} = a \ket{a}.
+\]
+Let's now act on both sides of this equation with operator $\hat{B}$,
+\[
+\hat{B} \Big( \hat{A} \ket{a} \Big) = \hat{B} \big( a \ket{a} \big) .
+\]
+But the $a$ on the right hand side is just a number, and although we have to be careful moving operators around (they don't always commute), numbers can be put anywhere.  So I'll move the $a$ to the other side of $\hat{B}$.  While I'm doing that, I'll also switch the order of the operators on the left hand side, so that we have
+\[
+\hat{A} \hat{B} \ket{a} = a \hat{B} \ket{a}.
+\]
+I'll put in some suggestive brackets to guide your eye:
+\[
+\hat{A} \Big( \hat{B} \ket{a} \Big) = a \Big( \hat{B} \ket{a} \Big).
+\]
+As you can see, the same thing is in each bracketed term; what is it?  Well, remember that when an operator ($\hat{B}$ in this case) acts on a state, a new state is produced, so the brackets enclose a state.  But since acting on that state with the operator $\hat{A}$ gives you back that same state, it must also be an eigenstate of $\hat{A}$; that is, both $\ket{a}$ and $\hat{B}\ket{a}$ are eigenstates of the operator $\hat{A}$, with the same eigenvalue $a$.  This means that the state $\hat{B} \ket{a}$ must be a scalar multiple of the state $\ket{a}$:
+\[
+\hat{B} \ket{a} = b \ket{a}.
+\]
+Our conclusion is that if $\hat{A}$ and $\hat{B}$ commute, they have common (sometimes called simultaneous) eigenstates.  They'll have different eigenvalues, though.
+
+If this is the case -- that $\hat{A}$ and $\hat{B}$ commute -- we say that they are \emph{compatible observables}.  Why?  Because making a measurement of one observable won't affect a measurement of the other.  Let's run through this:  suppose we start in some general state $\ket{\psi}$, and we first measure the observable $A$.  We get one of the eigenvalues of the operator $\hat{A}$ -- call it $a_n$ -- and the state collapses to $\ket{a_n}$.  Next, make a measurement of $B$.  Here's the thing:  the current state is also an eigenstate of $\hat{B}$, so we necessarily measure $b_n$ -- the eigenvalue of $\hat{B}$ that corresponds to the state $\ket{a_n}$.  But this time the state doesn't collapse; it stays in $\ket{a_n}$ since it's the eigenstate.  That means a subsequent measurement of $A$ will also return the value $a_n$.  The observables $A$ and $B$ are compatible because measuring one doesn't cause us to lose information about the other.
+
+\begin{example}[Commutators]
+
+What is the commutator of $\hat{S}_z$ and $\hat{S}_x$?
+
+We already calculated $\hat{S}_x\hat{S}_z$ and $\hat{S}_z\hat{S}_x$ earlier, so we can subtract them to find the commutator:
+\begin{align*}
+[\hat{S}_z, \hat{S}_x] & = \hat{S}_z \hat{S}_x - \hat{S}_x \hat{S}_z = \frac{\hbar^2}{4} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} - \frac{\hbar^2}{4} \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \\
+& = \frac{\hbar^2}{2} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}.
+\end{align*}
+I don't know if that matrix in the answer looks familiar to you yet, but it's pretty close to the operator $\hat{S}_y$.  In fact, we can write 
+\begin{equation}
+[\hat{S}_z, \hat{S}_x] = i \hbar \hat{S}_y.
+\end{equation}
+Similarly,
+\begin{equation}
+[\hat{S}_x, \hat{S}_y] = i \hbar \hat{S}_z.
+\end{equation}
+and
+\begin{equation}
+[\hat{S}_y, \hat{S}_z] = i \hbar \hat{S}_x.
+\end{equation}
+
+\end{example}
+
+
 \section{The Uncertainty Principle}
 
+You might already know Heisenberg's famous uncertainty principle, usually written as
+\[
+\Delta x \Delta p \ge \frac{\hbar}{2}.
+\]
+It means, in brief, that the more certain you are of position $x$, they less certain you can be of your momentum $p$, and vice versa.  In fact, this uncertainty principle is just one example of a more general uncertainty principle, which I'll give you here without proof:
+\begin{equation}
+\label{eq_uncertainty}
+\boxed{
+\sigma_A \sigma_B \ge \frac{1}{2} \Big| \avg{ [\hat{A}, \hat{B}]} \Big|.
+}
+\end{equation}
+Notice that I'm using the standard deviation explicitly -- that's what the uncertainty really is, after all -- even though it's a little nonstandard in the field.
+
+What does this mean, exactly?  Well, we already know that two operators that don't commute have incompatible observables -- measuring one will affect your knowledge of the second.  The uncertainty principle quantifies this for us, and gives us the relationship between the spread of values we would get upon measuring $A$ or $B$.  
+
+
+\begin{example}[Uncertainty Principle]
+
+Suppose our two operators are $\hat{S}_x$ and $\hat{S}_y$.  We already know they don't commute, and in fact 
+\[
+[\hat{S}_x, \hat{S}_y] = i \hbar \hat{S}_z.
+\]
+Plugging this into equation (\ref{eq_uncertainty}) gives
+\[
+\sigma_{S_x} \sigma_{S_y} \ge \frac{\hbar}{2} \Big| \avg{S_z} \Big|.
+\]
+If we know what state we're in, we can also figure out $\avg{S_z}$; if, for example, we're instate $\ket{+}$, then every measurement returns $\hbar/2$ so $\avg{S_z} = \hbar/2$, and the uncertainty principle now reads
+\[
+\sigma_{S_x} \sigma_{S_y} \ge \frac{\hbar^2}{4}.
+\]
+This is a mathematical statement of something we've already seen: if we know exactly what $S_z$ is, we can't know either $S_x$ or $S_y$ perfectly -- neither can have a definite value, since then their standard deviation would be zero.
+
+\end{example}
+
+\newpage
 
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
 
-\begin{problem}[Example Problem]
-\label{prob_example}
+\begin{problem}[Expectation Value Practice]
+\label{prob_exp_val}
 
-Problem goes here.
-
+In your lab you create a beam of particles, all in the state
+\[
+\ket{\psi} = \frac{2}{\sqrt{13}} \ket{+} + \frac{3i}{\sqrt{13}} \ket{-}.
+\]
+\begin{enumerate}[label=(\alph*)]
+\item Calculate the expectations value $\avg{S_z}$.
+\item Calculate the expectations value $\avg{S_x}$.
+\item Calculate the expectations value $\avg{S_y}$.
+\item Calculate the expectations value $\avg{S^2}$.
+\item If you were to use 100 particles to measure these quantities experimentally, would you expect your results to exactly match your theoretical predictions above?  Why or why not?
+\end{enumerate}
 \end{problem}
 
+\begin{problem}[More Expectation Value Practice]
+\label{prob_3state3}
+
+In your lab you create a beam of particles, all in the state
+\[
+\ket{\psi} = \ket{a_1} - 2\ket{a_2} + 5\ket{a_3}
+\]
+(this is the three-state system from Problems \ref{prob_3state} and \ref{prob_3state2}, where $a_1$, $a_2$, and $a_3$ correspond to the three possible results of measuring observable $A$).  What is the expectation value $\avg{A}$?
+\end{problem}
+
+
+\begin{problem}[Standard Deviations]
+\label{prob_stan_dev}
+Continuing from Problem \ref{prob_exp_val}, calculate the following:
+\begin{enumerate}[label=(\alph*)]
+\item The standard deviation $\sigma_{S_z}$.
+\item The standard deviation $\sigma_{S_x}$.
+\item The standard deviation $\sigma_{S_y}$.
+\item The standard deviation $\sigma_{S^2}$.
+\end{enumerate}
+\end{problem}
+
+\begin{problem}[Uncertainty Principle]
+\label{prob_unc_prin}
+Continuing from Problems \ref{prob_exp_val} and \ref{prob_stan_dev}, show that the uncertainty principle for $\hat{S}_x$ and $\hat{S}_y$ is satisfied (that is, show that the left hand side of the uncertainty principle is greater than or equal to the right hand side).
+\end{problem}
 

@@ -25,7 +25,7 @@ Instead of making a new state, it gives back the same state, but multiplied by a
   }
 }
 
-\subsection{The Operator $\hat{S_z}$}
+\section{The Operator $\hat{S_z}$}
 
 That's a lot to take in on first reading, so let's do a full example.  We'll return to the observable $S_z$, which must have a corresponding operator $\hat{S}_z$.  We'll figure out how we can write this in a moment, but you might have realized we already know the eigenvalues of this operator: they must be $\hbar/2$ and $-\hbar/2$, since we know measurements of $S_z$ always return one of those two numbers.
 
@@ -218,7 +218,7 @@ and
 \end{equation}
 Remember, all this is explicitly in the $S_z$ basis.
 
-By the way, if you were wondering how we make some ``general spin state'' $\ket{\psi}$ with some specific set of coefficients, this is how:  orient the Stern-Gerlach device at just the correct angles $\theta$ and $\phi$ that give you those coefficients.  Problem XXX will ask you to do this.
+By the way, if you were wondering how we make some ``general spin state'' $\ket{\psi}$ with some specific set of coefficients, this is how:  orient the Stern-Gerlach device at just the correct angles $\theta$ and $\phi$ that give you those coefficients.  Problem \ref{prob_specific_state} will ask you to do this.
 
 
 \section{The $\hat{S}^2$ Operator}
@@ -263,7 +263,7 @@ Notice that these really are operators:  the bra will act on another state, leav
 
 Let's see what $\hat{P}_+$ does to a general state $\ket{\psi} = a\ket{+} + b\ket{-}$:
 \[
-\hat{P}_+ \ket{\psi} = \ket{+} \bra{+} \ket{\psi} = \ket{+} \bra{+} \Bigl( a\ket{+} + b\ket{-} \Bigl) = a \ket{+}.
+\hat{P}_+ \ket{\psi} = \Big( \ket{+} \bra{+} \Big) \ket{\psi} = \ket{+} \bra{+} \Big( a\ket{+} + b\ket{-} \Big) = a \ket{+}.
 \]
 We can see why it's called a projection operator:  applying it to a state gives us a new state that is how much ``spin up'' the original state was times the spin up state itself.  Similarly, of course, for $\hat{P}_-$:
 \[
@@ -334,7 +334,7 @@ But $\bra{\phi} = \bra{\psi}\hat{A}^\dagger$ and $\ket{\phi} = \hat{A} \ket{\psi
 \[
 \bra{\psi}\hat{A}^\dagger \ket{\beta} = \bra{\beta} \hat{A} \ket{\psi}^*.
 \]
-Remember, these operations are called matrix elements, so this tells us that the matrix representation pf $\hat{A}^\dagger$ is the \emph{transpose} and complex conjugate of $\hat{A}$.
+Remember, these operations are called matrix elements, so this tells us that the matrix representation of $\hat{A}^\dagger$ is the \emph{transpose} and complex conjugate of $\hat{A}$.
 
 One last thing, but it's really important:  sometimes it turns out that $\hat{A}^\dagger = \hat{A}$ (or, in matrix notation, the operator is equal to its transpose conjugate).  In this case we say that the operator $\hat{A}$ is \emph{Hermitian}.  In fact,
 \[
@@ -348,7 +348,7 @@ So far every operator we've talked about has been Hermitian -- go ahead and chec
 \begin{equation}
 \hat{S}_+ \equiv \hat{S}_x + i\hat{S}_y \quad \text{and} \quad \hat{S}_- \equiv \hat{S}_x - i\hat{S}_y.
 \end{equation}
-These are called ``ladder operators,'' with $\hat{S}_+$ begin the \emph{raising} operator and $\hat{S}_-$ the \emph{lowering} operator.
+These are called ``ladder operators,'' with $\hat{S}_+$ being the \emph{raising} operator and $\hat{S}_-$ the \emph{lowering} operator.
 
 What do these operators do?  It's easiest to see in matrix notation, which is straightforward to figure out -- just add the spin matrices together in the appropriate way.  The raising operator is
 \begin{equation}
@@ -378,6 +378,8 @@ and
 \[
 \hat{S}_- \ket{-} \to \hbar \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} 0 \\ 1 \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} = \mathbf{0}.
 \]
+
+\newpage
 
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
@@ -421,6 +423,15 @@ In Section \ref{sec_Sx_Sy} we went through the process of finding the eigenvalue
 (b) Using the matrix representation, find the eigenvalues and eigenstates of $\hat{S}_n$.
 \end{problem}
 
+\begin{problem}[Creating a Specific State]
+\label{prob_specific_state}
+Suppose you're an experimental physicist tasked with creating a beam of spin-1/2 particles all in the state
+\[
+\ket{\psi} = \frac{\sqrt{3}}{2} \ket{+} + \frac{i}{2} \ket{-}.
+\]
+You take your trusty Stern-Gerlach device and set it up so that particles go from an oven, through collimaters, and then into the S-G device.  You rotate it by angles $\theta$ and $\phi$ and direct particles coming from the ``spin-up'' output to where you need them.  What angles do you set so that all particles in this beam have the correct state?
+\end{problem}
+
 \begin{problem}[Spin-1]
 
 Until now, we've been playing with spin-1/2 particles -- electrons, protons, neutrons, and, apparently, silver atoms.  However, our lab has just been gifted a new set of photons to play with, and photons are particles that have a spin of one.  Sure enough, when we send them through a Stern-Gerlach type experiment to measure the photon's spin component along the $z$-direction, we get three possible results rather than two:
@@ -455,7 +466,7 @@ Use this to write out the matrix representation of $\hat{S}_+$ and $\hat{S}_-$, 
 \begin{enumerate}[label=\roman*.	]
 \item You prepare 1000 photons this way, and measure their spin component $S_z$.  What values do you measure, and how many photons of the 1000 yield each result?
 \item You collect all the photons that had mesaurements of $S_z = -\hbar$.  You then measure $S_x$ on those; what do you get, and what is the number of photons for each possible result?
-\item If, on the original set of 1000 photons, you had instead measured $S_y$, what would have been the average (i.e., expectation value) of all results?
+\item If, on the original set of 1000 photons, you had instead measured $S_y$, what would have been the average of all results?
 \end{enumerate}
 
 \end{problem}

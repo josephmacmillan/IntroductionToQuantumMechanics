@@ -68,7 +68,7 @@
 \newcommand{\ket}[1]{| #1 \rangle}
 \newcommand{\bra}[1]{\langle #1 |}
 \newcommand{\braket}[2]{\langle #1 | #2 \rangle}
-
+\newcommand{\avg}[1]{\langle #1 \rangle}
 
 %\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{sl}
 \newcommand{\tens}[1]{\mathbfsfit{#1}}
@@ -94,7 +94,7 @@
 
 \newcounter{problem}[chapter]
 \def\theproblem{\thechapter.\arabic{problem}}
-\newenvironment{problem}[1][ ]{\refstepcounter{problem} \noindent \textbf{Problem \theproblem \ -- #1.}}{\vspace{0.1in}}
+\newenvironment{problem}[1][ ]{\refstepcounter{problem} \noindent \textbf{Problem \theproblem \ -- #1.} }{\vspace{0.1in}}
 
 
 \begin{document}
