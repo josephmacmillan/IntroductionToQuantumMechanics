@@ -2,7 +2,90 @@
 
 \section{The Hamiltonian and the Energy Basis}
 
+Let's get right into it: the time evolution of a quantum system is determined by the Schr\"odinger equation,
+\begin{equation}
+\label{eq_schrodinger}
+\boxed{
+i\hbar \frac{d}{dt} \ket{\psi (t)} = \hat{H}(t) \ket{\psi (t)}.
+}
+\end{equation}
+There's a lot to unpack here, though.  First of all, notice that this is a differential equation for the state $\ket{\psi (t)}$, and I've now explicitly put in the time dependence of the state; from this point on, we should probably assume all states will be time dependent (with a big caveat we'll come to later).  
+
+Second, we've introduced a new operator:  the Hamiltonian $\hat{H}(t)$.  This is the quantum operator corresponding to the classical Hamiltonian -- the total energy of the system, kinetic energy plus potential energy:\footnote{You might remember from your classical mechanics course that the Hamiltonian isn't always equal to the total energy of the system, but this is a detail we won't worry in this book.}
+\begin{equation}
+H = T + U.
+\end{equation}
+The Hamiltonian operator is by far the most important operator in quantum mechanics, and not just because of its appearance in the Schr\"odinger equation.  So let's dig a little deeper into it.
+
+A big part of our job going forward in the book will be to determine the eigenvalues and eigenvectors of the Hamiltonian operator; we'll write the eigenvalue equation as
+\begin{equation}
+\label{eq_eee}
+\boxed{
+\hat{H} \ket{E_n} = E_n \ket{E_n}.
+}
+\end{equation}
+The notation here is a little different than for other operators; I've written the eigenvalues as $E_n$ (where $n$ is an index -- there will usually be more than one eigenvalue) and the eigenkets as $\ket{E_n}$.  That's because the Hamiltonian corresponds to the observable energy:  when we measure $H$, we're really measuring the total energy of the system.  The eigenvalues $E_n$ are often called the \emph{allowed energies}.  Much of quantum mechanics at this stage is a pursuit of those allowed energies for different systems.
+
+As I mentioned back in Section \ref{sec_hermitian_operators}, the eigenvalues of a Hermitian operator are real -- which is nice since they're energies. Furthermore, the eigenstates are orthonormal,
+\begin{equation}
+\braket{E_m}{E_n} = \delta_{mn},
+\end{equation}
+and complete, meaning \emph{any} state can be written as a superposition of them,
+\begin{equation}
+\label{eq_psi_energy_basis}
+\ket{\psi(t)} = c_1 \ket{E_1} + c_2 \ket{E_2} + c_3 \ket{E_3} + \cdots = \sum_n c_n (t) \, \ket{E_n(t)}.
+\end{equation}
+
+If the Hamiltonian is \emph{time independent}, then we'd expect the eigenstates $\ket{E_n}$ to also be time independent.  But that doesn't mean the state $\ket{\psi(t)}$ doesn't evolve in time -- in general it will.  In this case all the time dependence is carried in the coefficients $c_n(t)$, and it turns out we can solve the Schr\"odinger equation for any system -- as long as the Hamiltonian of that system doesn't depend on time.
+
+The trick is to write the state in the energy basis, as in equation (\ref{eq_psi_energy_basis}).  If we plug that into the Schr\"odinger equation, we get
+\[
+i\hbar \frac{d}{dt} \left( \sum_n c_n(t) \ket{E_n} \right) = \hat{H} \left(\sum_n c_n(t) \ket{E_n} \right).
+\]
+Now we can move the derivative into the sum, and since the eigenstate $\ket{E_n}$ doesn't depend on time here, it will only act on the coefficients $c_n(t)$.  On the right hand side, we can move the Hamiltonian operator right beside the state, since the coefficients are just numbers, giving
+\[
+i\hbar \sum_n \frac{dc_n}{dt} \ket{E_n} = \sum_n c_n(t) \hat{H} \ket{E_n}.
+\]
+Of course, we know that $\hat{H} \ket{E_n} = E_n \ket{E_n}$ -- it's the eigenstate of the operator, after all, and the reason why we are using the energy basis here in the first place, so we have
+\[
+i\hbar \sum_n \frac{dc_n}{dt} \ket{E_n} = \sum_n c_n(t) E_n \ket{E_n}.
+\]
+
+We need to solve this equation for the unknown coefficients $c_n(t)$, but they're buried in the sums.  To get rid of the sums and isolate the $c_n$s, we take the inner product with the eigenstate $\ket{E_m}$ -- notice the index is $m$ rather than $n$:
+\[
+\bra{E_m} \left( i\hbar \sum_n \frac{dc_n}{dt} \ket{E_n}  \right) = \bra{E_m} \left( \sum_n c_n(t) E_n \ket{E_n} \right).
+\]
+Now let the bra act on the ket on each side to get
+\[
+i\hbar \sum_n \frac{dc_n}{dt} \braket{E_m}{E_n} = \sum_n c_n(t) E_n \braket{E_m}{E_n}.
+\]
+But since the eigenstates are orthonormal,
+\[
+\braket{E_m}{E_n} = \delta_{mn}.
+\]
+This is a little tricky to see at first, but that Kronecker delta $\delta_{mn}$ will collapse the sum -- every term in the sum will end up being zero except for the $m$th one.  So the equation reduces to 
+\[
+i\hbar \frac{dc_m}{dt} = c_m E_m.
+\]
+Finally, this is differential equation we can readily solve; separating and integrating gives the solution as
+\[
+c_m (t) = c_m(0) e^{-i E_m t / \hbar}
+\]
+(try it yourself!).
+
+We have now the solution to the Schr\"odinger equation in cases where the Hamiltonian is time independent.  There's just one last thing:  the coefficient $c_m$ (or, as I'll write it in a moment, $c_n$ -- the index letter doesn't matter) depends on time, but we'll write the initial value without the explicit time dependence:  $c_n \equiv c_n(0)$.  This is a little confusing -- sorry! -- but will make the solution a little cleaner and will make sense in context.
+
+Anyway, here we go:  the solution to the Schr\"odinger equation, written in the energy basis, is
+\begin{equation}
+\boxed{
+\ket{\psi(t)} = \sum_n c_n e^{-iE_n t / \hbar} \ket{E_n}.
+}
+\end{equation}
+And, just to be clear, we're not \emph{really} done -- to finish this off, we need to know the energy eigenstates $\ket{E_n}$ (which will depend on the Hamiltonian $\hat{H}$) and all of the coefficients $c_n = c_n(0)$ (which will depend on the initial conditions).
+
 \section{Stationary States}
+
+
 
 \section{Superposition States}
 
