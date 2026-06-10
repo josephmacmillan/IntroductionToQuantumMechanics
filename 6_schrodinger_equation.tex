@@ -77,6 +77,7 @@ We have now the solution to the Schr\"odinger equation in cases where the Hamilt
 
 Anyway, here we go:  the solution to the Schr\"odinger equation, written in the energy basis, is
 \begin{equation}
+\label{eq_schro_sol}
 \boxed{
 \ket{\psi(t)} = \sum_n c_n e^{-iE_n t / \hbar} \ket{E_n}.
 }
@@ -85,10 +86,198 @@ And, just to be clear, we're not \emph{really} done -- to finish this off, we ne
 
 \section{Stationary States}
 
+Although we'll be spending the next several chapters solving the energy eigenvalue equation -- really, we'll be doing it \emph{a lot} -- let's pretend for a moment that we already know what the eigenvalues $E_n$ and eigenstates $\ket{E_n}$ are, and suppose that our system just happens to initially be in the state $n=1$ state:
+\[
+\ket{\psi(0)} = \ket{E_1}.
+\]
+This is the energy eigenstate, so we know that a measurement of the energy on the system at time $t=0$ will yield $E = E_1$ (whatever that value happens to be). Question:  what will a measurement of the energy get at a later time $t$?
 
+This is what the Schr\"odinger equation does:  given an initial condition, it tells us how the state evolves in time, and the answer is apparently given by equation (\ref{eq_schro_sol}).  We still have to figure out all the coefficients $c_n$, but we can do that by using our initial condition.  Plugging in $t=0$ into equation (\ref{eq_schro_sol}) gives
+\[
+\ket{\psi(0)} = \sum_n c_n \ket{E_n}.
+\]
+But we know $\ket{\psi(0)} = \ket{E_1}$, so we must have $c_1 = 1$ and every other $c_n = 0$.  Then we just go back to the full solution and plug in our known coefficients $c_n$ to get the first part of our answer: the state at a later time $t$ is given by
+\[
+\ket{\psi(t)} = e^{-iE_1 t/\hbar} \ket{E_1}.
+\]
+
+Let's take a look at this state.  Notice that the only difference from the initial state is the presence of the exponential factor in front -- but that's an overall phase factor, which we've said doesn't physically change.  So has anything really changed in time?  Not really; if we measure the energy, the probability we'll get $E_1$ is
+\[
+\mathcal{P}_{E_1} = | \braket{E_1}{\psi(t)} |^2 = | e^{-iE_1t/\hbar} \braket{E_1}{E_1}|^2 = |e^{-iE_1t/\hbar}|^2 = 1,
+\]
+or 100\% -- the same as at $t=0$.  
+
+In fact, \emph{any} measurement of any observable -- we'll write it as $A$ -- is time-independent:
+\[
+\mathcal{P}_{a_n} = |\braket{a_n}{\psi(t)} |^2 = | e^{-iE_1t/\hbar} \braket{a_n}{E_1}|^2 = |\braket{a_n}{E_1}|^2.
+\]
+This probability obviously depends on the observable $A$ that we're measuring, but not on time at all.  States for which there is no measurable time evolution -- that is, any measurement we can make has no time dependence -- are called \emph{stationary states}.  The energy eigenstates of a system are always stationary states.
 
 \section{Superposition States}
 
+What if our initial state was 
+\[
+\ket{\psi(0)} = c_1 \ket{E_1} + c_2 \ket{E_2}
+\]
+instead?  This is called a \emph{superposition state} for obvious reasons.  In this case equation (\ref{eq_schro_sol}), after applying our initial conditions, gives us the state at a later time as
+\[
+\ket{\psi(t)} = c_1 e^{-iE_1t/\hbar}\ket{E_1} + c_2 e^{-iE_2t/\hbar} \ket{E_2}.
+\]
+You can try using the initial conditions to show this if you like, but notice the pattern that's forming:  if we write our initial state in the energy basis, then all we have to do to evolve that state forward in time is to ``tack on'' the exponential time factors $e^{-iE_nt/\hbar}$ to each appropriate term.  
+
+If we measure the energy of our system at some later time $t$, notice that the probabilities stay constant in time:
+\[
+\mathcal{P}_{E_1} = | \braket{E_1}{\psi(t)}|^2 = |c_1|^2, \quad \text{and} \quad \mathcal{P}_{E_2} = |c_2|^2.
+\]
+This is \emph{always} the case if the Hamiltonian is time independent.
+
+What about some other observable $A$?  Then it depends.  If the operators $\hat{A}$ and $\hat{H}$ commute, then they share eigenstates -- so the states $\ket{E_n}$ are also eigenstates of $\hat{A}$ and the probabilities will be constant as well.
+
+However, if $\hat{A}$ and $\hat{H}$ \emph{don't} commute, they won't share eigenstates.  However, since the energy eigenstates are complete, we could always write the eigenstates of $\hat{A}$ as superpositions of the energy eigenstates,
+\begin{equation}
+\ket{a_m} = \sum_n \alpha_n \ket{E_n}.
+\end{equation}
+Then we can calculate measurement probabilities $\mathcal{P}_{a_n}$, but they would end up varying with time.
+
+This last part is a little confusing, so let's go through the process with a simple example.
+
+\begin{example}[Time Evolution]
+
+Consider some generic two-state system -- we'll do some more specific and physical examples in the next chapter -- with a Hamiltonian given by
+\[
+\hat{H} \to \begin{pmatrix}
+E_1 & 0 \\ 0 & E_2
+\end{pmatrix}.
+\]
+Notice that, as a diagonal matrix, $\hat{H}$ is written here in its own basis (the energy basis), and that means the diagonal terms $E_1$ and $E_2$ are the possible energies we'd measure.
+
+Suppose we have a second observable $\hat{A}$ which we'll write in the energy basis as
+\[
+\hat{A} \to \begin{pmatrix}
+0 & a \\ a & 0
+\end{pmatrix}.
+\]
+
+We're going to explore this system in detail, and it starts with finding the eigenvalues and eigenstates of these two operators.  Luckily we already have the answer for the Hamiltonian:  the eigenvalues are the allowed energies $E_1$ and $E_2$, and the associated eigenstates are just the kets $\ket{E_1}$ and $\ket{E_2}$, which we'll write in matrix notation as
+\[
+\ket{E_1} \to \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad \text{and} \quad \ket{E_2} \to \begin{pmatrix} 0 \\ 1 \end{pmatrix}.
+\]
+
+The operator $\hat{A}$ requires more work.  We have to solve the characteristic equation, $\det |\mathbf{A} - \lambda \mathbf{I} | = 0$, where $\lambda$ represents the possible eigenvalues.  Let's work it out:
+\[
+\begin{vmatrix} -\lambda & a \\ a & -\lambda \end{vmatrix} = 0 \Rightarrow \lambda^2 - a^2 = 0,
+\]
+so $\lambda = \pm a$.  To find the eigenstates, we need to write down the eigenvalue equation,
+\[
+\hat{A} \ket{a} = \lambda \ket{A},
+\]
+and plug in our eigenvalues, one at a time.  For $\lambda = +a$, we can write
+\[
+\hat{A} \ket{+a} = +a \ket{+a}
+\]
+and solve for the ket $\ket{+a}$.  This is easy to do in matrix notation, where the eigenvalue equation becomes
+\[
+\begin{pmatrix}
+0 & a \\ a & 0
+\end{pmatrix} 
+\begin{pmatrix}
+\alpha \\ \beta
+\end{pmatrix} 
+= a \begin{pmatrix}
+\alpha \\ \beta
+\end{pmatrix}.
+\]
+Multiplying out the left hand side and equating the top rows of each side (or the bottom rows) gives $\beta = \alpha$, so we know our eigenstate is 
+\[
+\begin{pmatrix}
+\alpha \\ \alpha
+\end{pmatrix}.
+\]
+But how do we get $\alpha$?  Remember, every state must be normalized, so we must also have
+\[
+\braket{+a}{+a} = 1 \to \begin{pmatrix}
+\alpha & \alpha
+\end{pmatrix}\begin{pmatrix}
+\alpha \\ \alpha
+\end{pmatrix} = 1,
+\]
+or $\alpha = 1/\sqrt{2}$.  Our eigenstate $\ket{+a}$ is
+\[
+\ket{+a} = \frac{1}{\sqrt{2}} \ket{E_1} + \frac{1}{\sqrt{2}} \ket{E_2} \to \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 \\ 1
+\end{pmatrix}.
+\]
+Similarly -- try it on your own -- the eigenstate $\ket{-a}$, corresponding to eigenvalue $-a$, is
+\[
+\ket{-a} = \frac{1}{\sqrt{2}} \ket{E_1} - \frac{1}{\sqrt{2}} \ket{E_2} \to \frac{1}{\sqrt{2}} \begin{pmatrix}
+1 \\ -1
+\end{pmatrix}.
+\]
+
+Well, that's been a lot of work already, and we haven't even really answered any questions.  Let's answer some now.  We'll set up our system so that at time $t=0$ it's in the state
+\[
+\ket{\psi(0)} = \ket{+a}.
+\]
+
+ \begin{enumerate}[label=(\alph*)]
+ \item A measurement of the observable $A$ is made at $t=0$.  What are the possible results and probabilities of each?
+
+This one is easy since we start out in an eigenstate of $\hat{A}$ -- we'll measure $A = +a$ 100\% of time, and never measure $A = -a$.
+
+ \item  A measurement of the energy $E$ is made at $t=0$.  What are the possible results and probabilities of each?
+
+The possibilities are the energy eigenvalues -- the allowed energies -- which are $E_1$ and $E_2$.  The probability of measuring $E = E_1$ can be calculated in the usual way,
+\[
+\mathcal{P}_{E_1} = | \braket{E_1}{\psi(0)}|^2 = | \braket{E_1}{+a}|^2 \to \left| \begin{pmatrix} 1 & 0 \end{pmatrix} \begin{pmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{pmatrix} \right|^2 = \frac{1}{2}.
+\]
+Of course, that means we must have $\mathcal{P}_{E_2} = 1/2$ as well.  So we have a 50/50 chance of measuring each allowed energy.
+
+\item What is the state at a later time?
+
+To write out the state at a later time, we have to make two steps:  first, write the initial state in the energy basis.  We already have this from above,
+\[
+\ket{+a} = \frac{1}{\sqrt{2}} \ket{E_1} + \frac{1}{\sqrt{2}} \ket{E_2}.
+\]
+Second, tack on the appropriate exponential time factors, giving
+\[
+\ket{\psi(t)} = \frac{1}{\sqrt{2}} e^{-iE_1t/\hbar} \ket{E_1} + \frac{1}{\sqrt{2}} e^{-iE_2t/\hbar}  \ket{E_2}.
+\]
+That's it!
+
+\item A measurement of the energy $E$ is made at a time $t$.  What are the possible results and probabilities of each?
+
+The possible results are still the allowed energies $E_1$ and $E_2$.  What about the probabilities?  Well,
+\[
+\mathcal{P}_{E_1} = | \braket{E_1}{\psi(t)}|^2 = \left| \frac{1}{\sqrt{2}} e^{-iE_1t/\hbar} \right|^2 = \frac{1}{2}.
+\]
+Then $\mathcal{P}_{E_2} = 1/2$ as well -- but these are the same values we found at $t=0$.  As promised, the energy probabilities are constant in time.
+
+\item A measurement of the observable $A$ is made at a time $t$.  What is the probability of measuring $A = +a$?
+
+Let's make the calculation in matrix notation, but be careful to make sure everything is in the same basis -- the energy basis in this case.  Also, it gets a little messy:
+\begin{align*}
+\mathcal{P}_{+a} & = | \braket{+a}{\psi(t)} |^2 \\
+& = \left| \frac{1}{\sqrt{2}} \begin{pmatrix}1 & 1\end{pmatrix} \frac{1}{\sqrt{2}} \begin{pmatrix} e^{-iE_1t/\hbar} \\ e^{-iE_2t/\hbar} \end{pmatrix} \right|^2 \\
+& = \frac{1}{4} \Big| e^{-iE_1t/\hbar} + e^{-iE_2t/\hbar} \Big|^2
+\end{align*}
+Remember that those absolute value symbols actually mean we have to multiply by the complex conjugate, so
+\begin{align*}
+\mathcal{P}_{+a} & = \frac{1}{4}\Big( e^{iE_1t/\hbar} + e^{iE_2t/\hbar} \Big) \Big( e^{-iE_1t/\hbar} + e^{-iE_2t/\hbar} \Big) \\
+& = \frac{1}{4} \Big( 2 + e^{i(E_1 - E_2)t/\hbar} + e^{i(E_2 - E_1)t/\hbar} \Big) \\
+& = \frac{1}{4} \Big( 2 + e^{i\omega t} + e^{-i\omega t} \Big) \\
+& = \frac{1}{2} \Big( 1 + \cos(\omega t) \Big),
+\end{align*}
+where I've defined $\omega \equiv (E_2 - E_1) / \hbar$.  Notice that $\omega$ has the units of angular frequency -- loosely, it tells us how fast the state is changing in time.  Anyway, now we have an interesting situation -- something finally changes in time!  The probability of measuring $A = +a$ varies with time; at $t=0$ it's 100\%, but at time $t=\pi/\omega$ it's actually zero.  At time $t=2\pi/\omega$ it's back up to 100\%, and in fact it oscillates sinusoidally in time as shown in Figure \ref{fig_simple_time_evolution}.
+
+\end{enumerate}
+
+\end{example}
+
+\begin{figure}
+\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 6/fig_simple_time_evolution.pdf}
+\caption{The probability of measuring $A = +a$.  It varies sinusoidally with time.}
+\label{fig_simple_time_evolution}
+\end{figure}
 
 \section*{Problems}
 \addcontentsline{toc}{section}{Problems}
