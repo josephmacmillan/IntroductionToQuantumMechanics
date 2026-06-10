@@ -1,6 +1,7 @@
 \chapter{The Schr\"odinger Equation}
 
 \section{The Hamiltonian and the Energy Basis}
+\label{sec_ham_and_energy}
 
 Let's get right into it: the time evolution of a quantum system is determined by the Schr\"odinger equation,
 \begin{equation}
@@ -9,9 +10,9 @@ Let's get right into it: the time evolution of a quantum system is determined by
 i\hbar \frac{d}{dt} \ket{\psi (t)} = \hat{H}(t) \ket{\psi (t)}.
 }
 \end{equation}
-There's a lot to unpack here, though.  First of all, notice that this is a differential equation for the state $\ket{\psi (t)}$, and I've now explicitly put in the time dependence of the state; from this point on, we should probably assume all states will be time dependent (with a big caveat we'll come to later).  
+There's a lot to unpack here, though.  First of all, notice that this is a differential equation for the state $\ket{\psi (t)}$, and I've now explicitly put in the time dependence of the state; from this point on, we should probably assume all states will be time dependent.  
 
-Second, we've introduced a new operator:  the Hamiltonian $\hat{H}(t)$.  This is the quantum operator corresponding to the classical Hamiltonian -- the total energy of the system, kinetic energy plus potential energy:\footnote{You might remember from your classical mechanics course that the Hamiltonian isn't always equal to the total energy of the system, but this is a detail we won't worry in this book.}
+Second, we've introduced a new operator:  the Hamiltonian $\hat{H}(t)$.  This is the quantum operator corresponding to the classical Hamiltonian -- the total energy of the system, kinetic energy plus potential energy:\footnote{You might remember from your classical mechanics course that the Hamiltonian isn't always equal to the total energy of the system, but we won't have to worry about that in this book.}
 \begin{equation}
 H = T + U.
 \end{equation}
@@ -26,7 +27,7 @@ A big part of our job going forward in the book will be to determine the eigenva
 \end{equation}
 The notation here is a little different than for other operators; I've written the eigenvalues as $E_n$ (where $n$ is an index -- there will usually be more than one eigenvalue) and the eigenkets as $\ket{E_n}$.  That's because the Hamiltonian corresponds to the observable energy:  when we measure $H$, we're really measuring the total energy of the system.  The eigenvalues $E_n$ are often called the \emph{allowed energies}.  Much of quantum mechanics at this stage is a pursuit of those allowed energies for different systems.
 
-As I mentioned back in Section \ref{sec_hermitian_operators}, the eigenvalues of a Hermitian operator are real -- which is nice since they're energies. Furthermore, the eigenstates are orthonormal,
+Since it represents an observable, the Hamiltonian must be a Hermitian operator.  As I mentioned back in Section \ref{sec_hermitian_operators}, the eigenvalues of a Hermitian operator are real -- which is nice since they're energies. Furthermore, the eigenstates are orthonormal,
 \begin{equation}
 \braket{E_m}{E_n} = \delta_{mn},
 \end{equation}
@@ -51,7 +52,7 @@ Of course, we know that $\hat{H} \ket{E_n} = E_n \ket{E_n}$ -- it's the eigensta
 i\hbar \sum_n \frac{dc_n}{dt} \ket{E_n} = \sum_n c_n(t) E_n \ket{E_n}.
 \]
 
-We need to solve this equation for the unknown coefficients $c_n(t)$, but they're buried in the sums.  To get rid of the sums and isolate the $c_n$s, we take the inner product with the eigenstate $\ket{E_m}$ -- notice the index is $m$ rather than $n$:
+We need to solve this equation for the unknown coefficients $c_n(t)$, but they're buried in the sums.  To get rid of the sums and isolate the coefficeints, we take the inner product with the eigenstate $\ket{E_m}$ -- notice the index is $m$ rather than $n$:
 \[
 \bra{E_m} \left( i\hbar \sum_n \frac{dc_n}{dt} \ket{E_n}  \right) = \bra{E_m} \left( \sum_n c_n(t) E_n \ket{E_n} \right).
 \]
@@ -59,21 +60,23 @@ Now let the bra act on the ket on each side to get
 \[
 i\hbar \sum_n \frac{dc_n}{dt} \braket{E_m}{E_n} = \sum_n c_n(t) E_n \braket{E_m}{E_n}.
 \]
-But since the eigenstates are orthonormal,
+But since the eigenstates are orthonormal, we have
 \[
 \braket{E_m}{E_n} = \delta_{mn}.
 \]
 This is a little tricky to see at first, but that Kronecker delta $\delta_{mn}$ will collapse the sum -- every term in the sum will end up being zero except for the $m$th one.  So the equation reduces to 
-\[
+\begin{equation}
+\label{eq_schro_ode}
 i\hbar \frac{dc_m}{dt} = c_m E_m.
-\]
+\end{equation}
 Finally, this is differential equation we can readily solve; separating and integrating gives the solution as
-\[
-c_m (t) = c_m(0) e^{-i E_m t / \hbar}
-\]
-(try it yourself!).
+\begin{equation}
+\label{eq_schro_coeff}
+c_m (t) = c_{m,0} e^{-i E_m t / \hbar}
+\end{equation}
+(try it yourself!), where $c_{m,0} = c_m(0)$.
 
-We have now the solution to the Schr\"odinger equation in cases where the Hamiltonian is time independent.  There's just one last thing:  the coefficient $c_m$ (or, as I'll write it in a moment, $c_n$ -- the index letter doesn't matter) depends on time, but we'll write the initial value without the explicit time dependence:  $c_n \equiv c_n(0)$.  This is a little confusing -- sorry! -- but will make the solution a little cleaner and will make sense in context.
+We have now the solution to the Schr\"odinger equation in cases where the Hamiltonian is time independent.  There's just one last thing: it's customary to drop the naught in the initial value of the coefficient $c_{m,0}$  and just write it as $c_m$ (or, as I'll write it in a moment, $c_n$ -- the index letter doesn't matter). This might seem a little confusing, since $c_m$ could also stand for the value at time $t$, $c_m(t)$, but it'll turn out we'll never write it that way -- $c_m$ will henceforth always mean the initial value.
 
 Anyway, here we go:  the solution to the Schr\"odinger equation, written in the energy basis, is
 \begin{equation}
@@ -101,17 +104,17 @@ But we know $\ket{\psi(0)} = \ket{E_1}$, so we must have $c_1 = 1$ and every oth
 \ket{\psi(t)} = e^{-iE_1 t/\hbar} \ket{E_1}.
 \]
 
-Let's take a look at this state.  Notice that the only difference from the initial state is the presence of the exponential factor in front -- but that's an overall phase factor, which we've said doesn't physically change.  So has anything really changed in time?  Not really; if we measure the energy, the probability we'll get $E_1$ is
+Let's take a look at this state.  Notice that the only difference from the initial state is the presence of the exponential factor in front -- but that's an overall phase factor, which we've said doesn't physically change the state.  So has anything really changed in time?  Not really; if we measure the energy, the probability we'll get $E_1$ is
 \[
 \mathcal{P}_{E_1} = | \braket{E_1}{\psi(t)} |^2 = | e^{-iE_1t/\hbar} \braket{E_1}{E_1}|^2 = |e^{-iE_1t/\hbar}|^2 = 1,
 \]
 or 100\% -- the same as at $t=0$.  
 
-In fact, \emph{any} measurement of any observable -- we'll write it as $A$ -- is time-independent:
+In fact, \emph{any} measurement of \emph{any} observable -- which I'll write as $A$ -- is time-independent:
 \[
 \mathcal{P}_{a_n} = |\braket{a_n}{\psi(t)} |^2 = | e^{-iE_1t/\hbar} \braket{a_n}{E_1}|^2 = |\braket{a_n}{E_1}|^2.
 \]
-This probability obviously depends on the observable $A$ that we're measuring, but not on time at all.  States for which there is no measurable time evolution -- that is, any measurement we can make has no time dependence -- are called \emph{stationary states}.  The energy eigenstates of a system are always stationary states.
+This probability obviously depends on the observable $A$ that we're measuring, but not on time at all.  States for which there is no measurable time evolution -- that is, every measurement we can make has no time dependence -- are called \emph{stationary states}.  The energy eigenstates of a system are always stationary states.
 
 \section{Superposition States}
 
@@ -129,7 +132,7 @@ If we measure the energy of our system at some later time $t$, notice that the p
 \[
 \mathcal{P}_{E_1} = | \braket{E_1}{\psi(t)}|^2 = |c_1|^2, \quad \text{and} \quad \mathcal{P}_{E_2} = |c_2|^2.
 \]
-This is \emph{always} the case if the Hamiltonian is time independent.
+This is \emph{always} the case if the Hamiltonian is time independent -- energy probabilities don't change.
 
 What about some other observable $A$?  Then it depends.  If the operators $\hat{A}$ and $\hat{H}$ commute, then they share eigenstates -- so the states $\ket{E_n}$ are also eigenstates of $\hat{A}$ and the probabilities will be constant as well.
 
@@ -283,11 +286,77 @@ where I've defined $\omega \equiv (E_2 - E_1) / \hbar$.  Notice that $\omega$ ha
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
 
-\begin{problem}[Example Problem]
-\label{prob_example}
+\begin{problem}[Solving the Schr\"odinger Equation]
+\label{prob_solve_schro}
 
-Problem goes here.
+In Section \ref{sec_ham_and_energy} we solved the Schr\"odinger equation for the case where the Hamiltonian doesn't depend on time, and we got down to the differential equation (equation \ref{eq_schro_ode})
+\[
+i \hbar \frac{dc_m}{dt} = c_m E_m.
+\]
+Solve this equation and show that that the answer is as given in equation (\ref{eq_schro_coeff}).
 
 \end{problem}
 
+\begin{problem}[Checking the Solution]
+\label{prob_check_schro}
 
+Check our solution to the Schr\"odinger equation (equation \ref{eq_schro_sol}) by explicitly plugging it into the Schr\"odinger equation itself and showing that the right hand side equals the left hand side.
+
+\end{problem}
+
+\begin{problem}[Practice 1]
+\label{prob_schro_practice1}
+
+Consider the Hamiltonian given by
+\[
+\hat{H} \to E_0 \begin{pmatrix} 2 & 1 \\ 1 & 2 \end{pmatrix}
+\]
+where $E_0$ is some real positive constant.  This matrix is written in the basis given by the kets $\ket{q_1}$ and $\ket{q_2}$, which are eigenstates of some operator $\hat{Q}$, and have corresponding eigenvalues $q_1$ and $q_2$.    Initially the system starts out in a state given by
+\[
+\ket{\psi(0)} = \frac{3}{5} \ket{q_1} + \frac{4}{5} \ket{q_2}.
+\]
+
+\begin{enumerate}[label=(\alph*)]
+
+\item What are the allowed energies of the system?
+
+\item Find the energy eigenstates of the Hamiltonian.
+
+\item If you were to make a measurement of the energy of the system at $t=0$, what are the probabilities of measuring each?
+
+\item If you were to measure $Q$ at time $t = 0$, what are the possible results and probabilities of each?
+
+\item What is the state $\ket{\psi(t)}$ at a later time?
+
+\item If you were to measure $Q$ at a later time $t$, what are the possible results and probabilities of each?
+
+\item What is the expectation value $\avg{A(t)}$ as a function of time?
+
+\end{enumerate}
+
+\end{problem}
+
+\vspace{1in}
+
+\begin{problem}[Practice 2]
+\label{prob_schro_practice2}
+
+Consider the Hamiltonian given by
+\[
+\hat{H} \to  \begin{pmatrix} E_0 & 0 & A \\ 0 & E_1 & 0 \\ A & 0 & E_0 \end{pmatrix},
+\]
+where $E_0$, $E_1$, and $A$ are real positive constants.  This matrix is written in a basis given by the kets $\ket{1}$, $\ket{2}$, and $\ket{3}$.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Find the energy eigenvalues and eigenstates.
+
+\item Write the Hamiltonian in the energy basis (as a matrix).
+
+\item Suppose the initial state of the system is $\ket{\psi(0)} = \ket{1}$.  What is the probability that the system is in state $\ket{1}$ at time $t$?
+
+\item Suppose the initial state of the system is $\ket{\psi(0)} = \ket{2}$.  What is the probability that the system is in state $\ket{2}$ at time $t$?
+
+\end{enumerate}
+
+\end{problem}
