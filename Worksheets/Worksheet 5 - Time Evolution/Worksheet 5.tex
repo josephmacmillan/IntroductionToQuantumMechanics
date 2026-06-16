@@ -1,0 +1,167 @@
+%
+% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+%
+
+\documentclass[10pt, letterpaper, twoside, openany]{article}
+
+\title{Introduction to Quantum Mechanics -- Worksheet 5}
+\author{Joseph D. MacMillan}
+\date{}
+
+
+\usepackage{graphicx}
+\usepackage{color} 
+\usepackage{amsmath, amssymb}
+\usepackage{libertinus}
+\usepackage{microtype}
+\usepackage{layout}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[hang, small, bf]{caption}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Introduction to Quantum Mechanics -- Worksheet 5}}
+\hypersetup{pdfauthor={Joseph D. MacMillan}}
+\urlstyle{rm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+
+
+
+\newcommand{\uu}{\symbfup{u}}
+\newcommand{\grad}{\symbfup{\nabla}}
+\newcommand{\curl}{\symbfup{\nabla} \times}
+\newcommand{\dfdx}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ddfdx}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\vort}{\symbfup{\omega}}
+\renewcommand\vec{\symbfup}
+\newcommand{\unit}[1]{\hat{\vec{#1}}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\LL}{\mathbb{L}^2}
+\newcommand{\LLLL}{\mathbb{L}^4}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\avg}[1]{\langle #1 \rangle}
+
+
+%\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{sl}
+\newcommand{\tens}[1]{\mathbfsfit{#1}}
+
+
+\newcounter{example}[section]
+\def\theexample{\thechapter.\arabic{example}}
+\newenvironment{example}[1][ ]{\refstepcounter{example}
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{Example \theexample \ -- #1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newenvironment{theorem}[1][ ]{
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{#1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newcounter{problem}[section]
+\def\theproblem{\thechapter.\arabic{problem}}
+\newenvironment{problem}[1][ ]{\refstepcounter{problem} \noindent \textbf{Problem \theproblem \ -- #1.}}{\vspace{0.1in}}
+
+\renewcommand{\arraystretch}{2.5}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{\emph{Introduction to Quantum Mechanics}}
+\fancyhead[R]{Worksheet 5} 
+
+\Large \noindent Worksheet 5
+
+\noindent \LARGE \textbf{Time Evolution}
+
+\normalsize
+
+\vspace{0.2in}
+
+\noindent Operators  \bullet \  Eigenvalues   \bullet \ Hamiltonian \bullet \ Schr\"odinger \bullet \ Evolving states  
+
+\vspace{0.1in}
+
+\noindent \rule{\textwidth}{0.5pt}
+
+\vspace{0.2in}
+
+\begin{enumerate}
+
+\item The Hamiltonian of a two-state system is given by
+\[
+\hat{H} \to \begin{pmatrix}
+E_1 & 0 \\ 0 & E_2
+\end{pmatrix}.
+\]
+
+What basis is this Hamiltonian written in?  How do you know?  
+
+\vspace{1in}
+
+\item What do the values $E_1$ and $E_2$ represent?  What do we call them?  Write the energy eigenstates -- call them $\ket{E_1}$ and $\ket{E_2}$ -- in matrix notation.
+
+\vspace{1in}
+
+\item A second observable, which we'll call $A$, can be written in the energy basis as
+\[
+\hat{A} \to \begin{pmatrix}
+0 & a \\ a & 0
+\end{pmatrix}.
+\]
+Do $\hat{H}$ and $\hat{A}$ commute?  What does that imply about the two observables?
+
+\newpage
+
+\item Find the eigenvalues and eigenstates of the operator $\hat{A}$.  What do the eigenvalues represent?  What about the eigenstates?
+
+\vspace{5in}
+
+\item Suppose at time $t=0$, our quantum system is in a state given by
+\[
+\ket{\psi(0)} = \ket{+a}.
+\]
+If we measure $A$ on this state, what are the possible results and the probabilities of each?
+
+\newpage
+
+\item Write the state $\ket{\psi(0)}$ in the energy basis, both in Dirac and matrix notation.  What is the exact value of the energy of the system at $t=0$?
+
+\vspace{1in}
+
+\item What if we go ahead and measure the energy $E$ -- what are the possible results and the probabilities of each?
+
+\vspace{2in}
+
+\item What is the state at a later time?  Write it in the energy basis.
+
+\vspace{1in}
+
+\item Write the state using the eigenstates of $A$ as your basis.
+
+\newpage
+
+\item At time $t$, a measurement of energy is made.  What are the possible results and probabilities?  Comment on them.
+
+\vspace{1in}
+
+\item At time $t$, a measurement of the observable $A$ is made.  What is the probability of measuring $A = +a$?  
+
+\end{enumerate}
+
+\end{document}
