@@ -1,8 +1,188 @@
 \chapter{Examples of Discrete Systems}
 
+With the exception of Chapter 1, we haven't dealt with any realistic physical systems, but now that all the rules are on the table we can turn to applying them to a few interesting systems.  We'll stick with \emph{two-state systems} for mathematical simplicity, but there are interesting three-state systems (or higher) and all the same rules apply there, too.
+
 \section{An Electron in a Magnetic Field}
 
-To come.
+Back in Chapter 1 we discussed one of the implications of electrons (or any other spin-1/2 particles) having an intrinsic angular momentum $\mathbf{S}$ -- it's spin -- namely, that a particle is deflected by an inhomogenous magnetic field.  However, there's another effect as well: the magnetic field will actually change the spin vector of the electron.  To see how this happens, we need to figure out the Hamiltonian of the system and see how it evolves according to the Schr\"odinger equation.
+
+Consider an electron at rest in a constant (and homogeneous this time) magnetic field aligned along the $z$-axis and given by
+\begin{equation}
+\vec{B} = B_0 \hat{z},
+\end{equation}
+as shown in Figure \ref{fig_e_in_B_field}.  The spin of the electron gives it a magnetic dipole moment $\vec{\mu}$, given in equation (\ref{eq_mag_dipole}) for an electron as
+\[
+\vec{\mu} = - \frac{e}{m} \vec{S}.
+\]
+
+
+
+\begin{figure}
+\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 7/fig_e_in_B_field.pdf}
+\caption{An electron in a magnetic field.}
+\label{fig_e_in_B_field}
+\end{figure}
+
+
+Classically, the magnetic field would apply a torque
+\[
+\vec{N} = \vec{\mu} \times \vec{B}
+\]
+to the dipole, causing it to try to align with the magnetic field.\footnote{See, for example, Griffiths \emph{Introduction to Electrodynamics}, section 6.1.2.}  But to understand the quantum system, we need to work with energies rather than forces, and the potential energy of a dipole in a magnetic field is given by
+\begin{equation}
+U = -\vec{\mu} \cdot \vec{B}.
+\end{equation}
+Since our electron is at rest it has no kinetic energy, this is also the full Hamiltonian of our system,
+\begin{equation}
+H = -\vec{\mu} \cdot \vec{B} = \frac{e}{m} \vec{S} \cdot \vec{B} = \omega_0 S_z,
+\end{equation}
+where $\omega_0 \equiv eB_0 / m$ is a constant -- we'll see later what it means.
+
+To ``turn on quantum mechanics'' we just turn our observable into an operator, like so:
+\begin{equation}
+\hat{H} = \omega_0 \hat{S}_z
+\end{equation}
+(that's right, I just put hats on the observables).  Remember, this Hamiltonian does double duty:  it tells us the allowed energies and associated energy eigenstates, and it also tells us, within the Schr\"odinger equation, how a state in this system evolves in time.  
+
+Let's do the first thing first, since it's pretty easy: we need to find the eigenvalues and eigenstates of the Hamiltonian operator.  That's actually trivial in this case, since the Hamiltonian is just proportional to the spin operator $\hat{S}_z$; writing the Hamiltonian in matrix notation (in the $S_z$ basis as usual),
+\[
+\hat{H} \to \frac{\hbar \omega_0}{2} \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix},
+\]
+we can see that it's diagonal and therefore the eigenvalues must be
+\begin{equation}
+E_+ = \frac{\hbar \omega_0}{2} \quad \text{and} \quad E_- = -\frac{\hbar \omega_0}{2}.
+\end{equation}
+The eigenstates are even easier; they're the same as the basis states, so
+\begin{equation}
+\ket{E_+} = \ket{+} \quad \text{and} \quad \ket{E_-} = \ket{-}.
+\end{equation}
+
+Now that we have the Hamiltonian all figured out, we can answer some basic questions about what happens to an electron in a magnetic field.  Let's suppose the electron is initially in some general spin state,
+\[
+\ket{\psi(0)} = a\ket{+} + b\ket{-}.
+\]
+Actually, it's a little more convenient to write the coefficients as
+\[
+a = \cos (\theta/2) \quad \text{and} \quad b = \sin (\theta/2);
+\]
+we'll see what the angle $\theta$ means physically in bit, but notice for now that writing the state as
+\begin{equation}
+\ket{\psi(0)} = \cos (\theta/2)\ket{+} + \sin (\theta/2)\ket{-}
+\end{equation}
+isn't any less general than using $a$ and $b$; there's always some angle that will reproduce whatever values we wanted.  And, as a bonus, the state is automatically normalized, since
+\[
+|a|^2 + |b|^2 = \cos^2(\theta/2) + \sin^2(\theta/2) = 1.
+\]
+
+Here's our first question:  given that initial state, what is the state at a later time?  We can answer this with our solution to the Schr\"odinger equation discussed last chapter, and which will always take the following two steps:
+\begin{enumerate}
+\item put the initial state into the energy basis, and
+\item tack on the exponential time factors $e^{-iE_nt/\hbar}$ to each energy basis state.
+\end{enumerate}
+In this case, the first step is already done for us -- the energy basis is the spin $S_z$ basis.  The second step gives us
+\[
+\ket{\psi(t)} = \cos(\theta/2) e^{-iE_+ t / \hbar} \ket{+} + \sin (\theta/2) e^{-iE_- t / \hbar} \ket{-},
+\]
+or, filling in our known energies $E_\pm$,
+\[
+\ket{\psi(t)} = \cos(\theta/2) e^{-i\omega_0 t / 2} \ket{+} + \sin (\theta/2) e^{i\omega_0 t / 2} \ket{-}.
+\]
+One more little trick -- a pretty common one in quantum mechanics -- let's pull out a factor of $e^{-i\omega_0 t/2}$ from each term to get
+\[
+\ket{\psi(t)} = e^{-i\omega_0 t/2} \Big[ \cos(\theta/2) \ket{+} + \sin (\theta/2) e^{i\omega_0 t} \ket{-} \Big].
+\]
+Why do this?  Well, that first exponential is an overall phase factor, which we're allowed to ignore, so our final answer is the slightly nicer looking state
+\begin{equation}
+\ket{\psi(t)} =  \cos(\theta/2) \ket{+} + \sin (\theta/2) e^{i\omega_0 t} \ket{-}.
+\end{equation}
+This is the state at any later time $t$.
+
+Suppose we want to measure the energy of our state at time $t$ -- what will we get?  Well, we know the possible results are the eigenvalues of the Hamiltonian, and probabilities are calculated in the usual way, so
+\begin{itemize}
+\item we could measure $E_+ = \hbar \omega_0 /2$ with a probability $\mathcal{P}_{E_+} = | \braket{+}{\psi(t)} |^2 = \cos^2 (\theta/2)$, or
+\item we could measure $E_- = -\hbar \omega_0 /2$ with a probability $\mathcal{P}_{E_-} = | \braket{-}{\psi(t)} |^2 = |\sin (\theta/2) e^{i \omega_0 t}|^2 = \sin^2 (\theta/2)$.
+\end{itemize}
+As expected, these probabilities are constant -- they won't change with time as the state evolves.
+
+To see some more interesting time behaviour, we need to measure something other than energy.  Let's try the spin component $S_x$.  This is spin, so the two possible results are as usual $\pm\hbar/2$.  Let's calculate the probability of measuring spin up along $x$:
+\begin{align*}
+\mathcal{P}_{+x} & = | _x\braket{+}{\psi(t)} |^2 \\
+& = \left| \frac{1}{\sqrt{2}} \begin{pmatrix} 1 & 1 \end{pmatrix} \begin{pmatrix} \cos (\theta/2) \\ \sin(\theta/2) e^{i\omega_0 t} \end{pmatrix} \right|^2.
+\end{align*}
+Multiplying the matrices gives
+\[
+\mathcal{P}_{+x} = \frac{1}{2} \left| \cos (\theta/2) + \sin(\theta/2) e^{i\omega_0 t}  \right|^2,
+\]
+but be careful with those absolute value signs.  In quantum mechanics they always mean multiply by the complex conjugate, so
+\[
+\mathcal{P}_{+x} = \frac{1}{2} \Big( \cos (\theta/2) + \sin(\theta/2) e^{-i\omega_0 t}  \Big)\Big( \cos (\theta/2) + \sin(\theta/2) e^{i\omega_0 t}  \Big),
+\]
+which simplifies to 
+\[
+\mathcal{P}_{+x} = \frac{1}{2} \Big[ 1 + \cos(\theta/2) \sin(\theta/2) \Big( e^{i\omega_0 t} +  e^{-i\omega_0 t} \Big) \Big].
+\]
+We can use the identity $\sin\theta = 2 \cos(\theta/2) \sin(\theta/2)$ as well as Euler's formula for cosine,
+\[
+e^{i\omega_0 t} +  e^{-i\omega_0 t} = 2 \cos \omega_0 t,
+\]
+to simplify this further, getting finally
+\begin{equation}
+\mathcal{P}_{+x} = \frac{1}{2} \Big( 1 + \sin \theta \cos \omega_0 t \Big).
+\end{equation}
+
+That was a lot of work, but the result is interesting: it's time dependent, and I've plotting the probability as a function of time in Figure \ref{fig_prob_sx}.  Note that the probability alternates between  the values $(1 - \cos\theta)/2$ and $(1 + \cos\theta)/2$.
+
+\begin{figure}
+\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 7/fig_prob_sx.pdf}
+\caption{The probability $\mathcal{P}_{+x}$ of measuring the electron to have $S_x = \hbar/2$ as the state evolves in time.  The parameter $\theta = \pi/6$ in this case.}
+\label{fig_prob_sx}
+\end{figure}
+
+While we're looking at spin along the $x$ direction, let's calculate the expectation value as well.  It's pretty straightforward in matrix notation, although tedious:
+\begin{align*}
+\avg{S_x(t)} & = \bra{\psi(t)} \hat{S}_x \ket{\psi(t)} \\
+& \to \begin{pmatrix} \cos (\theta/2) & \sin(\theta/2) e^{-i\omega_0 t} \end{pmatrix}
+\begin{pmatrix} 0 & \hbar/2 \\ \hbar/2 & 0 \end{pmatrix}
+\begin{pmatrix} \cos (\theta/2) \\ \sin(\theta/2) e^{i\omega_0 t} \end{pmatrix},
+\end{align*}
+which evaluates to (with some work)
+\begin{equation}
+\avg{S_x(t)} = \frac{\hbar}{2} \sin\theta \cos\omega_0t.
+\end{equation}
+If we instead calculate the expectation value for $S_y$, we would get the similar
+\begin{equation}
+\avg{S_y(t)} = -\frac{\hbar}{2} \sin\theta \sin\omega_0t,
+\end{equation}
+and if we did $S_z$, we'd get
+\begin{equation}
+\avg{S_z(t)} = \frac{\hbar}{2} \cos\theta.
+\end{equation}
+Not surprisingly, this last expectation value is constant since $\hat{S}_z$ and $\hat{H}$ commute.
+
+\begin{figure}
+\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 7/fig_precession_of_spin.pdf}
+\caption{The expectation value of the spin of the electron in a magnetic field precesses around the $z$ axis.}
+\label{fig_precession_of_spin}
+\end{figure}
+
+This all actually makes a pretty clear physical picture of what's happening to the spin of the electron in the magnetic field.  Consider the quantity
+\begin{equation}
+\avg{\vec{S}} = \avg{S_x} \hat{x} +  \avg{S_y} \hat{y} +  \avg{S_z} \hat{z},
+\end{equation}
+which might represent the average direction the spin vector points in some way.  With the time behaviour in the $x$ and $y$ components of the vector, it looks like it precesses  around the $z$ axis, as shown in Figure \ref{fig_precession_of_spin}.  The precession frequency is 
+\[
+\omega_0 = \frac{eB_0}{m},
+\]
+and the angle that $\avg{\vec{S}}$ makes with the $z$ axis is the angle $\theta$ that we introduced way back at the start of the problem.
+
+Interestingly, \emph{classical} theory predicts the exact same thing for the magnetic dipole moment of the electron, a phenomenon called \emph{Larmar precession}, and the classical frequency is the same as our $\omega_0$, called the Larmar frequency.  The only difference between classical theory and our result here is the presence of the expectation value rather than the actual physical observable.  It turns out this is a general thing, and we'll encounter it many times; it's called Ehrenfest's theorem:
+\[
+\boxed{
+\text{Ehrenfest's theorem:  quantum expectation values obey classical laws.}
+}
+\]
+
+
 %
 %
 %
@@ -153,9 +333,106 @@ This is the explanation for the solar neutrino problem, although the full theory
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
 
-\begin{problem}[Example Problem]
-\label{prob_example}
+\begin{problem}[The Ammonia Molecule]
+\label{prob_ammonia}
 
-Problem goes here.
+Ammonia (NH$_3$) is a complicated system of four nuclei and ten electrons interacting with each other to form bonds between atoms, making the stable state of the molecule a pyramid with three hydrogen atoms forming the base and a nitrogen atom at the apex -- see Figure \ref{fig_ammonia}.   Let's ignore all this internal dynamics and any translation or rotation the molecule may have.  Because of the symmetry of the molecule, there are two places the N atom can reside: either above the plane formed by the hydrogen atoms or below the plane. This is, essentially, a two-state system. 
+
+\begin{figure}
+\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 7/fig_ammonia.pdf}
+\caption{The nitrogen atom in ammonia can be found either above the plane (a) or below the plane (b) formed by the hydrogen atoms.}
+\label{fig_ammonia}
+\end{figure}
+
+We can describe the two states of the molecule by
+\[
+\ket{1} = | \text{N above the plane} \rangle \quad \text{and} \quad 
+\ket{2} = | \text{N below the plane} \rangle .
+\]
+The Hamiltonian of the molecule in this basis is given by
+\[
+\hat{H} \to 
+\begin{pmatrix}
+	E_0 & -A \\
+	-A & E_0
+\end{pmatrix},
+\]
+where $A$ is a positive constant.
+
+\begin{enumerate}[label=(\alph*)]
+
+\item Find the allowed energies $E_\pm$ and the associated energy eigenstates $\ket{E_\pm}$ for this system.
+
+\item Suppose the ammonia molecule is in the state $\ket{E_+}$.  Where is the nitrogen molecule located in this state?
+
+\item At time $t=0$ the molecule is in state $\ket{1}$.  What is the probability of measuring the nitrogen atom to be \emph{below} the plane at time $t$ later?
+
+\item  Ammonia gas clouds in galaxies can form a natural maser, which is like a laser but with microwave emission rather than visible light.  The ammonia masers can be useful tracers of galactic dynamics among other things.  The wavelength of the electromagnetic radiation from masers is 1.25 cm.  Estimate the value of the constant $A$ in the Hamiltonian (\emph{Hint}: The microwave emission comes from photons that carry away the \emph{difference} in energy between the two states, and recall that the energy of a photon is related to its wavelength from $E = hc/\lambda$, where $h = 6.626 \times 10^{-34}$ m$^2$kg/s.)
+
+\end{enumerate}
+
+\end{problem}
+
+\begin{problem}[Polarization of Light]
+\label{prob_polarization}
+
+It is possible to polarize light in two different directions -- let's say horizontal and vertical. Polarizing light is pretty easy to do -- just pass it through a \emph{polarizing filter} that is oriented either horizontally or vertically.\footnote{If you're not familiar with polarizing filters, the lenses of some sunglasses are vertically polarized to block horizontally polarized light that results from reflections. Another application is in 3D movies -- those glasses have one horizontal filter over one eye and a vertical filter over the other, so that each eye can see different images.}   We won't worry about the properties of the electromagnetic waves, here, but instead focus on the quantum mechanics of polarized photons.  
+
+Let's suppose that a photon which is horizontally polarized is in state $\ket{h}$, and one which is vertically polarized is in state $\ket{v}$.  In general, the photon can be in a superposition of both states,
+\[
+\ket{\gamma} = a \ket{h} + b \ket{v}.
+\]
+Experimentally, this is easy to do -- just rotate the polarizing filter at an angle.  
+
+\begin{enumerate} [label=(\alph*)]
+
+\item Let's start with the basics.  First pass unpolarized light, consisting of 100 photons, through a horizontal filter.  (i) What state will the photons be in after that?  (ii) Next, those photons are passed through a second horizontal filter.  How many photons will pass through this filter?  (iii) Finally, the photons are then passed through a vertical filter.  How many photons will pass through this filter?
+
+\item Now we prepare a single photon in the state
+\[
+\ket{\gamma} = \ket{h} - 2 \ket{v}.
+\]
+If you pass this photon through a horizontal filter, what is the probability that it will go through?  What about through a vertical filter?
+
+\item It turns out that the polarization of a photon is related to its angular momentum $\mathbf{J}$.  In the $\ket{h}$-$\ket{v}$ basis, we can write the $z$-component of the angular momentum as
+\[
+\hat{J}_z \to \begin{pmatrix}
+\hbar & 0 \\
+0 & -\hbar
+\end{pmatrix}.
+\]
+\begin{enumerate}[label=(\roman*)]
+\item Is this operator \emph{hermitian}?  Do you expect it to be (and why or why not)?
+\item What are the eigenvalues and eigenstates of $\hat{J}_z$?
+\item If you were to make a measurement of $J_z$ on a photon in the state $\ket{\gamma}$, what are the possible results you could measure, and what is the probability of getting each?
+\item Calculate $\langle \hat{J}_z \rangle$ for the state $\ket{\gamma}$.
+\end{enumerate}
+
+\item In an experiment, a photon propagates along the optic axis (the $x$-axis in this case) of a quartz crystal.  The Hamiltonian for this system, in the $\ket{h}$-$\ket{v}$ basis, is given by
+\[
+\hat{H} \to \begin{pmatrix}
+0 & -iE_0 \\
+iE_0 & 0
+\end{pmatrix}.
+\]
+\begin{enumerate}[label=(\roman*)]
+\item Is this operator hermitian?
+\item The operators $\hat{H}$ and $\hat{J}_z$ \emph{don't} commute.  Calculate their commutator
+\[
+[\hat{H}, \hat{J_z}].
+\]
+\item Since the Hamiltonian and $z$-component of angular momentum don't commute, they have an associated uncertainty principle.  What is it (for the state $\ket{\gamma}$)?  What does it imply about measurements of the energy and $J_z$?
+\item Find the eigenvalues and eigenstates of the Hamiltonian.
+\item If you make a measurement of the energy of a photon in the state $\ket{\gamma}$, what are the possibilities and probabilities of each?
+\end{enumerate}
+
+\item A photon enters into the crystal, initially in state $\ket{\psi(0)} = \ket{h}$.  
+\begin{enumerate}[label=(\roman*)]
+\item What is the state of the photon a time $t$ later, $\ket{\psi(t)}$?  Write the state in the $\ket{h}$-$\ket{v}$ basis.
+\item At time $t$, what is the probability of measuring the photon to be horizontally polarized?  Vertically polarized?
+\end{enumerate}
+
+
+\end{enumerate}
 
 \end{problem}
