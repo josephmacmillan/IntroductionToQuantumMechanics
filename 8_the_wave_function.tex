@@ -1,0 +1,71 @@
+\chapter{The Wave Function}
+
+\section{One Dimensional Systems}
+
+Up until now we've dealt exclusively with \emph{discrete} system like spin.  In these cases, we used column vectors to represent the quantum state of our particle; for example, for spin-1/2, we had
+\[
+\ket{\psi} \to \begin{pmatrix} \braket{+}{\psi} \\ \braket{-}{\psi} \end{pmatrix}.
+\]
+Take careful note of the notation; each element in the column vector is a matrix element, and you can clearly see the basis $\ket{+},\ket{-}$ used.  In general, we would have a system that has $n$ elements, where $n$ could be three (say, for spin-1) or more -- all the way up to infinity:
+\[
+\ket{\psi} \to \begin{pmatrix} \braket{a_1}{\psi} \\ \braket{a_2}{\psi} \\ \braket{a_3}{\psi} \\ \vdots \end{pmatrix}.
+\]
+All of the quantum mechanical rules that we've discussed are identical regardless of the number of possible states of the system.
+
+Now, though, it's time for something a little different (don't worry, only a little).  We want to work in the \emph{position representation}, in which case we might write our state as the column vector
+\begin{equation}
+\label{eq_pos_col_vec}
+\ket{\psi} \to \begin{pmatrix} \braket{x_1}{\psi} \\ \braket{x_2}{\psi} \\ \braket{x_3}{\psi} \\ \vdots \end{pmatrix},
+\end{equation}
+where the kets $\ket{x_i}$ are the position eigenstates.  There's one problem here, though: not only are there an infinite number of position states, there are \emph{continuous} -- in general our particle could be at position $x=1.0$, or $x =1.01$, or $x = 1.000001$.  In the language of linear algebra, we say that the spectrum of eigenvalues is continuous.  
+
+It's difficult to use a column vector to represent our state in the position basis -- it's really more suited to discrete systems.  But it's pretty easy to imagine how to extend the idea: each element in equation (\ref{eq_pos_col_vec}) is the state ``evaluated'' at the position $x_i$, and if these positions run continuously, what we really have is a \emph{function}:
+\begin{equation}
+\label{eq_wave_function_defined}
+\boxed{
+\ket{\psi} \to  \psi(x) \quad \text{where} \quad \psi(x) \equiv \braket{x}{\psi}.
+}
+\end{equation}
+
+We already know that we can represent a quantum state as a ket, or a column vector, and now we can also use a function.  But what exactly does the function $\psi(x)$ mean?  Well, remember that the inner product $\braket{x}{\psi}$ is the probability \emph{amplitude} (we have to square it to get the actual probability) of the quantum state to be measured in the position eigenstate $\ket{x}$.  That means the probability of finding a particle to be at position $x$ is
+\[
+\mathcal{P}(x) = | \braket{x}{\psi}|^2 = \braket{\psi}{x}\braket{x}{\psi} = \psi^*(x)\psi(x) = |\psi(x)|^2.
+\]
+Actually, that's not quite correct; our jump to continuous systems means that $\mathcal{P}(x)$ is actually a probability \emph{density}, and we properly have to say that $\mathcal{P}(x)dx$ is the probability of finding the particle between the position $x$ and $x + dx$.  If we want to know about a finite region, we'd have to integrate:
+\begin{equation}
+\boxed{
+\int_a^b \mathcal{P}(x) dx = \int_a^b |\psi(x)|^2 dx \quad  \text{ \parbox[l]{1.8in}{is the probability of finding the particle between $x = a$ and $x=b$.}} 
+}
+\end{equation}
+
+Like all quantum states we've discussed so far, states written in the position representation must be too; here, that means
+\begin{equation}
+\braket{\psi}{\psi} = 1 \quad \to \quad \int_{-\infty}^\infty |\psi(x)|^2 dx = 1. 
+\end{equation}
+In words, that means we have to find the particle \emph{somewhere} with 100\% probability.
+
+The structure of the inner product above carries over to all inner products
+
+
+
+
+\section{Position Indeterminacy} 
+
+\section{The Energy Eigenvalue Equation}
+
+\section{Bound and Unbound States}
+
+%
+%
+%
+
+\section*{Problems}
+\addcontentsline{toc}{section}{Problems}
+\markright{Problems}%
+
+\begin{problem}[Some problems]
+\label{prob_some}
+
+Test
+
+\end{problem}
