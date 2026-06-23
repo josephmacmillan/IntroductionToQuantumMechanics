@@ -44,9 +44,28 @@ Like all quantum states we've discussed so far, states written in the position r
 \end{equation}
 In words, that means we have to find the particle \emph{somewhere} with 100\% probability.
 
-The structure of the inner product above carries over to all inner products
+The structure of the inner product above carries over to \emph{all} inner products, so in general we'll calculate the inner product between state $\ket{\phi}$ and state $\ket{\psi}$ in position space as
+\begin{equation}
+\braket{\phi}{\psi} \to \int_{-\infty}^\infty \phi^*(x) \psi(x) dx. 
+\end{equation}
+That means we can calculate probabilities in position space, too, with
+\begin{equation}
+\mathcal{P}_{\psi \to \phi} = |\braket{\phi}{\psi}|^2 \to \left| \int_{-\infty}^\infty \phi^*(x) \psi(x) dx \right|^2
+\end{equation}
+being the probability of measuring the state $\ket{\phi}$ to be in the state $\ket{\phi}$.
 
-
+What about expectation values?  For that, we'll need to write the operator in position space as well:
+\[
+\hat{A} \to A(x)
+\]
+(as we'll see, operators in position space can take the form of functions of $x$ or derivatives with respect to $x$).  Then the expectation value carries over naturally to become
+\begin{equation}
+\avg{A} = \bra{\psi} \hat{A} \ket{\psi} \to  \int_{-\infty}^\infty \psi^*(x) A(x) \psi(x) dx.
+\end{equation}
+For example, the expectation value of position itself, a quantity we'll be calculating frequently, is
+\begin{equation}
+\avg{x} = \bra{\psi} \hat{x} \ket{\psi} \to  \int_{-\infty}^\infty \psi^*(x) x \psi(x) dx = \int_{-\infty}^\infty x |\psi|^2 dx.
+\end{equation}
 
 
 \section{Position Indeterminacy} 
