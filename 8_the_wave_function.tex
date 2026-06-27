@@ -142,6 +142,7 @@ but in the position representation we'll use a different letter $\phi$ to denote
 
 The energy eigenvalue equation then becomes
 \begin{equation}
+\label{eq_eee_1d}
 \boxed{
 -\frac{\hbar^2}{2m} \frac{d^2 \phi_n}{dx^2} + V(x)\phi_n(x) = E_n \phi_n(x).
 }
@@ -151,6 +152,21 @@ This equation is often called the \emph{time-independent Schr\"odinger equation}
 
 \section{Bound and Unbound States}
 
+Our goal for almost the remainder of the book will be to solve equation (\ref{eq_eee_1d}) -- or its three dimensional version -- for a variety of different potential energies $V(x)$.  Obviously the solutions will depend pretty critically on the exact form of $V(x)$, so it's worthwhile to remind you of how we deal with potential energy \emph{classically} first.
+
+Take a look at Figure \ref{fig_potential_energy_example}, which shows a generic potential energy.  If a particle has a total energy $E$ -- which will always be constant -- as shown in red, then classically the particle is \emph{bound} between the turning points at $x_1$ and $x_2$.  The region outside the turning points is often called the \emph{classical forbidden region}, and although in classical physics the particle will never been found outside the well, in quantum mechanics it is possible to \emph{tunnel} through the barrier and escape, as we'll see later.  
+
+Classically, we distinguish between two types of motion, depending on the value of the energy.  If $E<V_\text{max}$, as shown, then the motion is bound.  However, if $E>V_\text{max}$, we call the motion \emph{unbound} -- although its speed might change as it passes through the potential, it will continue on to infinity and not be trapped.
+
+In quantum mechanics there's an even greater distinction between bound and unbound states.  We'll start our exploration of wave functions by looking at systems that only permit bound states, since they're a little simpler, and then turn to systems that have just unbound states or both bound and unbound together.
+
+
+\begin{figure}
+\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 8/fig_potential_energy_example.pdf}
+\caption{A generic example of a potential energy.  For a particle of total energy $E$, the turning points are at $x_1$ and $x_2$.}
+\label{fig_potential_energy_example}
+\end{figure}
+
 %
 %
 %
@@ -159,9 +175,45 @@ This equation is often called the \emph{time-independent Schr\"odinger equation}
 \addcontentsline{toc}{section}{Problems}
 \markright{Problems}%
 
-\begin{problem}[Some problems]
-\label{prob_some}
+\begin{problem}[Dealing with wave functions]
+\label{prob_dealing_with_wave_functions}
 
-Test
+Consider the wave function
+\[
+\psi(x) = A e^{-\lambda |x|},
+\]
+where $\lambda$ is a positive constant.
+\begin{enumerate}[label=(\alph*)]
+\item Normalize the wave function (that is, find the value of $A$ such that $\psi(x)$ is normalized).
+
+\item Sketch $\psi(x)$ and $|\psi(x)|^2$.
+
+\item Calculate $\avg{x}$ and $\avg{p}$.
+
+\item Calculate $\avg{x^2}$ and $\sigma_x$.
+
+\end{enumerate}
+\end{problem}
+
+\newpage
+
+\begin{problem}[Commutator of position and momentum]
+\label{prob_commutator}
+
+Show that the commutator of $\hat{x}$ and $\hat{p}$ in position space is 
+\[
+[\hat{x}, \hat{p}] = i\hbar.
+\]
+(\emph{Hint:} they're operators, so it's useful to have something to operate on; use a ``test function'' $f(x)$.)
+
+\end{problem}
+
+\begin{problem}[Heisenberg's uncertainty principle]
+\label{prob_uncertainty}
+
+Show that the position-momentum uncertainty principle is
+\[
+\sigma_x \sigma_p \ge \frac{\hbar}{2}.
+\]
 
 \end{problem}
