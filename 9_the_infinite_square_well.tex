@@ -2,9 +2,86 @@
 
 \section{The Particle in a Box}
 
-To come.
+As our simplest example -- a little \emph{too} simple to serve as a good model for actual systems, but one that has all the essential features found in more complicated examples -- consider a one dimensional ``particle in a box.'' This particle of ours moves along the $x$ axis only, and bounces perfectly elastically at wall that are located at $x=0$ and $x=a$; that is, there's no loss of energy in the bounce.  The particle is never allowed to break through a wall, no matter how fast it's going.  And finally, the most essential feature: the particle remains at constant speed while in between the walls.
+
+Can you picture this in your head?  A good \emph{classical} example of a particle in a box is a cart on an air track, with rubber bands at the ends allowing the cart to travel back and forth over and over again.  With no friction in the air track, and perfectly elastic rubber bands, we have the same situation as above.  Of, we're talking about quantum mechanics rather than classical -- you can picture an electron bounding between two capacitors if you like -- but I want to set up the problem using classical mechanics first.
+
+Question: what would the potential energy of this system be?  Well, we know it must be constant between the walls (so that there's no change in kinetic energy or the speed of the particle), and since absolute values don't matter to the potential energy, we might as well make it zero.  What about at the walls?  There we'll set the potential to be infinite -- so that no matter how fast the particle is going it'll never have enough kinetic energy to make it over the walls and escape our potential well.  Mathematically, I'll write the potential as a piecewise function,
+\begin{equation}
+V(x) = 
+\begin{cases} 
+\infty, &  x < 0 \\
+0, & 0 < x < a \\
+\infty, & x>a,
+\end{cases}
+\end{equation}
+and it's plotted in Figure \ref{fig_isw_potential}. 
+
+\begin{figure}
+\centering\includegraphics[width=0.5\linewidth]{Figures/Chapter 9/fig_isw_potential.pdf}
+\caption{The potential energy for the infinite square well.}
+\label{fig_isw_potential}
+\end{figure}
+
+This system is called the infinite square well, and it's pretty easy to figure out a few things about the classical motion of a particle in the infinite square well.  For example, between the walls the velocity is constant, and with $V(x) = 0$ there, a particle with total energy $E$ would have velocity 
+\[
+v = \sqrt{\frac{2E}{m}}.
+\]
+From this velocity and the knowledge that the particle has turning points at $x=0$ and $x=a$, we could determine the position of the particle at any point in time we like, as long as we know it at one.  
+
+Of course, quantum mechanics won't allow us to predict exactly where the particle will be in the future, so if we want to compare with our quantum results later, we should instead think about probability.  The probability density of the particle is inversely proportional to how fast it's going -- the faster it moves, the less time it'll spend at that location.  In general, 
+\begin{equation}
+\mathcal{P}(x) \propto \frac{1}{v},
+\end{equation}
+but here the velocity is \emph{constant}, so $\mathcal{P}(x)$ must be as well.  Of course, it'll be \emph{zero} outside of the box, and in order for the probability density to be normalized, we must have
+\begin{equation}
+\mathcal{P} = \frac{1}{a}.
+\end{equation}
+You can probably see this most easily in Figure \ref{fig_isw_classical_prob}.
+
+\begin{figure}
+\centering\includegraphics[width=0.5\linewidth]{Figures/Chapter 9/fig_isw_classical_prob.pdf}
+\caption{The classical probability density for the infinite square well.  The shaded area must be equal to one -- we must be able to find the particle in the box with 100\% probability.}
+\label{fig_isw_classical_prob}
+\end{figure}
+
+
 
 \section{The Allowed Energies and Wave Functions} 
+
+To explore the quantum system, we need to solve the energy eigenvalue equation in position space,
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \phi_n}{dx^2} + V(x)\phi_n(x) = E_n \phi_n(x),
+\]
+for the energy eigenvalues $E_n$ as well as the energy eigenstates $\phi_n(x)$.  For simplicity I'm going to drop the $n$ label from the energy and state, and we'll add it in later.
+
+Since the potential energy $V(x)$ is piecewise, we'll have to solve the differential equation in a piecewise manner, too.  But for $x<0$ or $x>a$, it's easy:  we already know the particle will never be found outside the box, so we must have
+\begin{equation}
+\phi(x) = 0, \quad x<0 \text{ or } x>a.
+\end{equation}
+Remember this -- we'll need it in a bit.
+
+Inside the box ($0 < x < a$) the potential is zero, so the energy eigenvalue equation becomes 
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \phi}{dx^2} = E \phi.
+\]
+We're going to rewrite this a bit so that it becomes
+\[
+\frac{d^2 \phi}{dx^2} = -\frac{2mE}{\hbar^2},
+\]
+and define a new constant $k$,
+\begin{equation}
+k \equiv \frac{\sqrt{2mE}}{\hbar},
+\end{equation}
+so that our differential equation becomes
+\[
+\frac{d^2 \phi}{dx^2} = -k^2 \phi.
+\]
+We'll see why we have $k^2$ in a moment; for now, keep in mind that $k$ is both real and positive.  That means the general solution to the equation is 
+\[
+\phi(x) = A \sin kx + B \cos kx
+\]
+(this is a pretty common differential equation in physics, and I suggest you just memorize the solution; you'll need it frequently.  Of course, if you don't believe me that this is in fact the general solution, go ahead and plug it in and check).
 
 \section{An Example}
 
