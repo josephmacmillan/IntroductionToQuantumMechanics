@@ -92,7 +92,7 @@ So 50\% of the particles should have $S_z = +\hbar/2$ (and presumably the other 
 
 Let's return to an issue that I've been trying to avoid.  As usual, pretend we have a particle in some general state $\ket{\psi}$, and suppose we want to measure the observable $S_z$.  We know from our Stern-Gerlach discussions that the state \emph{changes} once a measurement is made -- we say the the state \emph{collapses} to the state that corresponds to the measurement we made.  For example, if a particle is in state $\ket{\psi}$ and we measure $S_z = +\hbar/2$, the state has collapsed to the new state $\ket{+}$.  This, though, is not the issue I've been dancing around.
 
-Instead, consider this question:  what is the value of the $S_z$ \emph{just before} we make the measurement?  I know what it is after measurement -- it's $+\hbar/2$ -- and I can check by measuring $S_z$ again (and I'll get the same value as long as the state hasn't been disturbed in some way).  But what's $S_z$ -- the component of spin angular momentum along the $z$-direction -- \emph{before} that first measurement?
+Instead, consider this question:  what is the value of $S_z$ \emph{just before} we make the measurement?  I know what it is after measurement -- it's $+\hbar/2$ -- and I can check by measuring $S_z$ again (and I'll get the same value as long as the state hasn't been disturbed in some way).  But what's $S_z$ -- the component of spin angular momentum along the $z$-direction -- \emph{before} that first measurement?
 
 This is a more difficult question to answer than you might think since our theory doesn't quite provide an answer for us -- the fact that the state collapses upon measurement means that we don't really know the value of $S_z$ before the collapse.  There are three possibilities we must consider:\footnote{From Griffiths' \emph{Introduction to Quantum Mechanics}, section 1.2}
 \begin{enumerate}
@@ -177,7 +177,7 @@ What is the value of $\delta$?
 You might be wondering how I was able to write down the states for $\ket{+}_x$ and $\ket{-}_x$ back at the start of this chapter.  This problem will walk you through the details -- it comes from analysing the Stern-Gerlach experiments of Chapter 1.  From Experiment 2 (or Experiment 3), we can write down a bunch of probabilities based on the results:
 \begin{align*}
 |\braket{+}{+}_x|^2 & = \tfrac{1}{2} \quad |\braket{+}{-}_x|^2 = \tfrac{1}{2} \\
-|\braket{-}{+}_x|^2 & = \tfrac{1}{2} \quad |\braket{-}{-}_x|^2 = \tfrac{1}{2} 
+|\braket{-}{+}_x|^2 & = \tfrac{1}{2} \quad |\braket{-}{-}_x|^2 = \tfrac{1}{2} .
 \end{align*}
 \begin{enumerate}[label=(\alph*)] 
 \item Write the unknown kets $\ket{+}_x$ and $\ket{-}_x$ as
@@ -196,8 +196,10 @@ e^{i\alpha} = -e^{i\beta}.
 \item That's as far as we can go -- we have some freedom to choose the phases $\alpha$ and $\beta$ as long as this equation is satisfied (this corresponds exactly to the fact that the $z$ and $x$ axes have to be perpendicular -- but there's an infinite number of directions the $x$ axis can have and still be perpendicular).  By convention, take $\alpha = 0$; what value of $\beta$ is then necessary?
 \item Use all your now-found unknowns to write out the two states $\ket{+}_x$ and $\ket{-}_x$, and confirm that they match equations (\ref{eq_ket_plus_x}) and (\ref{eq_ket_minus_x}).
 
-What about the $S_y$ states?  Go ahead and try if you're interested; all the probabilities will be the same, the only difference is that $\ket{+}_y$ and $\ket{-}_y$ must also satisfy the probability relations between an $x$ Stern-Gerlach device and a $y$ one, and we have to choose $\alpha = \pi/2$ for that.
 \end{enumerate}
+
+What about the $S_y$ states?  Go ahead and try if you're interested; all the probabilities will be the same, the only difference is that $\ket{+}_y$ and $\ket{-}_y$ must also satisfy the probability relations between an $x$ Stern-Gerlach device and a $y$ one, and we have to choose $\alpha = \pi/2$ for that.
+
 \end{problem}
 
 \begin{problem}[A Three-State System]
