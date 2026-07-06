@@ -27,7 +27,7 @@ A big part of our job going forward in the book will be to determine the eigenva
 \end{equation}
 The notation here is a little different than for other operators; I've written the eigenvalues as $E_n$ (where $n$ is an index -- there will usually be more than one eigenvalue) and the eigenkets as $\ket{E_n}$.  That's because the Hamiltonian corresponds to the observable energy:  when we measure $H$, we're really measuring the total energy of the system.  The eigenvalues $E_n$ are often called the \emph{allowed energies}.  Much of quantum mechanics at this stage is a pursuit of those allowed energies for different systems.
 
-Since it represents an observable, the Hamiltonian must be a Hermitian operator.  As I mentioned back in Section \ref{sec_hermitian_operators}, the eigenvalues of a Hermitian operator are real -- which is nice since they're energies. Furthermore, the eigenstates are orthonormal,
+Since it represents an observable, the Hamiltonian must be a Hermitian operator.  As I mentioned back in Section \ref{sec_hermitian_operators}, the eigenvalues of a Hermitian operator are real -- which is nice since in this case they're they're energies, and it would be strange if we had imaginary energy. Furthermore, the eigenstates are orthonormal,
 \begin{equation}
 \braket{E_m}{E_n} = \delta_{mn},
 \end{equation}
@@ -136,7 +136,7 @@ This is \emph{always} the case if the Hamiltonian is time independent -- energy 
 
 What about some other observable $A$?  Then it depends.  If the operators $\hat{A}$ and $\hat{H}$ commute, then they share eigenstates -- so the states $\ket{E_n}$ are also eigenstates of $\hat{A}$ and the probabilities will be constant as well.
 
-However, if $\hat{A}$ and $\hat{H}$ \emph{don't} commute, they won't share eigenstates.  However, since the energy eigenstates are complete, we could always write the eigenstates of $\hat{A}$ as superpositions of the energy eigenstates,
+If $\hat{A}$ and $\hat{H}$ \emph{don't} commute, they won't share eigenstates.  However, since the energy eigenstates are complete, we could always write the eigenstates of $\hat{A}$ as superpositions of the energy eigenstates,
 \begin{equation}
 \ket{a_m} = \sum_n \alpha_n \ket{E_n}.
 \end{equation}
@@ -172,13 +172,13 @@ The operator $\hat{A}$ requires more work.  We have to solve the characteristic 
 \]
 so $\lambda = \pm a$.  To find the eigenstates, we need to write down the eigenvalue equation,
 \[
-\hat{A} \ket{a} = \lambda \ket{A},
+\hat{A} \ket{a} = \lambda \ket{a},
 \]
 and plug in our eigenvalues, one at a time.  For $\lambda = +a$, we can write
 \[
-\hat{A} \ket{+a} = +a \ket{+a}
+\hat{A} \ket{{+}a} = +a \ket{{+}a}
 \]
-and solve for the ket $\ket{+a}$.  This is easy to do in matrix notation, where the eigenvalue equation becomes
+and solve for the ket $\ket{{+}a}$.  This is easy to do in matrix notation, where the eigenvalue equation becomes
 \[
 \begin{pmatrix}
 0 & a \\ a & 0
@@ -198,40 +198,40 @@ Multiplying out the left hand side and equating the top rows of each side (or th
 \]
 But how do we get $\alpha$?  Remember, every state must be normalized, so we must also have
 \[
-\braket{+a}{+a} = 1 \to \begin{pmatrix}
+\braket{{+}a}{{+}a} = 1 \to \begin{pmatrix}
 \alpha & \alpha
 \end{pmatrix}\begin{pmatrix}
 \alpha \\ \alpha
 \end{pmatrix} = 1,
 \]
-or $\alpha = 1/\sqrt{2}$.  Our eigenstate $\ket{+a}$ is
+or $\alpha = 1/\sqrt{2}$.  Our eigenstate $\ket{{+}a}$ is
 \[
-\ket{+a} = \frac{1}{\sqrt{2}} \ket{E_1} + \frac{1}{\sqrt{2}} \ket{E_2} \to \frac{1}{\sqrt{2}} \begin{pmatrix}
+\ket{{+}a} = \frac{1}{\sqrt{2}} \ket{E_1} + \frac{1}{\sqrt{2}} \ket{E_2} \to \frac{1}{\sqrt{2}} \begin{pmatrix}
 1 \\ 1
 \end{pmatrix}.
 \]
-Similarly -- try it on your own -- the eigenstate $\ket{-a}$, corresponding to eigenvalue $-a$, is
+Similarly -- try it on your own -- the eigenstate $\ket{{-}a}$, corresponding to eigenvalue $-a$, is
 \[
-\ket{-a} = \frac{1}{\sqrt{2}} \ket{E_1} - \frac{1}{\sqrt{2}} \ket{E_2} \to \frac{1}{\sqrt{2}} \begin{pmatrix}
+\ket{{-}a} = \frac{1}{\sqrt{2}} \ket{E_1} - \frac{1}{\sqrt{2}} \ket{E_2} \to \frac{1}{\sqrt{2}} \begin{pmatrix}
 1 \\ -1
 \end{pmatrix}.
 \]
 
 Well, that's been a lot of work already, and we haven't even really answered any questions.  Let's answer some now.  We'll set up our system so that at time $t=0$ it's in the state
 \[
-\ket{\psi(0)} = \ket{+a}.
+\ket{\psi(0)} = \ket{{+}a}.
 \]
 
  \begin{enumerate}[label=(\alph*)]
  \item A measurement of the observable $A$ is made at $t=0$.  What are the possible results and probabilities of each?
 
-This one is easy since we start out in an eigenstate of $\hat{A}$ -- we'll measure $A = +a$ 100\% of time, and never measure $A = -a$.
+This one is easy since we start out in an eigenstate of $\hat{A}$ -- we'll measure $A = +a$ with a probability of 100\%, and never measure $A = -a$.
 
  \item  A measurement of the energy $E$ is made at $t=0$.  What are the possible results and probabilities of each?
 
 The possibilities are the energy eigenvalues -- the allowed energies -- which are $E_1$ and $E_2$.  The probability of measuring $E = E_1$ can be calculated in the usual way,
 \[
-\mathcal{P}_{E_1} = | \braket{E_1}{\psi(0)}|^2 = | \braket{E_1}{+a}|^2 \to \left| \begin{pmatrix} 1 & 0 \end{pmatrix} \begin{pmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{pmatrix} \right|^2 = \frac{1}{2}.
+\mathcal{P}_{E_1} = | \braket{E_1}{\psi(0)}|^2 = | \braket{E_1}{{+}a}|^2 \to \left| \begin{pmatrix} 1 & 0 \end{pmatrix} \begin{pmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{pmatrix} \right|^2 = \frac{1}{2}.
 \]
 Of course, that means we must have $\mathcal{P}_{E_2} = 1/2$ as well.  So we have a 50/50 chance of measuring each allowed energy.
 
@@ -239,7 +239,7 @@ Of course, that means we must have $\mathcal{P}_{E_2} = 1/2$ as well.  So we hav
 
 To write out the state at a later time, we have to make two steps:  first, write the initial state in the energy basis.  We already have this from above,
 \[
-\ket{+a} = \frac{1}{\sqrt{2}} \ket{E_1} + \frac{1}{\sqrt{2}} \ket{E_2}.
+\ket{{+}a} = \frac{1}{\sqrt{2}} \ket{E_1} + \frac{1}{\sqrt{2}} \ket{E_2}.
 \]
 Second, tack on the appropriate exponential time factors, giving
 \[
@@ -259,13 +259,13 @@ Then $\mathcal{P}_{E_2} = 1/2$ as well -- but these are the same values we found
 
 Let's make the calculation in matrix notation, but be careful to make sure everything is in the same basis -- the energy basis in this case.  Also, it gets a little messy:
 \begin{align*}
-\mathcal{P}_{+a} & = | \braket{+a}{\psi(t)} |^2 \\
+\mathcal{P}_{{+}a} & = | \braket{{+}a}{\psi(t)} |^2 \\
 & = \left| \frac{1}{\sqrt{2}} \begin{pmatrix}1 & 1\end{pmatrix} \frac{1}{\sqrt{2}} \begin{pmatrix} e^{-iE_1t/\hbar} \\ e^{-iE_2t/\hbar} \end{pmatrix} \right|^2 \\
 & = \frac{1}{4} \Big| e^{-iE_1t/\hbar} + e^{-iE_2t/\hbar} \Big|^2
 \end{align*}
 Remember that those absolute value symbols actually mean we have to multiply by the complex conjugate, so
 \begin{align*}
-\mathcal{P}_{+a} & = \frac{1}{4}\Big( e^{iE_1t/\hbar} + e^{iE_2t/\hbar} \Big) \Big( e^{-iE_1t/\hbar} + e^{-iE_2t/\hbar} \Big) \\
+\mathcal{P}_{{+}a} & = \frac{1}{4}\Big( e^{iE_1t/\hbar} + e^{iE_2t/\hbar} \Big) \Big( e^{-iE_1t/\hbar} + e^{-iE_2t/\hbar} \Big) \\
 & = \frac{1}{4} \Big( 2 + e^{i(E_1 - E_2)t/\hbar} + e^{i(E_2 - E_1)t/\hbar} \Big) \\
 & = \frac{1}{4} \Big( 2 + e^{i\omega t} + e^{-i\omega t} \Big) \\
 & = \frac{1}{2} \Big( 1 + \cos(\omega t) \Big),

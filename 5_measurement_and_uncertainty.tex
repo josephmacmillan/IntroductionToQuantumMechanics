@@ -8,7 +8,7 @@ We've already discussed how quantum mechanics can't give us a prediction of a pa
 \]
 where $a_n$ are the possible results.  That's not very useful -- what \emph{else} can we extract from the theory?
 
-Well, we can run the experiment many times and look at statistics of results.  But we have to be careful:  experiments measure the same observable $a_n$ each time, and, most importantly, the system must be prepared \emph{identically} each time.  Since measuring in quantum mechanics changes the state, we either have to have a way to revert back to the original state $\ket{\psi}$ or prepare a large number of such states and make the measurement on all of them simultaneously.  This large number of identical states is called an \emph{ensemble}.
+Well, we can run the experiment many times and look at statistics of results.  But we have to be careful:  experiments should measure the same observable $A$ each time, and, most importantly, the system must be prepared \emph{identically} each time.  Since measuring in quantum mechanics changes the state, we either have to have a way to revert back to the original state $\ket{\psi}$ or prepare a large number of such states and make the measurement on all of them simultaneously.  This large number of identical states is called an \emph{ensemble}.
 
 For example, suppose we have an ensemble of $N = 100$ particles, all in the same state $\ket{\psi}$.  At $t=0$, we measure the spin component $S_z$ on each (I guess we'll need 100 physics students and 100 Stern-Gerlach devices to do the job), and get
 \begin{itemize}
@@ -31,7 +31,7 @@ But $N_+/N$ is just the probability $\mathcal{P_+}$ of measuring $+\hbar/2$ (at 
 \label{eq_avg2}
 \avg{S_z} = \left( +\frac{\hbar}{2} \right) \mathcal{P}_+ + \left( -\frac{\hbar}{2} \right) \mathcal{P}_-.
 \end{equation}
-If we were to perform this experiment, we'd calculate the average using equation (\ref{eq_avg1}), but we can predict what the result will be from equation (\ref{eq_avg2}) as long as we know the state since
+If we were to perform this experiment, we'd calculate the average using equation (\ref{eq_avg1}), but we can predict what the result will be from equation (\ref{eq_avg2}) as long as we know the state, since
 \[
 \mathcal{P}_\pm = |\braket{\pm}{\psi}|^2
 \]
@@ -69,7 +69,7 @@ Evidently there are two different ways we can calculate the average of a series 
 \avg{A} = \bra{\psi} \hat{A} \ket{\psi} = \sum_n a_n \mathcal{P}_{a_n}.
 }
 \end{equation}
-In quantum mechanics, this average is typically called the \emph{expectation value}.
+In quantum mechanics, this average is called the \emph{expectation value}.
 
 \begin{example}[Expectation Value]
 \label{ex_exp_val}
@@ -95,14 +95,14 @@ so
 
 The second method is more easily done in matrix notation:
 \[
-\avg{S_z} = \bra{\psi} \hat{S}_z \ket{\psi} =
+\avg{S_z} = \bra{\psi} \hat{S}_z \ket{\psi} \to
 \begin{pmatrix} 3/5 & 4/5 \end{pmatrix} 
 \begin{pmatrix} \hbar/2 & 0 \\ 0 & -\hbar/2 \end{pmatrix}
 \begin{pmatrix} 3/5 \\ 4/5 \end{pmatrix}.
 \]
 If we multiply the operator by the ket first we get
 \[
-\avg{S_z} = \bra{\psi} \hat{S}_z \ket{\psi} =
+\avg{S_z} = \bra{\psi} \hat{S}_z \ket{\psi} \to
 \begin{pmatrix} 3/5 & 4/5 \end{pmatrix} 
 \begin{pmatrix} 3\hbar/10  \\ -4\hbar/10 \end{pmatrix} = -\frac{7\hbar}{50}.
 \]
@@ -214,7 +214,7 @@ What is the commutator of $\hat{S}_z$ and $\hat{S}_x$?
 
 We already calculated $\hat{S}_x\hat{S}_z$ and $\hat{S}_z\hat{S}_x$ earlier, so we can subtract them to find the commutator:
 \begin{align*}
-[\hat{S}_z, \hat{S}_x] & = \hat{S}_z \hat{S}_x - \hat{S}_x \hat{S}_z = \frac{\hbar^2}{4} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} - \frac{\hbar^2}{4} \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \\
+[\hat{S}_z, \hat{S}_x] & = \hat{S}_z \hat{S}_x - \hat{S}_x \hat{S}_z \to \frac{\hbar^2}{4} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix} - \frac{\hbar^2}{4} \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix} \\
 & = \frac{\hbar^2}{2} \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix}.
 \end{align*}
 I don't know if that matrix in the answer looks familiar to you yet, but it's pretty close to the operator $\hat{S}_y$.  In fact, we can write 
@@ -261,7 +261,7 @@ Plugging this into equation (\ref{eq_uncertainty}) gives
 \[
 \sigma_{S_x} \sigma_{S_y} \ge \frac{\hbar}{2} \Big| \avg{S_z} \Big|.
 \]
-If we know what state we're in, we can also figure out $\avg{S_z}$; if, for example, we're instate $\ket{+}$, then every measurement returns $\hbar/2$ so $\avg{S_z} = \hbar/2$, and the uncertainty principle now reads
+If we know what state we're in, we can also figure out $\avg{S_z}$; if, for example, we're in state $\ket{+}$, then every measurement returns $\hbar/2$ so $\avg{S_z} = \hbar/2$, and the uncertainty principle now reads
 \[
 \sigma_{S_x} \sigma_{S_y} \ge \frac{\hbar^2}{4}.
 \]

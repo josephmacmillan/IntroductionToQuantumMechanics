@@ -1,6 +1,6 @@
 \chapter{Examples of Discrete Systems}
 
-With the exception of Chapter 1, we haven't dealt with any realistic physical systems, but now that all the rules are on the table we can turn to applying them to a few interesting systems.  We'll stick with \emph{two-state systems} for mathematical simplicity, but there are interesting three-state systems (or higher) and all the same rules apply there, too.
+With the exception of Chapter 1, we haven't dealt deeply with any realistic physical systems, but now that all the rules are on the table we can turn to applying them to a few interesting systems.  We'll stick with \emph{two-state systems} for mathematical simplicity, but there are interesting three-state systems (or higher) and all the same rules apply there, too.
 
 \section{An Electron in a Magnetic Field}
 
@@ -18,7 +18,7 @@ as shown in Figure \ref{fig_e_in_B_field}.  The spin of the electron gives it a 
 
 
 \begin{figure}
-\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 7/fig_e_in_B_field.pdf}
+\centering\includegraphics[width=0.5\linewidth]{Figures/Chapter 7/fig_e_in_B_field.pdf}
 \caption{An electron in a magnetic field.}
 \label{fig_e_in_B_field}
 \end{figure}
@@ -32,7 +32,7 @@ to the dipole, causing it to try to align with the magnetic field.\footnote{See,
 \begin{equation}
 U = -\vec{\mu} \cdot \vec{B}.
 \end{equation}
-Since our electron is at rest it has no kinetic energy, this is also the full Hamiltonian of our system,
+Since our electron is at rest and has no kinetic energy, this is also the full Hamiltonian of our system,
 \begin{equation}
 H = -\vec{\mu} \cdot \vec{B} = \frac{e}{m} \vec{S} \cdot \vec{B} = \omega_0 S_z,
 \end{equation}
@@ -87,7 +87,7 @@ or, filling in our known energies $E_\pm$,
 \[
 \ket{\psi(t)} = \cos(\theta/2) e^{-i\omega_0 t / 2} \ket{+} + \sin (\theta/2) e^{i\omega_0 t / 2} \ket{-}.
 \]
-One more little trick -- a pretty common one in quantum mechanics -- let's pull out a factor of $e^{-i\omega_0 t/2}$ from each term to get
+One more little trick -- a pretty common one in quantum mechanics.  Let's pull out a factor of $e^{-i\omega_0 t/2}$ from each term to get
 \[
 \ket{\psi(t)} = e^{-i\omega_0 t/2} \Big[ \cos(\theta/2) \ket{+} + \sin (\theta/2) e^{i\omega_0 t} \ket{-} \Big].
 \]
@@ -160,7 +160,7 @@ and if we did $S_z$, we'd get
 Not surprisingly, this last expectation value is constant since $\hat{S}_z$ and $\hat{H}$ commute.
 
 \begin{figure}
-\centering\includegraphics[width=0.8\linewidth]{Figures/Chapter 7/fig_precession_of_spin.pdf}
+\centering\includegraphics[width=0.5\linewidth]{Figures/Chapter 7/fig_precession_of_spin.pdf}
 \caption{The expectation value of the spin of the electron in a magnetic field precesses around the $z$ axis.}
 \label{fig_precession_of_spin}
 \end{figure}
@@ -169,7 +169,7 @@ This all actually makes a pretty clear physical picture of what's happening to t
 \begin{equation}
 \avg{\vec{S}} = \avg{S_x} \hat{x} +  \avg{S_y} \hat{y} +  \avg{S_z} \hat{z},
 \end{equation}
-which might represent the average direction the spin vector points in some way.  With the time behaviour in the $x$ and $y$ components of the vector, it looks like it precesses  around the $z$ axis, as shown in Figure \ref{fig_precession_of_spin}.  The precession frequency is 
+which  in a way might represent the average direction the spin vector points.  With the time behaviour in the $x$ and $y$ components of the vector, it looks like it precesses  around the $z$ axis, as shown in Figure \ref{fig_precession_of_spin}.  The precession frequency is 
 \[
 \omega_0 = \frac{eB_0}{m},
 \]
@@ -189,15 +189,15 @@ Interestingly, \emph{classical} theory predicts the exact same thing for the mag
 
 \section{Neutrino Oscillations}
 
-Neutrinos -- little neutral particles created in huge numbers during nuclear reactions -- were long though to be massless.  But during the 1980s and 1990s the \emph{solar neutrino problem} became undeniable: neutrino detection experiments on Earth were missing about half of the expected number of neutrinos made in the core of the sun during hydrogen burning.  There were only two possibilities:  either our model of the sun was way off\footnote{One of my undergraduate professors was a solar physicists, and according to him there was no way the solar models could be that wrong, so really there's only one possible explanation -- something was wrong with our understanding of neutrinos.} or something happened to the neutrinos on their way to us.
+Neutrinos -- little neutral particles created in huge numbers during nuclear reactions -- were long thought to be massless.  But during the 1980s and 1990s the \emph{solar neutrino problem} became undeniable: neutrino detection experiments on Earth were missing about half of the expected number of neutrinos made in the core of the sun during hydrogen burning.  There were only two possibilities:  either our model of the sun was way off\footnote{One of my undergraduate professors was a solar physicists, and according to him there was no way the solar models could be that wrong, so really there's only one possible explanation -- something was wrong with our understanding of neutrinos.} or something happened to the neutrinos on their way to us.
 
-The correct explanation turned out to be something called \emph{neutrino oscillations}, and the theory earned the Nobel prize.  In short, \emph{electron} neutrinos are created in the core of the sun, but on their way to Earth some of them turn into \emph{muon} neutrinos -- don't worry too much about the names or why there's more than one kind of neutrino; the main idea is that neutrinos can oscillate back and forth between these two different types (actually, there's a \emph{third} type, a tau neutrino, but we'll ignore that for simplicity).
+The correct explanation turned out to be something called \emph{neutrino oscillations}, and the theory and subsequent observation of the effect earned the Nobel prize.  In short, \emph{electron} neutrinos are created in the core of the sun, but on their way to Earth some of them turn into \emph{muon} neutrinos -- don't worry too much about the names or why there's more than one kind of neutrino; the main idea is that neutrinos can oscillate back and forth between these two different types (actually, there's a \emph{third} type, a tau neutrino, but we'll ignore that for simplicity).
 
 As a slightly simplified model for neutrino mixing, we'll suppose the state of any neutrino -- I'll call this the ``flavour state,'' since particle physicists call the type of particle its flavour for some reason -- can be written as a superposition of an electron neutrino state and a muon neutrino state:
 \begin{equation}
 \ket{\nu} = a \ket{e} + b \ket{\mu}.
 \end{equation}
-This is a two-state system, something we've already studied in detail, so the physics of neutrinos is pretty much the same as spin-1/2 systems or photon polarizations.  To see how neutrinos oscillate, though, we'll have to calculate how this state evolves in time, meaning we'll need the Hamiltonian of the system.
+This is a two-state system, something we've already studied in detail, so the physics of neutrinos is pretty much the same as spin-1/2 systems.  To see how neutrinos oscillate, though, we'll have to calculate how this state evolves in time, meaning we'll need the Hamiltonian of the system.
 
 The Hamiltonian, of course, is just the total energy, so we'll start with the relativistic energy of any particle (unfortunately, neutrinos are inherently relativistic objects -- it's hard to slow them down), 
 \[
@@ -228,7 +228,9 @@ pc & 0 \\
 0 & pc 
 \end{pmatrix}.
 \]
-This matrix is diagonal, so the possible energies are easy to read off: they're both the same, $E = pc$ as we'd expect for a massless relativistic particle.  The eigenstates of the matrix are just the flavour basis states, $\ket{e}$ and $\ket{\mu}$, so the implication is that both neutrinos have the same energy.  More importantly, though, the flavour states -- which are also the energy eigenstates -- are stationary states, so neutrino oscillations simply wouldn't happen.  Once an electron neutrino is created during a reaction, it will stay an electron neutrino forever.  Actually, it's possible to have massive neutrinos and still have the flavour states be stationary, as long as the masses are the same.  In this case the matrix remains diagonal and we reach the same conclusions; evidently it's the \emph{different} masses of the two neutrinos that lead to oscillations.
+This matrix is diagonal, so the possible energies are easy to read off: they're both the same, $E = pc$ as we'd expect for a massless relativistic particle.  The eigenstates of the matrix are just the flavour basis states, $\ket{e}$ and $\ket{\mu}$, so the implication is that both neutrinos have the same energy.  More importantly, though, the flavour states -- which are also the energy eigenstates in this massless neutrino scenario -- are stationary states, so neutrino oscillations simply wouldn't happen.  Once an electron neutrino is created during a reaction, it will stay an electron neutrino forever.  
+
+Actually, it's possible to have massive neutrinos and still have the flavour states be stationary, as long as the masses are the same.  In this case the matrix remains diagonal and we reach the same conclusions; evidently it's the \emph{different} masses of the two neutrinos that lead to oscillations.
 
 Okay, let's find the energies of the full Hamiltonian.  For ease of writing stuff out, I'm going to write the Hamiltonian as
 \[

@@ -6,13 +6,13 @@ Up until now we've dealt exclusively with \emph{discrete} system like spin.  In 
 \[
 \ket{\psi} \to \begin{pmatrix} \braket{+}{\psi} \\ \braket{-}{\psi} \end{pmatrix}.
 \]
-Take careful note of the notation; each element in the column vector is a matrix element, and you can clearly see the basis $\ket{+},\ket{-}$ used.  In general, we would have a system that has $n$ elements, where $n$ could be three (say, for spin-1) or more -- all the way up to infinity:
+Take careful note of the notation; each element in the column vector is a matrix element, and you can clearly see the basis $\ket{+},\ket{-}$ used.  In general, we would have a system that has $n$ elements, where $n$ could be two or three (say, for spin-1) or more -- all the way up to infinity:
 \[
 \ket{\psi} \to \begin{pmatrix} \braket{a_1}{\psi} \\ \braket{a_2}{\psi} \\ \braket{a_3}{\psi} \\ \vdots \end{pmatrix}.
 \]
 All of the quantum mechanical rules that we've discussed are identical regardless of the number of possible states of the system.
 
-Now, though, it's time for something a little different (don't worry, only a little).  We want to work in the \emph{position representation}, in which case we might write our state as the column vector
+Now, though, it's time for something a little different (don't worry, only a little).  We want to work in the \emph{position representation},\footnote{Sometimes I'll also call this the position basis, and sometimes position space; all three terms seem to be fairly common.} in which case we might write our state as the column vector
 \begin{equation}
 \label{eq_pos_col_vec}
 \ket{\psi} \to \begin{pmatrix} \braket{x_1}{\psi} \\ \braket{x_2}{\psi} \\ \braket{x_3}{\psi} \\ \vdots \end{pmatrix},
@@ -38,7 +38,7 @@ Actually, that's not quite correct; our jump to continuous systems means that $\
 }
 \end{equation}
 
-Like all quantum states we've discussed so far, states written in the position representation must be too; here, that means
+Like all quantum states we've discussed so far, states written in the position representation must be normalized as well; here, that means
 \begin{equation}
 \braket{\psi}{\psi} = 1 \quad \to \quad \int_{-\infty}^\infty |\psi(x)|^2 dx = 1. 
 \end{equation}
@@ -52,7 +52,7 @@ That means we can calculate probabilities in position space, too, with
 \begin{equation}
 \mathcal{P}_{\psi \to \phi} = |\braket{\phi}{\psi}|^2 \to \left| \int_{-\infty}^\infty \phi^*(x) \psi(x) dx \right|^2
 \end{equation}
-being the probability of measuring the state $\ket{\phi}$ to be in the state $\ket{\phi}$.
+being the probability of measuring the state $\ket{\psi}$ to be in the state $\ket{\phi}$.
 
 What about expectation values?  For that, we'll need to write the operator in position space as well:
 \[
@@ -154,7 +154,7 @@ This equation is often called the \emph{time-independent Schr\"odinger equation}
 
 Our goal for almost the remainder of the book will be to solve equation (\ref{eq_eee_1d}) -- or its three dimensional version -- for a variety of different potential energies $V(x)$.  Obviously the solutions will depend pretty critically on the exact form of $V(x)$, so it's worthwhile to remind you of how we deal with potential energy \emph{classically} first.
 
-Take a look at Figure \ref{fig_potential_energy_example}, which shows a generic potential energy.  If a particle has a total energy $E$ -- which will always be constant -- as shown in red, then classically the particle is \emph{bound} between the turning points at $x_1$ and $x_2$.  The region outside the turning points is often called the \emph{classical forbidden region}, and although in classical physics the particle will never been found outside the well, in quantum mechanics it is possible to \emph{tunnel} through the barrier and escape, as we'll see later.  
+Take a look at Figure \ref{fig_potential_energy_example}, which shows a generic potential energy.  If a particle has a total energy $E$ -- which will always be constant -- as shown in red, then classically the particle is \emph{bound} between the turning points at $x_1$ and $x_2$.  The region outside the turning points is often called the \emph{classical forbidden region}, and although in classical physics the particle will never be found outside the well, in quantum mechanics it is possible to \emph{tunnel} through the barrier and escape, as we'll see later.  
 
 Classically, we distinguish between two types of motion, depending on the value of the energy.  If $E<V_\text{max}$, as shown, then the motion is bound.  However, if $E>V_\text{max}$, we call the motion \emph{unbound} -- although its speed might change as it passes through the potential, it will continue on to infinity and not be trapped.
 
