@@ -6,7 +6,7 @@ In the previous chapter we talked about the two basis states -- for what we're c
 \begin{equation}
 \ket{+} \to \begin{pmatrix} 1 \\ 0 \end{pmatrix} \quad \text{and} \quad \ket{-} \to \begin{pmatrix} 0 \\ 1 \end{pmatrix}.
 \end{equation}
-But since these are basis states, \emph{any} other state can be written in terms of them, including the states corresponding to measuring $S_x = +\hbar/2$ and $S_x = -\hbar/2$ that we discussed back in Experiment 2 in Section \ref{sec_exp2}.  I'll show you how to figure this out in Problem \ref{prob_Sx_states}, and for now I'll just tell you the states:
+But since these are basis states, \emph{any} other state can be written in terms of them, including the states corresponding to measuring $S_x = +\hbar/2$ and $S_x = -\hbar/2$ that we discussed back in Experiment 2 in Section \ref{sec_exp2}.  I'll show you how to figure this out in Problem \ref{prob_Sx_states}, but for now I'll just tell you the states:
 \begin{equation}
 \label{eq_ket_plus_x}
 \ket{+}_x = \frac{1}{\sqrt{2}} \ket{+} + \frac{1}{\sqrt{2}} \ket{-} \to \begin{pmatrix} 1/\sqrt{2} \\ 1/\sqrt{2} \end{pmatrix}
@@ -32,7 +32,7 @@ Now that we know how to write these states down, we can talk more about the inne
 Suppose you have a particle in the state $\ket{\psi}$, and you want to measure some quantity associated with the particle -- maybe its spin, but it could be anything, so I'll call it $A$ for now.  In quantum mechanics we call this quantity an \emph{observable}.  Further suppose that there are a number of different possibilities that you might measure: $a_1$, $a_2$, $a_3$, and so on. Then the probability of measuring the particular value $a_n$ is
 \begin{equation}
 \boxed{
-\mathcal{P}_{a_n} = | \braket{a_n}{\psi} |^2.
+\mathcal{P}_{a_n} = | |\braket{a_n}{\psi}|^2.
 }
 \end{equation}
 The bra in that equation corresponds to the state associated with measuring the value $a_n$; the ket would be $\ket{a_n}$.  
@@ -55,7 +55,7 @@ so that we have 100\% chance of measuring something.
 
 One last thing:  notice the role of the inner product, which in this context is called the \emph{amplitude}, and that complex squaring the amplitude gives us the probability.  Remember that the complex conjugate of an inner product flips the order, so the full complex square can be written 
 \begin{equation}
-\braket{a_n}{\psi} |^2 = \left( \braket{a_n}{\psi} \right)^* \braket{a_n}{\psi}  = \braket{\psi}{a_n} \braket{a_n}{\psi}. 
+|\braket{a_n}{\psi}|^2 = \left( \braket{a_n}{\psi} \right)^* \braket{a_n}{\psi}  = \braket{\psi}{a_n} \braket{a_n}{\psi}. 
 \end{equation}
 
 \begin{example}[Calculating probability]
@@ -90,7 +90,7 @@ So 50\% of the particles should have $S_z = +\hbar/2$ (and presumably the other 
 \section{Indeterminant States}
 \label{sec_indeterminant_states}
 
-Let's return to an issue that I've been trying to avoid.  As usual, pretend we have a particle in some general state $\ket{\psi}$, and suppose we want to measure the observable $S_z$.  We know from our Stern-Gerlach discussions that the state \emph{changes} once a measurement is made -- we say the the state \emph{collapses} to the state that corresponds to the measurement we made.  For example, if a particle is in state $\ket{\psi}$ and we measure $S_z = +\hbar/2$, the state has collapsed to the new state $\ket{+}$.  This, though, is not the issue I've been dancing around.
+Let's return to an issue that I've been trying to avoid.  As usual, pretend we have a particle in some general state $\ket{\psi}$, and suppose we want to measure the observable $S_z$.  We know from our Stern-Gerlach discussions that the state \emph{changes} once a measurement is made -- we say the state \emph{collapses} to the state that corresponds to the measurement we made.  For example, if a particle is in state $\ket{\psi}$ and we measure $S_z = +\hbar/2$, the state has collapsed to the new state $\ket{+}$.  This, though, is not the issue I've been dancing around.
 
 Instead, consider this question:  what is the value of $S_z$ \emph{just before} we make the measurement?  I know what it is after measurement -- it's $+\hbar/2$ -- and I can check by measuring $S_z$ again (and I'll get the same value as long as the state hasn't been disturbed in some way).  But what's $S_z$ -- the component of spin angular momentum along the $z$-direction -- \emph{before} that first measurement?
 
