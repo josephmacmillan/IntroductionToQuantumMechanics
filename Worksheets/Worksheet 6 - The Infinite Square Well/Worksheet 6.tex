@@ -1,0 +1,163 @@
+%
+% This work is licensed under a Creative Commons Attribution-ShareAlike 4.0 International License.
+%
+
+\documentclass[10pt, letterpaper, twoside, openany]{article}
+
+\title{Introduction to Quantum Mechanics -- Worksheet 6}
+\author{Joseph D. MacMillan}
+\date{}
+
+
+\usepackage{graphicx}
+\usepackage{color} 
+\usepackage{amsmath, amssymb}
+\usepackage{libertinus}
+\usepackage{microtype}
+\usepackage{layout}
+\usepackage[most]{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage[hang, small, bf]{caption}
+\captionsetup[table]{position=top}
+\captionsetup[figure]{position=bottom}
+\usepackage[hyphens]{url}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Introduction to Quantum Mechanics -- Worksheet 6}}
+\hypersetup{pdfauthor={Joseph D. MacMillan}}
+\urlstyle{rm}
+\usepackage[shortlabels]{enumitem}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+
+
+
+
+\newcommand{\uu}{\symbfup{u}}
+\newcommand{\grad}{\symbfup{\nabla}}
+\newcommand{\curl}{\symbfup{\nabla} \times}
+\newcommand{\dfdx}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\ddfdx}[2]{\frac{\partial^2 {#1}}{\partial {#2}^2}}
+\newcommand{\vort}{\symbfup{\omega}}
+\renewcommand\vec{\symbfup}
+\newcommand{\unit}[1]{\hat{\vec{#1}}}
+\newcommand{\U}{\mathbb{U}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\LL}{\mathbb{L}^2}
+\newcommand{\LLLL}{\mathbb{L}^4}
+
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\braket}[2]{\langle #1 | #2 \rangle}
+\newcommand{\avg}[1]{\langle #1 \rangle}
+
+
+%\DeclareMathAlphabet{\mathbfsf}{\encodingdefault}{\sfdefault}{bx}{sl}
+\newcommand{\tens}[1]{\mathbfsfit{#1}}
+
+
+\newcounter{example}[section]
+\def\theexample{\thechapter.\arabic{example}}
+\newenvironment{example}[1][ ]{\refstepcounter{example}
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{Example \theexample \ -- #1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newenvironment{theorem}[1][ ]{
+\begin{tcolorbox}[breakable, sharp corners, boxrule = 0pt, frame empty, opacityframe=0, parbox=false]
+\textbf{#1.}
+}
+{ 
+\end{tcolorbox}
+}
+
+\newcounter{problem}[section]
+\def\theproblem{\thechapter.\arabic{problem}}
+\newenvironment{problem}[1][ ]{\refstepcounter{problem} \noindent \textbf{Problem \theproblem \ -- #1.}}{\vspace{0.1in}}
+
+\renewcommand{\arraystretch}{2.5}
+
+\begin{document}
+
+\pagestyle{fancy}
+\fancyhead[L]{\emph{Introduction to Quantum Mechanics}}
+\fancyhead[R]{Worksheet 6} 
+
+\Large \noindent Worksheet 6
+
+\noindent \LARGE \textbf{The Infinite Square Well}
+
+\normalsize
+
+\vspace{0.2in}
+
+\noindent Position space  \bullet \  Allowed energies   \bullet \ Energy eigenstates \bullet \ Potential well  
+
+\vspace{0.1in}
+
+\noindent \rule{\textwidth}{0.5pt}
+
+\vspace{0.2in}
+
+\begin{enumerate}
+
+\item The infinite square well -- also called a particle in a box -- is defined by the potential energy
+\[
+V(x) = 
+\begin{cases} 
+\infty, &  x < 0 \\
+0, & 0 < x < a \\
+\infty, & x>a,
+\end{cases}
+\]
+I want you to draw the axes for two plots, one for $\phi_n(x)$ and one for $|\phi_n(x)|^2$.  Make the horizontal axes a little up from the bottom of the page, and draw two vertical axes -- one to the far left and one more in the middle.  Label the left axis $\phi_n(x)$, the right axis $|\phi_n(x)|^2$, and the horizontal axes $x$.  On the $x$ axes, label the width $a$.  Finally, sketch on the potential energy as a dark, thick line on each plot.
+
+\newpage
+
+\item Think about this carefully: if the particle is \emph{classical}, what is the probability of finding it near some position $x$?  For example, what's the probability of finding it on the left-hand-side of the box, or the middle 25\% of the box?  Write out an equation for the probability density $\mathcal{P}(x)$; don't forget to properly normalize it.  Then, most importantly, sketch it on the $|\phi_n(x)|^2$ graph on the previous page, using a faint thin line.
+
+\vspace{2in}
+
+\item Our job today is to solve the energy eigenvalue equation, 
+\[
+-\frac{\hbar^2}{2m} \frac{d^2 \phi_n}{dx^2} + V(x)\phi_n(x) = E_n \phi_n(x)
+\]
+for the wave functions $\phi_n(x)$ and allowed energies $E_n$.  But for most of the region $-\infty < x < \infty$, that's easy:  what should the wave function $\phi(x)$ be \emph{outside} the well?  Write your answer in the form of a \emph{boundary condition}.
+
+\vspace{2in}
+
+\item Now we're ready to solve the differential equation for the region $0<x<a$.  Write it out for that region, and then ``make it pretty'' by defining a new constant to hold all your other constants and rearranging for the highest derivative.
+
+\newpage
+
+\item This is a second order ODE, so we expect two independent functions as a solution.  If you know the solutions already, great!  Write out the general solution below.  If not -- guess and check first!
+
+\vspace{2in}
+
+\item You should now have a solution with three unknown constants.  What are they?  Use your boundary condition at $x=0$ to find one of your constants.
+
+\vspace{2in}
+
+\item Use your boundary condition at $x=a$ to find a second constant.  This one is tricky, so go carefully and remember what you know about the sine function.  How many possibilities can this constant be?
+
+\newpage
+
+\item Write out the allowed energies of the system in terms of the width $a$, the particle's mass $m$, and Planck's constant $\hbar$, and then write out your wave function $\phi(x)$ using everything that you know so far.
+
+\vspace{2in}
+
+\item You still have one constant (mine was $A$) left -- how do you figure out that one?  Do it, and write your final wave function $\phi_n(x)$.
+
+\vspace{3in}
+
+\item Sketch the first three energy eigenstates on your plots.  But -- and sorry, this is a little confusing -- don't use your $x$-axis, draw a new one for each plot that (relatively) matches the energy of each state.  I'll explain better in person if you like.
+
+\vspace{1in}
+
+\item Finally, sketch (as best you can, things are getting crowded) the shape of $|\phi_n(x)|^2$ for $n=20$.  Compare your quantum probability densities with the classical one; any conclusions?
+
+\end{enumerate}
+
+\end{document}
