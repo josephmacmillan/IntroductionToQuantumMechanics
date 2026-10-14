@@ -40,6 +40,7 @@ Actually, that's not quite correct; our jump to continuous systems means that $\
 
 Like all quantum states we've discussed so far, states written in the position representation must be normalized as well; here, that means
 \begin{equation}
+\label{eq_space_norm}
 \braket{\psi}{\psi} = 1 \quad \to \quad \int_{-\infty}^\infty |\psi(x)|^2 dx = 1. 
 \end{equation}
 In words, that means we have to find the particle \emph{somewhere} with 100\% probability.
@@ -195,8 +196,6 @@ where $\lambda$ is a positive constant.
 \end{enumerate}
 \end{problem}
 
-\newpage
-
 \begin{problem}[Commutator of position and momentum]
 \label{prob_commutator}
 
@@ -215,5 +214,20 @@ Show that the position-momentum uncertainty principle is
 \[
 \sigma_x \sigma_p \ge \frac{\hbar}{2}.
 \]
+\end{problem}
+
+\begin{problem}[Normalization]
+\label{prob_space_norm}
+
+We learned back in Section \ref{sec_proj_ident} about the identity operator for spin; for a general discrete system we could write it as
+\begin{equation}
+\hat{1} = \sum_n \ket{a_n}\bra{a_n},
+\end{equation}
+where the states $\ket{a_n}$ are the complete eigenstates of an operator.  For a \emph{continuous} system, though, we'd have to switch out the sum for an integral; for example, the position eigenstates form a complete set, so we can write
+\begin{equation}
+\hat{1} = \int \ket{x}\bra{x} dx.
+\end{equation}
+
+Show that by writing this identity operator between the bra and ket of the inner product in equation (\ref{eq_space_norm}) you get the integral form of the normalization condition.
 
 \end{problem}
